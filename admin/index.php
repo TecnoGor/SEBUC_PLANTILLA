@@ -1,6 +1,8 @@
 	<?php
 		include('templates/header.php');
+		require_once('templates/modules/modals/modalEditHabitante.php');
 	?>
+	
 	
 	<!-- pageContent -->
 	<section class="full-width pageContent">
@@ -117,7 +119,12 @@
 			</div>
 		</section>
 
+
+		
+
 		<div id="templates">
+
+			
 
 		</div>
 

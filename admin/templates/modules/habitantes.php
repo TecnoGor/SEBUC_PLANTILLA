@@ -1,3 +1,5 @@
+
+
 <div class="mdl-grid">
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
@@ -13,6 +15,8 @@
                     <th>Price</th>
                     <th>Options</th>
                 </tr> -->
+
+                
 
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">Nº</th>
@@ -60,7 +64,7 @@
                     // echo "<td>" . $listado[$i]->fnac . "</td>";
                     echo "<td>" . $listado[$i]->tipo_habitante . "</td>";
                     echo "<td>" . $listado[$i]->cel . "</td>";
-                    echo '<td><div class="btn-group"><a class="btn btn-primary"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
+                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante()"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
                     // echo "<td>" . '<a href="actualizar.php?upd=' . $listado[$i]->id_cl . '" class="boton_edit" title="Editar Habitante"><img src="../fontawesome/svgs/regular/pen-to-square.svg" class="icon_edit"></a>' . "</td>";
                     echo "</tr>";
                     $i++;

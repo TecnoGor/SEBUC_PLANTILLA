@@ -4,9 +4,11 @@
 	<script src="js/material.min.js" ></script>
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="js/jquery-3.7.0.min.js"></script>
 	<script src="js/main.js"></script>
     <script src="js/showActions.js"></script>
-	<script src="../js/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="../js/node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>
+	<script src="js/modals.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>
 </body>
 </html>
