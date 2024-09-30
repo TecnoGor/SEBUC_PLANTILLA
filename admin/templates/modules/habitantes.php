@@ -1,10 +1,15 @@
 
 
 <div class="mdl-grid">
+
+    <div class="tile-title-w-btn">
+        <p><a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a></p>
+    </div>
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
         
-        
+    
+    
         
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
@@ -22,9 +27,8 @@
                     <th class="mdl-data-table__cell--non-numeric">Nº</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Cedula</th>
-                    <th>Sexo</th>
                     <th>Nacionalidad</th>
+                    <th>Cedula</th>
                     <th>Estado Civil</th>
                     <!-- <th>Fecha de Nac.</th> -->
                     <th>Tipo de Habitante</th>
@@ -57,9 +61,9 @@
                     echo '<td class="mdl-data-table__cell--non-numeric">' . $j . "</td>";
                     echo "<td>" . $listado[$i]->nom . "</td>";
                     echo "<td>" . $listado[$i]->snom . "</td>";
-                    echo "<td>" . $listado[$i]->ced . "</td>";
-                    echo "<td>" . $listado[$i]->sex . "</td>";
                     echo "<td>" . $listado[$i]->nacionalidad . "</td>";
+                    echo "<td>" . $listado[$i]->ced . "</td>";
+                    // echo "<td>" . $listado[$i]->sex . "</td>";
                     echo "<td>" . $listado[$i]->e_civil . "</td>";
                     // echo "<td>" . $listado[$i]->fnac . "</td>";
                     echo "<td>" . $listado[$i]->tipo_habitante . "</td>";

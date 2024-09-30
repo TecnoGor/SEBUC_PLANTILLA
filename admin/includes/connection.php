@@ -2,9 +2,9 @@
 
 	class Conexion{
 		private $host = 'localhost';
-		private	$dbname = 'comunidad';
-		private	$usrname = 'consejo';
-		private	$psswd = 'c0n53j0';
+		private	$dbname = 'sebuc';
+		private	$usrname = 'root';
+		private	$psswd = '';
 
 		private $conn;
 

@@ -19,6 +19,7 @@
 		public $cel;
 		public $pensionado;
 		public $discapacidad;
+		public $jefeFamilia;
 
 		public $usr;
 		public $psswrd;
@@ -26,9 +27,9 @@
 		public function signin() {
 		
 			$host = 'localhost';
-			$dbname = 'comunidad';
-			$usrname = 'consejo';
-			$psswd = 'c0n53j0';
+			$dbname = 'sebuc';
+			$usrname = 'root';
+			$psswd = '';
 
 
 			$conn = "mysql:host=".$host.";dbname=".$dbname;
@@ -45,7 +46,7 @@
 			$usr = $this->usr;
 			$psswrd = $this->psswrd;
 
-			$sign = "SELECT * FROM usuarios WHERE usuario='$usr' AND password='$psswrd'";
+			$sign = "SELECT * FROM usuarios WHERE user='$usr' AND password='$psswrd'";
 			$stmt = $conn->prepare($sign);
 			$stmt->execute();
 
@@ -76,11 +77,12 @@
 			$discapacidad = $this->discapacidad;
 			$pensionado = $this->pensionado;
 			$sex = $this->sex;	
+			$jefeFamilia = $this->jefeFamilia;	
 
 			$objConn = new Conexion();
 			$conn = $objConn->connect();
 
-			$add_pple = "INSERT INTO habitantes(nombres, apellidos, cedula, nacionalidad, e_civil, fecha_nac, tipo_habitante, casa_id, tlf_cel, discapacidad, pensionado, sexo) VALUES ('$nom', '$snom', '$ced', '$nacionalidad', '$ecivil', '$fnac', '$tipo_habitante', '$casa', '$cel', '$discapacidad', '$pensionado', '$sex');";
+			$add_pple = "INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, id_edoCivil, fecha_nacimiento, id_tipoHabitante, telefono, discapacidad, pensionado, id_poligonal, id_jefeFamilia) VALUES ('$nom', '$snom', '$nacionalidad', '$ced', '$ecivil', '$fnac', '$tipo_habitante', '$cel', '$discapacidad', '$pensionado', '$poligonal', '$jefeFamilia');";
 			$consulta = $conn->prepare($add_pple);
 			$consulta->execute();
 		}
@@ -106,14 +108,14 @@
 	            $objClSystem->snom = $row->apellidos;
 	            $objClSystem->ced = $row->cedula;
 	            $objClSystem->nacionalidad = $row->nacionalidad;
-	            $objClSystem->e_civil = $row->e_civil;
-	            $objClSystem->fnac = $row->fecha_nac;
-	            $objClSystem->tipo_habitante = $row->tipo_habitante;
-	            $objClSystem->casa = $row->casa_id;
-	            $objClSystem->cel = $row->tlf_cel;
+	            $objClSystem->e_civil = $row->id_edoCivil;
+	            $objClSystem->fnac = $row->fecha_nacimiento;
+	            $objClSystem->tipo_habitante = $row->id_tipoHabitante;
+	            // $objClSystem->casa = $row->casa_id;
+	            $objClSystem->cel = $row->telefono;
 	            $objClSystem->discapacidad = $row->discapacidad;
 	            $objClSystem->pensionado = $row->pensionado;
-	            $objClSystem->sex = $row->sexo;
+	            // $objClSystem->sex = $row->sexo;
 
 	            $lista[] = $objClSystem;
 	        }

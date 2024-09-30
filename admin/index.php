@@ -1,6 +1,7 @@
 	<?php
 		include('templates/header.php');
 		require_once('templates/modules/modals/modalEditHabitante.php');
+		require_once('templates/modules/modals/modalRegHabitante.php');
 	?>
 	
 	
