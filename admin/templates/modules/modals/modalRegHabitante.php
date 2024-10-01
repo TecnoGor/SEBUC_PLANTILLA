@@ -6,6 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div id="msjRegister"></div>
         <form method="POST" action="">
             <div class="container" id="formContainer">
                 <div class="row">
@@ -110,6 +111,17 @@
             </div>
 
             <div class="row" id="divSelectHabitante">
+
+                <div class="mb-3 col-md-4">
+                    <label class="form-label" for="poligonal_id">Poligonal</label>
+                    <select class="form-control" name="poligonal_id" id="poligonal_id">
+                        <option disabled selected>Seleccione...</option>
+                        <option value="1">Oriental</option>
+                        <option value="2">Carabobo</option>
+                        <option value="3">Francisco Javier</option>
+                        <option value="4">Principal</option>
+                    </select>
+                </div>
                 
             </div>
 

@@ -76,5 +76,30 @@ function regHabitante(){
     var discapacidad = document.getElementById('discapacidad').value;
     var pensionado = document.getElementById('radioHabitanteReg2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
+    var poligonal = document.getElementById('poligonal_id').value;
+    var jefeFamilia = document.getElementById('idJefe').value;
+
+
+    $.ajax({
+        url: './includes/regHabitantes.php',
+        method: 'POST',
+        data: {
+            nombre:nombre,
+            apellido:apellido,
+            nacionalidad:nacionalidad,
+            cedula:cedula,
+            fechaNac:fechaNac,
+            telefono:telefono,
+            edoCivil:edoCivil,
+            discapacidad:discapacidad,
+            pensionado:pensionado,
+            tipoHabitante:tipoHabitante,
+            poligonal:poligonal,
+            jefeFamilia:jefeFamilia
+        },
+        success: function(data){
+            $('#msjRegister').html(data);
+        }
+    })
 
 }
