@@ -87,8 +87,8 @@
                 <div class="mb-3 col-md-4">
                     <label for="" class="form-label">Es Pensionado?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Si" name="radioHabitanteReg2" id="radioHabitanteReg2">
-                        <label class="form-check-label" for="radioHabitanteReg2">
+                        <input class="form-check-input" type="radio" value="Si" name="discapacidad" id="discapacidad">
+                        <label class="form-check-label" for="discapacidad">
                             Si
                         </label>
                     </div>
@@ -130,7 +130,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-primary" onclick="addUser()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Registrar</button>
+        <button class="btn btn-primary" onclick="regHabitante()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Registrar</button>
       </div>
     </div>
   </div>

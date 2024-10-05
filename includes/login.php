@@ -10,7 +10,7 @@
 			$user = $_POST['login'];
 			$pass = md5($_POST['pass']);
 
-			$sql = "SELECT * FROM usuarios WHERE usuario = ?";
+			$sql = "SELECT * FROM usuarios WHERE user = ?";
 			$stmt = $conn->prepare($sql);
 			$stmt->execute(array($user));
 
@@ -19,8 +19,9 @@
 			if ($stmt->rowCount() > 0) {
 				if ($verify['password'] == $pass) {
 					$_SESSION['active'] = true;
-					$_SESSION['user'] = $verify['usuario'];
-					$_SESSION['rol'] = $verify['roles'];
+					$_SESSION['nomUser'] = $verify['nombres'];
+					$_SESSION['user'] = $verify['user'];
+					$_SESSION['rol'] = $verify['rol'];
 
 					echo '<div class="alert alert-success"><button type="button" class="btn-close" data-dismiss="alert"></button>Redirigiendo</div>';
 

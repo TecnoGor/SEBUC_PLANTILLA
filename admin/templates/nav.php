@@ -29,7 +29,7 @@
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
-				<i class="zmdi zmdi-close btn-menu"></i> Inventory 
+				<i class="zmdi zmdi-close btn-menu"></i> SEBUC 
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
@@ -37,8 +37,8 @@
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						Full Name Admin<br>
-						<small>Admin</small>
+						<?php echo $_SESSION['nomUser'];?><br>
+						<small>Administrador</small>
 					</span>
 				</figcaption>
 			</figure>
@@ -53,7 +53,7 @@
 								<i class="zmdi zmdi-view-dashboard"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								HOME
+								INICIO
 							</div>
                         </a>
 					</li>
@@ -196,18 +196,18 @@
 								<i class="zmdi zmdi-wrench"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								SETTINGS
+								CONFIGURACIONES
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="#!" class="full-width link_disabled">
+								<a onclick="users()" class="full-width link_disabled">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										OPTION
+										Usuarios
 									</div>
 								</a>
 							</li>
@@ -217,7 +217,7 @@
 										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										OPTION
+										Poligonales
 									</div>
 								</a>
 							</li>

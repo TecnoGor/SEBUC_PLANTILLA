@@ -1,3 +1,5 @@
+const { exists } = require("grunt");
+
 function modalEditHabitante(){
     $('#modalEditHabitante').modal('show');
 }
@@ -33,7 +35,7 @@ function jefeFamilia(){
 }
 
 $('#radioHabitanteReg').click(function(){
-    var valueRadio = document.getElementById('radioHabitanteReg').value;
+    var valueRadio = document.getElementById('discapacidad').value;
     console.log(valueRadio);
     if(valueRadio == 'Si'){
         var contenedor = document.getElementById('contenedorDiscapacidad');
@@ -52,7 +54,7 @@ $('#radioHabitanteReg').click(function(){
         inputField.id = "discapacidad";
         inputField.name = "discapacidad";
         inputField.className = "form-control";
-        inputField.placeholder = "Especifique su discapacidad"
+        inputField.placeholder = "Especifique su discapacidad";
 
         rowContenedor.appendChild(divField);
         divField.appendChild(labelField);
@@ -77,7 +79,10 @@ function regHabitante(){
     var pensionado = document.getElementById('radioHabitanteReg2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
     var poligonal = document.getElementById('poligonal_id').value;
-    var jefeFamilia = document.getElementById('idJefe').value;
+    if (exists(document.getElementById('idJefe'))) {
+        var jefeFamilia = document.getElementById('idJefe').value;
+    }
+   
 
 
     $.ajax({
