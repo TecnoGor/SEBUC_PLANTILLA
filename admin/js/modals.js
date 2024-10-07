@@ -24,6 +24,35 @@ function modalEditHabitante(a){
                 document.querySelector('#telefonoEdit').value = data.data.telefono;
                 document.querySelector('#tipoHabitanteEdit').value = data.data.id_tipoHabitante;
                 document.querySelector('#poligonal_idEdit').value = data.data.id_poligonal;
+                if (document.querySelector('#inputJefe')) {
+                    const inputJefe = document.getElementById('inputJefe');
+                    inputJefe.remove();
+                }
+                if (data.data.id_tipoHabitante == 1) {
+                    if (document.querySelector('#inputJefe')) {
+                        const inputJefe = document.getElementById('inputJefe');
+                        inputJefe.remove();
+                    }
+                }
+                if (data.data.id_tipoHabitante == 2) {
+                    var containerForm = document.getElementById('divSelectHabitanteEdit');
+                    const divHabField = document.createElement("div");
+                    divHabField.className = "mb-3 col-md-4";
+                    divHabField.id = "inputJefe";
+
+                    const labelHabField = document.createElement("label");
+                    labelHabField.className = "form-label";
+                    labelHabField.textContent = "Ingrese la cedula de su Jefe de Familia";
+                    const inputHabField = document.createElement("input");
+                    inputHabField.type = "number";
+                    inputHabField.name = "idJefeEdit"
+                    inputHabField.className = "form-control";
+                    inputHabField.id = "idJefeEdit";
+
+                    containerForm.appendChild(divHabField);
+                    divHabField.appendChild(labelHabField);
+                    divHabField.appendChild(inputHabField);
+                }
 
 				$('#modalEditHabitante').modal('show');
 
@@ -35,6 +64,7 @@ function modalEditHabitante(a){
 }
 
 function editHabitante() {
+    var id = document.getElementById('id').value;
     var nombre = document.getElementById('nameHabitanteEdit').value;
     var apellido = document.getElementById('name2HabitanteEdit').value;
     var nacionalidad = document.getElementById('nacionalidadHabitanteEdit').value;
@@ -42,20 +72,22 @@ function editHabitante() {
     var fechaNac = document.getElementById('dateHabitanteEdit').value;
     var telefono = document.getElementById('telefonoEdit').value;
     var edoCivil = document.getElementById('edoCivilEdit').value;
-    var discapacidad = document.getElementById('discapacidadEdit').value;
+    var discapacidad = document.getElementsByName('discapacidadEdit').value;
+    console.log(discapacidad);
     var pensionado = document.getElementById('radioHabitanteEdit2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteEdit').value;
     var poligonal = document.getElementById('poligonal_idEdit').value;
     if (document.querySelector('#idJefeEdit')) {
-        var jefeFamilia = document.getElementById('idJefe').value;
+        var jefeFamilia = document.getElementById('idJefeEdit').value;
     }
    
 
 
     $.ajax({
-        url: './includes/regHabitantes.php',
+        url: './includes/editHabitantes.php',
         method: 'POST',
         data: {
+            id:id,
             nombre:nombre,
             apellido:apellido,
             nacionalidad:nacionalidad,
@@ -70,7 +102,7 @@ function editHabitante() {
             jefeFamilia:jefeFamilia
         },
         success: function(data){
-            $('#msjRegister').html(data);
+            $('#msjEdit').html(data);
         }
     })
 }
@@ -81,7 +113,7 @@ $('#discapacidadEdit').click(function(){
     if(valueRadio == 'Si'){
         // var contenedor = document.getElementById('contenedorDiscapacidad');
         var rowContenedor = document.getElementById('rowContainerEdit');
-        var radios = document.getElementById('radioDiscapacidadEdit');
+        const radios = document.getElementById('radioDiscapacidadEdit');
 
         const divField = document.createElement("div");
         divField.className = "mb-3 col-md-4";
@@ -100,7 +132,7 @@ $('#discapacidadEdit').click(function(){
         rowContenedor.appendChild(divField);
         divField.appendChild(labelField);
         divField.appendChild(inputField);        
-        radios.style= "display: none";
+        radios.remove();
     }
     if (valueRadio == 'No') {
         var contenedor = document.getElementById('contenedorDiscapacidad');

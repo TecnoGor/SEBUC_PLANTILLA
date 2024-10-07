@@ -6,6 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <div id="msjEdit"></div>
         <form method="POST" action="">
             <input type="hidden" name="id" id="id">
             <div class="container">
@@ -25,13 +26,13 @@
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Nacionalidad</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit" checked>
+                            <input class="form-check-input" type="radio" value="Venezolano" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit" checked>
                             <label class="form-check-label" for="nacionalidadHabitanteEdit">
                                 Venezolano
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit">
+                            <input class="form-check-input" type="radio" value="Extranjero" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit">
                             <label class="form-check-label" for="nacionalidadHabitanteEdit">
                                 Extranjero
                             </label>
@@ -77,7 +78,7 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="No" name="discapacidadEdit" id="discapacidadEdit" checked>
+                        <input class="form-check-input" type="radio" value="No" name="discapacidadEdit" id="discapacidadEdit">
                         <label class="form-check-label" for="discapacidadEdit">
                             No
                         </label>
@@ -92,7 +93,7 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="No" name="radioHabitanteEdit2" id="radioHabitanteEdit2" checked>
+                        <input class="form-check-input" type="radio" value="No" name="radioHabitanteEdit2" id="radioHabitanteEdit2">
                         <label class="form-check-label" for="radioHabitanteEdit2">
                             No
                         </label>
@@ -104,8 +105,6 @@
                     <select class="form-control" name="tipoHabitanteEdit" onchange="jefeFamiliaEdit()" id="tipoHabitanteEdit">
                         <option value="1">Jefe de Familia</option>
                         <option value="2">Integrante de Familia</option>
-                        <option value="4">Jefe de Calle</option>
-                        <option value="3">Jefe de comunidad</option>
                     </select>
                 </div>
 
@@ -129,8 +128,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="editHabitante()">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="editHabitante()">Editar</button>
       </div>
     </div>
   </div>
