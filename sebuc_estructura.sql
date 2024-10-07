@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2024 at 01:24 PM
+-- Generation Time: Oct 07, 2024 at 01:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -69,14 +69,14 @@ DELIMITER ;
 
 CREATE TABLE `estado_civil` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(15) NOT NULL
+  `nombreEdoCivil` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `estado_civil`
 --
 
-INSERT INTO `estado_civil` (`id`, `nombre`) VALUES
+INSERT INTO `estado_civil` (`id`, `nombreEdoCivil`) VALUES
 (1, 'Soltero (a)'),
 (2, 'Casado (a)'),
 (3, 'Divorciado (a)'),
@@ -105,6 +105,15 @@ CREATE TABLE `habitantes` (
   `id_jefeFamilia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `habitantes`
+--
+
+INSERT INTO `habitantes` (`id`, `nombres`, `apellidos`, `nacionalidad`, `cedula`, `id_edoCivil`, `fecha_nacimiento`, `id_tipoHabitante`, `telefono`, `discapacidad`, `pensionado`, `id_poligonal`, `id_jefeFamilia`) VALUES
+(2, 'Robert', 'Gonzalez', 'on', 31870428, 1, '2005-08-09', 1, '04168264050', 'Si', 'No', 1, NULL),
+(16, 'Lisneida ', 'Macias', 'Venezolano', 22729825, 1, '2005-12-09', 2, 'N/A', '', 'Si', 1, 2),
+(17, 'Leydis', 'Macias', 'Venezolano', 30111778, 1, '2004-10-30', 2, 'N/A', 'Visual', 'Si', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +137,16 @@ CREATE TABLE `poligonal` (
   `id_jefe` int(11) DEFAULT NULL,
   `id_comunidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `poligonal`
+--
+
+INSERT INTO `poligonal` (`id`, `nombre`, `id_jefe`, `id_comunidad`) VALUES
+(1, 'Oriental', NULL, NULL),
+(2, 'Carabobo', NULL, NULL),
+(3, 'Francisco Javier', NULL, NULL),
+(4, 'Principal', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -167,16 +186,16 @@ CREATE TABLE `tipo_beneficio` (
 
 CREATE TABLE `tipo_habitante` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL
+  `nombreTipo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tipo_habitante`
 --
 
-INSERT INTO `tipo_habitante` (`id`, `nombre`) VALUES
+INSERT INTO `tipo_habitante` (`id`, `nombreTipo`) VALUES
 (1, 'Jefe de Familia'),
-(2, 'Integrante de Famili');
+(2, 'Integrante de Familia');
 
 -- --------------------------------------------------------
 
@@ -301,7 +320,7 @@ ALTER TABLE `estado_civil`
 -- AUTO_INCREMENT for table `habitantes`
 --
 ALTER TABLE `habitantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `jefes_calle`
@@ -313,7 +332,7 @@ ALTER TABLE `jefes_calle`
 -- AUTO_INCREMENT for table `poligonal`
 --
 ALTER TABLE `poligonal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rol`
