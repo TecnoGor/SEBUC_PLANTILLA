@@ -72,13 +72,13 @@
                 <div class="mb-3 col-md-4" id="radioDiscapacidadEdit">
                     <label for="" class="form-label">Posee Alguna discapacidad?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Si" name="discapacidadEdit" id="discapacidadEdit">
+                        <input class="form-check-input" type="radio" value="Si" name="discapacidadEdit" id="discapacidadEdit1">
                         <label class="form-check-label" for="discapacidadEdit">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="No" name="discapacidadEdit" id="discapacidadEdit">
+                        <input class="form-check-input" type="radio" value="No" name="discapacidadEdit" id="discapacidadEdit2">
                         <label class="form-check-label" for="discapacidadEdit">
                             No
                         </label>

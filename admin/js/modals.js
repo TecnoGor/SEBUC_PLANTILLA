@@ -72,16 +72,25 @@ function editHabitante() {
     var fechaNac = document.getElementById('dateHabitanteEdit').value;
     var telefono = document.getElementById('telefonoEdit').value;
     var edoCivil = document.getElementById('edoCivilEdit').value;
-    var discapacidad = document.getElementsByName('discapacidadEdit').value;
-    console.log(discapacidad);
-    var pensionado = document.getElementById('radioHabitanteEdit2').value;
+    const discapacidadRadio = $("input[name='discapacidadEdit']:checked").val();
+    console.log(discapacidadRadio);
+    if(document.querySelector('#discapacidadEdit')){
+        var discapacidadInput = $('#discapacidadEdit').val();
+    }
+    var discapacidad = null;
+    const pensionado = $("input[name='radioHabitanteEdit2']:checked").val();
+    // var pensionado = document.getElementById('radioHabitanteEdit2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteEdit').value;
     var poligonal = document.getElementById('poligonal_idEdit').value;
     if (document.querySelector('#idJefeEdit')) {
         var jefeFamilia = document.getElementById('idJefeEdit').value;
     }
    
-
+    if(discapacidadRadio == undefined){
+        discapacidad = discapacidadInput;
+    } else {
+        discapacidad = discapacidadRadio;
+    }
 
     $.ajax({
         url: './includes/editHabitantes.php',
@@ -107,8 +116,8 @@ function editHabitante() {
     })
 }
 
-$('#discapacidadEdit').click(function(){
-    var valueRadio = document.getElementById('discapacidadEdit').value;
+$('#discapacidadEdit1').click(function(){
+    var valueRadio = document.getElementById('discapacidadEdit1').value;
     console.log(valueRadio);
     if(valueRadio == 'Si'){
         // var contenedor = document.getElementById('contenedorDiscapacidad');
