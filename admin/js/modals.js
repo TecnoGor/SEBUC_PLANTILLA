@@ -1,5 +1,7 @@
 // const { exists } = require("grunt");
 
+// const { data } = require("browserslist");
+
 function modalEditHabitante(a){
     
     var idHabitante = a;
@@ -178,6 +180,63 @@ function jefeFamiliaEdit(){
 
 function modalRegHabitante(){
     $('#modalRegHabitante').modal('show');
+}
+
+function modalRegUser(){
+    $('#modalRegUser').modal('show');
+}
+
+function modalEditUser(a){
+
+    var id = a;
+
+    $.ajax({
+        url: './includes/requestUsers.php',
+        method: 'POST',
+        data:{
+            id: id
+        },
+        success: function(data){
+            var data = JSON.parse(data);
+
+            if (data.status) {
+                document.querySelector('#id').value = data.data.id;
+                document.querySelector('#nameUserEdit').value = data.data.nombres;
+                document.querySelector('#userEdit').value = data.data.user;
+                document.querySelector('#rolEditUser').value = data.data.rol;
+                document.querySelector('#estadoEditUser').value = data.data.activo;
+
+                $('#modalEditUser').modal('show');
+            }else {
+				swal('Atencion',data.msg,'error');
+			}
+        }
+
+    })
+}
+
+function regUser(){
+    var nombres = document.getElementById('nameUserReg').value;
+    var usuario = document.getElementById('userReg').value;
+    var password = document.getElementById('psswdRegUser').value;
+    var rol = document.getElementById('rolRegUser').value;
+    var activo = document.getElementById('estadoRegUser').value;
+
+    $.ajax({
+        url: './includes/regUsers.php',
+        method: 'POST',
+        data: {
+            nombres: nombres, 
+            usuario: usuario, 
+            password: password, 
+            rol: rol,
+            activo: activo
+        },
+        success: function(data){
+            $('#msjRegisterUser').html(data);
+        }
+
+    })
 }
 
 

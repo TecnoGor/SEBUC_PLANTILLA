@@ -10,7 +10,7 @@
 			$user = $_POST['login'];
 			$pass = md5($_POST['pass']);
 
-			$sql = "SELECT * FROM usuarios WHERE user = ?";
+			$sql = "SELECT * FROM usuarios WHERE user = ? && activo = 1";
 			$stmt = $conn->prepare($sql);
 			$stmt->execute(array($user));
 

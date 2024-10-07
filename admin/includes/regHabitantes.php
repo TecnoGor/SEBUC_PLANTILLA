@@ -61,12 +61,12 @@
                                         </div>
                                     </div>';
                         }else {
-                        '<div class="alert alert-danger d-flex align-items-center" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill p-1"></i>
-                            <div>
-                                Asegurese de haber ingresado la cedula correcta del Jefe de Familia.
-                            </div>
-                        </div>';
+                            echo    '<div class="alert alert-danger d-flex align-items-center" role="alert">
+                                        <i class="bi bi-exclamation-triangle-fill p-1"></i>
+                                        <div>
+                                            Asegurese de haber ingresado la cedula correcta del Jefe de Familia.
+                                        </div>
+                                    </div>';
                         }
 
                 }

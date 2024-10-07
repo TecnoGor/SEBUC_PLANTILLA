@@ -2,6 +2,8 @@
 		include('templates/header.php');
 		require_once('templates/modules/modals/modalEditHabitante.php');
 		require_once('templates/modules/modals/modalRegHabitante.php');
+		require_once('templates/modules/modals/modalRegUser.php');
+		require_once('templates/modules/modals/modalEditUser.php');
 	?>
 	
 	
