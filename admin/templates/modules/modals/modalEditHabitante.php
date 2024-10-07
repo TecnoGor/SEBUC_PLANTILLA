@@ -7,6 +7,7 @@
       </div>
       <div class="modal-body">
         <form method="POST" action="">
+            <input type="hidden" name="id" id="id">
             <div class="container">
                 <div class="row">
                     <div class="mb-3 col-md-6">
@@ -24,13 +25,13 @@
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Nacionalidad</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit">
+                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit" checked>
                             <label class="form-check-label" for="nacionalidadHabitanteEdit">
                                 Venezolano
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit" checked>
+                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteEdit" id="nacionalidadHabitanteEdit">
                             <label class="form-check-label" for="nacionalidadHabitanteEdit">
                                 Extranjero
                             </label>
@@ -50,12 +51,12 @@
                     </div>
                     <div class="mb-3 col-md-4">
                         <label class="form-label">Numero Telefonico</label>
-                        <input class="form-control" type="tel" name="name2UserEdit" id="name2HabitanteEdit" placeholder="Numero de celular">
+                        <input class="form-control" type="tel" name="telefonoEdit" id="telefonoEdit" placeholder="Numero de celular">
                     </div>
 
                     <div class="mb-3 col-md-4">
-                        <label class="form-label" for="rolEdit">Estado Civil</label>
-                        <select class="form-control" name="rolEdit" id="rolEdit">
+                        <label class="form-label" for="edoCivilEdit">Estado Civil</label>
+                        <select class="form-control" name="edoCivilEdit" id="edoCivilEdit">
                             <option value="1">Soltero</option>
                             <option value="2">Casado</option>
                             <option value="4">Divorciado</option>
@@ -66,18 +67,18 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="mb-3 col-md-4">
+            <div class="row" id="rowContainerEdit">
+                <div class="mb-3 col-md-4" id="radioDiscapacidadEdit">
                     <label for="" class="form-label">Posee Alguna discapacidad?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioHabitanteEdit" id="radioHabitanteEdit">
-                        <label class="form-check-label" for="radioHabitanteEdit">
+                        <input class="form-check-input" type="radio" value="Si" name="discapacidadEdit" id="discapacidadEdit">
+                        <label class="form-check-label" for="discapacidadEdit">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioHabitanteEdit" id="radioHabitanteEdit" checked>
-                        <label class="form-check-label" for="radioHabitanteEdit">
+                        <input class="form-check-input" type="radio" value="No" name="discapacidadEdit" id="discapacidadEdit" checked>
+                        <label class="form-check-label" for="discapacidadEdit">
                             No
                         </label>
                     </div>
@@ -85,13 +86,13 @@
                 <div class="mb-3 col-md-4">
                     <label for="" class="form-label">Es Pensionado?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioHabitanteEdit2" id="radioHabitanteEdit2">
+                        <input class="form-check-input" type="radio" value="Si" name="radioHabitanteEdit2" id="radioHabitanteEdit2">
                         <label class="form-check-label" for="radioHabitanteEdit2">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioHabitanteEdit2" id="radioHabitanteEdit2" checked>
+                        <input class="form-check-input" type="radio" value="No" name="radioHabitanteEdit2" id="radioHabitanteEdit2" checked>
                         <label class="form-check-label" for="radioHabitanteEdit2">
                             No
                         </label>
@@ -100,12 +101,27 @@
                 <div class="mb-3 col-md-4">
 
                     <label class="form-label" for="tipoHabitanteEdit">Tipo Habitante</label>
-                    <select class="form-control" name="tipoHabitanteEdit" id="tipoHabitanteEdit">
+                    <select class="form-control" name="tipoHabitanteEdit" onchange="jefeFamiliaEdit()" id="tipoHabitanteEdit">
                         <option value="1">Jefe de Familia</option>
                         <option value="2">Integrante de Familia</option>
                         <option value="4">Jefe de Calle</option>
                         <option value="3">Jefe de comunidad</option>
                     </select>
+                </div>
+
+                <div class="row" id="divSelectHabitanteEdit">
+
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="poligonal_idEdit">Poligonal</label>
+                        <select class="form-control" name="poligonal_idEdit" id="poligonal_idEdit">
+                            <option disabled selected>Seleccione...</option>
+                            <option value="1">Oriental</option>
+                            <option value="2">Carabobo</option>
+                            <option value="3">Francisco Javier</option>
+                            <option value="4">Principal</option>
+                        </select>
+                    </div>
+                
                 </div>
             </div>
 
@@ -114,7 +130,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" onclick="editHabitante()">Save changes</button>
       </div>
     </div>
   </div>

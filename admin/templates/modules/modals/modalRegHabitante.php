@@ -25,13 +25,13 @@
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Nacionalidad</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteReg" id="nacionalidadHabitanteReg">
+                            <input class="form-check-input" value="Venezolano" type="radio" name="nacionalidadHabitanteReg" id="nacionalidadHabitanteReg">
                             <label class="form-check-label" for="nacionalidadHabitanteReg">
                                 Venezolano
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="nacionalidadHabitanteReg" id="nacionalidadHabitanteReg" checked>
+                            <input class="form-check-input" value="Extranjero" type="radio" name="nacionalidadHabitanteReg" id="nacionalidadHabitanteReg" checked>
                             <label class="form-check-label" for="nacionalidadHabitanteReg">
                                 Extranjero
                             </label>
@@ -71,14 +71,14 @@
                 <div class="mb-3 col-md-4" id="radioDiscapacidad">
                     <label for="" class="form-label">Posee Alguna discapacidad?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Si" name="radioHabitanteReg" id="radioHabitanteReg">
-                        <label class="form-check-label" for="radioHabitanteReg">
+                        <input class="form-check-input" type="radio" value="Si" name="discapacidad" id="discapacidad">
+                        <label class="form-check-label" for="discapacidad">
                             Si
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="No" name="radioHabitanteReg" id="radioHabitanteReg" checked>
-                        <label class="form-check-label" for="radioHabitanteReg">
+                        <input class="form-check-input" type="radio" value="No" name="discapacidad" id="discapacidad" checked>
+                        <label class="form-check-label" for="discapacidad">
                             No
                         </label>
                     </div>
@@ -87,8 +87,8 @@
                 <div class="mb-3 col-md-4">
                     <label for="" class="form-label">Es Pensionado?</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Si" name="discapacidad" id="discapacidad">
-                        <label class="form-check-label" for="discapacidad">
+                        <input class="form-check-input" type="radio" value="Si" name="radioHabitanteReg2" id="radioHabitanteReg2">
+                        <label class="form-check-label" for="radioHabitanteReg2">
                             Si
                         </label>
                     </div>

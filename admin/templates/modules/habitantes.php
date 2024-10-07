@@ -47,33 +47,58 @@
 
                 <?php
                 
-                include('../../includes/clSystem.php');
+                include('../../includes/conn.php');
 
-                $objList = new pSystem();
+                $sql = "SELECT h.id as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
 
-                $listado = $objList->list();
+                // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                $i = 0;
-                $j=1;
+                $j = 1;
 
-                while ($i<count($listado)){
+                while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                     echo "<tr>";
                     echo '<td class="mdl-data-table__cell--non-numeric">' . $j . "</td>";
-                    echo "<td>" . $listado[$i]->nom . "</td>";
-                    echo "<td>" . $listado[$i]->snom . "</td>";
-                    echo "<td>" . $listado[$i]->nacionalidad . "</td>";
-                    echo "<td>" . $listado[$i]->ced . "</td>";
+                    echo "<td>" . $row->nombres. "</td>";
+                    echo "<td>" . $row->apellidos. "</td>";
+                    echo "<td>" . $row->nacionalidad. "</td>";
+                    echo "<td>" . $row->cedula. "</td>";
                     // echo "<td>" . $listado[$i]->sex . "</td>";
-                    echo "<td>" . $listado[$i]->e_civil . "</td>";
+                    echo "<td>" . $row->nombreEdoCivil. "</td>";
                     // echo "<td>" . $listado[$i]->fnac . "</td>";
-                    echo "<td>" . $listado[$i]->tipo_habitante . "</td>";
-                    echo "<td>" . $listado[$i]->cel . "</td>";
-                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante()"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
+                    echo "<td>" . $row->nombreTipo. "</td>";
+                    echo "<td>" . $row->telefono. "</td>";
+                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante(' . $row->idH .')"><i class="bi bi-pencil-square fs-5"></i></a></div>' . '</td>';
                     // echo "<td>" . '<a href="actualizar.php?upd=' . $listado[$i]->id_cl . '" class="boton_edit" title="Editar Habitante"><img src="../fontawesome/svgs/regular/pen-to-square.svg" class="icon_edit"></a>' . "</td>";
                     echo "</tr>";
-                    $i++;
                     $j++;
                 }
+                // $objList = new pSystem();
+
+                // $listado = $objList->list();
+
+                // $i = 0;
+                // $j=1;
+
+                // while ($i<count($listado)){
+                //     echo "<tr>";
+                //     echo '<td class="mdl-data-table__cell--non-numeric">' . $j . "</td>";
+                //     echo "<td>" . $listado[$i]->nom . "</td>";
+                //     echo "<td>" . $listado[$i]->snom . "</td>";
+                //     echo "<td>" . $listado[$i]->nacionalidad . "</td>";
+                //     echo "<td>" . $listado[$i]->ced . "</td>";
+                //     // echo "<td>" . $listado[$i]->sex . "</td>";
+                //     echo "<td>" . $listado[$i]->e_civil . "</td>";
+                //     // echo "<td>" . $listado[$i]->fnac . "</td>";
+                //     echo "<td>" . $listado[$i]->tipo_habitante . "</td>";
+                //     echo "<td>" . $listado[$i]->cel . "</td>";
+                //     echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante(' . $listado[$i]->id_cl .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' . '</td>';
+                //     // echo "<td>" . '<a href="actualizar.php?upd=' . $listado[$i]->id_cl . '" class="boton_edit" title="Editar Habitante"><img src="../fontawesome/svgs/regular/pen-to-square.svg" class="icon_edit"></a>' . "</td>";
+                //     echo "</tr>";
+                //     $i++;
+                //     $j++;
+                // }
                 
                 ?>
                 
