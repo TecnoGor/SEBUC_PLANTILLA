@@ -12,25 +12,26 @@
         $beneficio = $_POST['beneficio_id'];
         $referencia = $_POST['referencia'];
 
-        $sql = "SELECT * FROM entrega_beneficio WHERE id_beneficio = '$beneficio' AND id_jefe_familia = '$jefe' AND fecha_entrega = '$fecha' AND nro_pago = '$referencia';";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
 
-        if($result > 0){
-            echo "existe";
-        } else {
+            $sqlRequest = "SELECT * FROM habitantes WHERE cedula = $jefe;";
+            $stmtRequest = $conn->prepare($sqlRequest);
+            $stmtRequest->execute();
+            $resultJefe = $stmtRequest->fetchAll(PDO::FETCH_ASSOC);
 
-            $sqlInsert = "INSERT INTO entrega_beneficio(id_beneficio, id_jefe_familia, fecha_entrega, nro_pago) VALUES ('$beneficio', '$jefe', '$fecha', '$referencia')";
-            $stmtInsert = $conn->prepare($sqlInsert);
-            $stmtInsert->execute();
+            foreach ($resultJefe as $jefeId) {
+                $sqlInsert = "INSERT INTO entrega_beneficio(id_beneficio, id_jefe_familia, fecha_entrega, nro_pago) VALUES ('$beneficio', $jefeId['id'], '$fecha', '$referencia');";
+                $stmtInsert = $conn->prepare($sqlInsert);
+                $stmtInsert->execute();
 
-            if ($stmtInsert) {
-                echo "ok";
-            } else {
-                echo "error";
+                if ($stmtInsert) {
+                    echo "ok";
+                } else {
+                    echo "error";
+                }
             }
-        }
+
+            
 
     }
 

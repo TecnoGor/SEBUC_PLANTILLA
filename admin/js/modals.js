@@ -437,10 +437,10 @@ function valJefe(){
 function regReward(){
     var jefeFamilia = document.getElementById('cedulaJefe').value;
     var fecha = document.getElementById('fechaEntrega').value;
-    var poligonal = document.getElementById('beneficio_id').value;
+    var beneficio_id = document.getElementById('beneficio_id').value;
     var referencia = document.getElementById('nroReferencia').value;
 
-    if (jefeFamilia == '' || fecha == '' || poligonal == '' || referencia == '') {
+    if (jefeFamilia == '' || fecha == '' || beneficio_id == '' || referencia == '') {
         swal({
             title: 'Error!',
             text: "Por favor complete todos los campos",

@@ -19,7 +19,7 @@
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Cedula</th>
-                    <th>Sexo</th>
+                    <!-- <th>Sexo</th> -->
                     <th>Nacionalidad</th>
                     <th>Estado Civil</th>
                     <!-- <th>Fecha de Nac.</th> -->
@@ -55,7 +55,7 @@
                     echo "<td>" . $listado[$i]->nom . "</td>";
                     echo "<td>" . $listado[$i]->snom . "</td>";
                     echo "<td>" . $listado[$i]->ced . "</td>";
-                    echo "<td>" . $listado[$i]->sex . "</td>";
+                    // echo "<td>" . $listado[$i]->sex . "</td>";
                     echo "<td>" . $listado[$i]->nacionalidad . "</td>";
                     echo "<td>" . $listado[$i]->e_civil . "</td>";
                     // echo "<td>" . $listado[$i]->fnac . "</td>";

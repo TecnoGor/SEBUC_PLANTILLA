@@ -185,14 +185,14 @@
 	            $objClSystem->snom = $row->apellidos;
 	            $objClSystem->ced = $row->cedula;
 	            $objClSystem->nacionalidad = $row->nacionalidad;
-	            $objClSystem->e_civil = $row->e_civil;
-	            $objClSystem->fnac = $row->fecha_nac;
-	            $objClSystem->tipo_habitante = $row->tipo_habitante;
-	            $objClSystem->casa = $row->casa_id;
-	            $objClSystem->cel = $row->tlf_cel;
+	            $objClSystem->e_civil = $row->id_edoCivil;
+	            $objClSystem->fnac = $row->fecha_nacimiento;
+	            $objClSystem->tipo_habitante = $row->id_tipoHabitante;
+	            // $objClSystem->casa = $row->casa_id;
+	            $objClSystem->cel = $row->telefono;
 	            $objClSystem->discapacidad = $row->discapacidad;
-	            $objClSystem->pensionado = $row->pensionado;
-	            $objClSystem->sex = $row->sexo;
+	            // $objClSystem->pensionado = $row->pensionado;
+	            // $objClSystem->sex = $row->sexo;
 
 	            $lista[] = $objClSystem;
 	        }
