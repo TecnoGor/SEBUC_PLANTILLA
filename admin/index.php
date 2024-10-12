@@ -6,9 +6,8 @@
 		require_once('templates/modules/modals/modalEditUser.php');
 	?>
 	
-	
 	<!-- pageContent -->
-	<section class="full-width pageContent">
+	<section id="pageContentId" class="full-width pageContent">
 		<!-- <section class="full-width text-center" style="padding: 40px 0;">
 			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
 			 Tiles 
@@ -121,16 +120,12 @@
 	            </div>
 			</div>
 		</section>
-
-
 		
-
 		<div id="templates">
 
 			
 
 		</div>
-
 	</section>
 
 	

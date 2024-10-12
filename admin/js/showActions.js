@@ -40,3 +40,10 @@ function users(){
         document.getElementById('templates').innerHTML = mensaje;
     })
 }
+
+function poligonales(){
+    $.get('./templates/modules/poligonales.php', function(mensaje, estado){
+        document.getElementById('homeInfo').style = 'display: none';
+        document.getElementById('templates').innerHTML = mensaje;
+    })
+}

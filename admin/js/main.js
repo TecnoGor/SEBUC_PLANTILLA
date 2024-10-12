@@ -29,11 +29,12 @@ $(document).ready(function(){
     /*Salir del sistema*/
     $('.btn-exit').on('click', function(){
     	swal({
-		  	title: 'You want out of the system?',
-		 	text: "The current session will be closed and will leave the system",
+		  	title: 'Estas seguro que deseas salir del Sistema?',
+		 	text: "La sesion actual se cerrara y saldras del sistema.",
 		  	type: 'warning',
 		  	showCancelButton: true,
-		  	confirmButtonText: 'Yes, exit',
+		  	confirmButtonText: 'Si, salir.',
+			  cancelButtonText: 'Cancelar',
 		  	closeOnConfirm: false
 		},
 		function(isConfirm) {

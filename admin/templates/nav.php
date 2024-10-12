@@ -8,13 +8,13 @@
 					<li class="btn-Notification" id="notifications">
 						<i class="zmdi zmdi-notifications"></i>
 						<!-- <i class="zmdi zmdi-notifications-active btn-Notification" id="notifications"></i> -->
-						<div class="mdl-tooltip" for="notifications">Notifications</div>
+						<div class="mdl-tooltip" for="notifications">Notificationes</div>
 					</li>
 					<li class="btn-exit" id="btn-exit">
 						<i class="zmdi zmdi-power"></i>
-						<div class="mdl-tooltip" for="btn-exit">LogOut</div>
+						<div class="mdl-tooltip" for="btn-exit">Cerrar Sesion</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small>User Name</small></li>
+					<li class="text-condensedLight noLink" ><small><?php echo $_SESSION['user']; ?></small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -212,12 +212,23 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="#!" class="full-width link_disabled">
+								<a onclick="poligonales()" class="full-width link_disabled">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
 										Poligonales
+									</div>
+								</a>
+							</li>
+
+							<li class="full-width">
+								<a href="#!" class="full-width link_disabled">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-widgets"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										Beneficios
 									</div>
 								</a>
 							</li>

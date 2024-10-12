@@ -340,3 +340,172 @@ function regHabitante(){
     })
 
 }
+
+function regPoligonal(){
+    var nombre = document.getElementById('namePoligonalReg').value;
+    var comunidadID = document.getElementById('comunidad').value;
+
+    if(nombre == '' || comunidadID == ''){
+
+        swal({
+            title: 'Datos',
+           text: "Es necesario rellenar todos los datos.",
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            closeOnConfirm: false
+        });
+
+    } else {
+        $.ajax({
+           url:'./includes/regPoligonal.php',
+           method:'POST',
+           data:{
+            nombre:nombre,
+            comunidadID:comunidadID
+           },
+           success:function(data){
+            if(data == 'Registrado'){
+                swal({
+                    title: 'Registrado!',
+                   text: "Los datos se registraron con exito.",
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }if(data == 'Error'){
+                swal({
+                    title: 'Error!',
+                   text: "Ocurrio un error al registrar los datos.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }if(data == 'existe'){
+                swal({
+                    title: 'Alerta!',
+                   text: "La poligonal que esta intentando registrar ya existe!",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }
+           }
+        })
+    }
+
+}
+
+function valJefe(){
+    var jefe = document.getElementById('cedulaJefe').value;
+    console.log(jefe);
+
+    if (jefe != '') {
+
+        console.log('lleno');
+
+        $.ajax({
+            url: './includes/valJefe.php',
+            method: 'POST',
+            data:{
+                jefe:jefe
+            },
+            success: function(data){
+                if(data == 'VALIDO'){
+                    document.getElementById('cedulaJefe').style.borderColor='green';
+                }if(data == 'nulo'){
+                    swal({
+                        title: 'Alerta!',
+                       text: "La cedula no coincide con ningun jefe de familia!",
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                }
+            }
+        })
+    
+    }
+
+    
+}
+
+function regReward(){
+    var jefeFamilia = document.getElementById('cedulaJefe').value;
+    var fecha = document.getElementById('fechaEntrega').value;
+    var poligonal = document.getElementById('beneficio_id').value;
+    var referencia = document.getElementById('nroReferencia').value;
+
+    if (jefeFamilia == '' || fecha == '' || poligonal == '' || referencia == '') {
+        swal({
+            title: 'Error!',
+            text: "Por favor complete todos los campos",
+            type: 'error',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            closeOnConfirm: false
+        });
+        
+    }else {
+
+        if (jefeFamilia <= 0 || referencia <= 0) {
+            swal({
+                title: 'Error!',
+                text: "Los campos numericos no deben ser negativos!",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonText: 'OK',
+                closeOnConfirm: false
+            });
+        }else {
+            $.ajax({
+                url: './includes/regReward.php',
+                method: 'POST',
+                data: {
+                    jefeFamilia: jefeFamilia,
+                    fecha: fecha,
+                    beneficio_id: beneficio_id,
+                    referencia: referencia
+                },
+                success: function(data){
+                    if(data == 'ok'){
+                        swal({
+                            title: 'Exito!',
+                            text: "La entrega se registro con exito!",
+                            type: 'success',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    } if(data == 'error') {
+                        swal({
+                            title: 'Error!',
+                           text: "Ocurrio un error al registrar los datos.",
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    }if(data == 'existe'){
+                        swal({
+                            title: 'Alerta!',
+                           text: "La entrega que esta intentando registrar ya existe!",
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    }
+                }
+        
+        
+            })
+        }
+    }
+    
+    
+}
