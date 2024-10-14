@@ -6,37 +6,19 @@
         
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
-                <!-- <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Name</th>
-                    <th>Code</th>
-                    <th>Stock</th>
-                    <th>Price</th>
-                    <th>Options</th>
-                </tr> -->
-
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">Nº</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Cedula</th>
-                    <!-- <th>Sexo</th> -->
                     <th>Nacionalidad</th>
                     <th>Estado Civil</th>
-                    <!-- <th>Fecha de Nac.</th> -->
-                    <!-- <th>Tipo de Habitante</th> -->
                     <th>Tlfno / Celular</th>
                     <th>Discapacidad</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                    <td class="mdl-data-table__cell--non-numeric">Product Name</td>
-                    <td>Product Code</td>
-                    <td>7</td>
-                    <td>$77</td>
-                    <td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>
-                </tr> -->
 
                 <?php
                 

@@ -126,7 +126,7 @@
 										<span class="mdl-textfield__error">Nombre de la Poligonal</span>
 									</div>
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <label class="form-label" for="comunidad">Tipo Habitante</label>
+                                    <label class="form-label" for="comunidad">Comunidad</label>
                                         <select class="form-control" name="comunidad" id="comunidad">
                                             <option disabled selected>Seleccione...</option>
                                             <?php

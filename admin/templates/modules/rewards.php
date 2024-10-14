@@ -10,8 +10,8 @@
 		</section> -->
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 			<div class="mdl-tabs__tab-bar">
-				<a href="#tabNewEntrega" class="mdl-tabs__tab is-active">NEW</a>
-				<a href="#tabListEntregas" class="mdl-tabs__tab">LIST</a>
+				<a href="#tabNewEntrega" class="mdl-tabs__tab is-active">Registrar Entrega</a>
+				<a href="#tabListEntregas" class="mdl-tabs__tab">Lista</a>
 			</div>
 			
 			<div class="mdl-tabs__panel" id="tabListEntregas">
@@ -19,7 +19,7 @@
 					<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
 						<div class="full-width panel mdl-shadow--2dp">
 							<div class="full-width panel-tittle bg-success text-center tittles">
-								List Clients
+								Lista de Entregas
 							</div>
 							<div class="full-width panel-content">
 								<form action="#">
@@ -54,8 +54,8 @@
 									<div class="mdl-list__item mdl-list__item--two-line">
 										<span class="mdl-list__item-primary-content">
 											<i class="zmdi zmdi-account mdl-list__item-avatar"></i>
-											<span><?php $i . $entregas['nombres'] . " " . $entregas['apellidos'];?></span>
-											<span class="mdl-list__item-sub-title"><b>N° de Pago:</b><?php $entregas['nro_pago'];?>  <b>Fecha de Entrega: </b> <?php $entregas['fecha_entrega'];?></span>
+											<span><?php echo "<b>$i.- </b>" . "<b>" . $entregas['nombres'] . " " . $entregas['apellidos'] . "</b>";?></span>
+											<span class="mdl-list__item-sub-title"><b>N° de Pago:</b><?php echo $entregas['nro_pago'];?>   -   <b>Fecha de Entrega: </b> <?php echo $entregas['fecha_entrega'];?></span>
 										</span>
 										<a class="mdl-list__item-secondary-action" href="#!"><i class="zmdi zmdi-more"></i></a>
 									</div>
@@ -85,6 +85,7 @@
 							<div class="full-width panel-content">
 								<form>
 									<h5 class="text-condensedLight">Datos de Entrega</h5>
+									<h6 id="errorDisplay"></h6>
 									
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="number" onblur="valJefe()" pattern="-?[0-9]*(\.[0-9]+)?" id="cedulaJefe">
@@ -92,17 +93,26 @@
 										<span class="mdl-textfield__error">Número invalido</span>
 									</div>
                                     
-									<div class="mdl-textfield mdl-js-textfield">
-									<label>Fecha de Entrega</label>
-										<input type="date" id="fechaEntrega" class="mdl-textfield__input">
-									</div>
                                     <div class="mdl-textfield mdl-js-textfield">
 									<label class="form-label" for="beneficio_id">Beneficios</label>
 										<select class="form-control" name="beneficio_id" id="beneficio_id">
-											<option disabled selected>Seleccione...</option>
-											<option value="1">Bolsa</option>
-											<option value="2">Proteina</option>
-											<option value="3">Cilindro de Gas</option>
+										<option disabled selected>Seleccione...</option>
+											<?php
+											
+												$sqlRw = "SELECT * FROM tipo_beneficio WHERE estatus = 1;";
+												$stmtRw = $conn->prepare($sqlRw);
+												$stmtRw->execute();
+
+												$resultRw = $stmtRw->fetchAll(PDO::FETCH_ASSOC);
+
+												foreach($resultRw as $beneficio){
+											?>
+											
+											<option value="<?php echo $beneficio['id'];?>"><?php echo $beneficio['nombre_beneficio'];?></option>
+
+											<?php 
+												}
+											?>
 										</select>
                                     </div>
 

@@ -45,3 +45,10 @@ function poligonales(){
         document.getElementById('templates').innerHTML = mensaje;
     })
 }
+
+function listRewards(){
+    $.get('./templates/modules/listRewards.php', function(mensaje, estado){
+        document.getElementById('homeInfo').style = 'display: none';
+        document.getElementById('templates').innerHTML = mensaje;
+    })
+}

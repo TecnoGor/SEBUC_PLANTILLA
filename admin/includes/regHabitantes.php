@@ -22,58 +22,56 @@
 
         include_once('conn.php');
 
-        if($tipoHabitante == 1){
+        $sqlRequest = "SELECT * FROM habitantes WHERE cedula = $cedula";
+        $stmtRequest = $conn->prepare($sqlRequest);
+        $stmtRequest->execute;
 
-            $sqlInsert = "INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, fecha_nacimiento, telefono, id_edoCivil, discapacidad, pensionado, id_tipoHabitante, id_poligonal) VALUES ('$nombre', '$apellido', '$nacionalidad', '$cedula', '$fechaNac', '$telefono', '$edoCivil', '$discapacidad', '$pensionado', '$tipoHabitante', '$poligonal')";
-            $stmtInsert = $conn->prepare($sqlInsert);
-            $resultInsert = $stmtInsert->execute();
+        $resultReq = $stmtRequest->fetch(PDO::FETCH_ASSOC);
 
-            if ($resultInsert) {
-                echo    '<div class="alert alert-success d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                            <div>
-                                El habitante fue agregado correctamente.
-                            </div>
-                        </div>';
-            }
+        if ($resultReq > 0) {
+            echo "existe";
+        } else {
+            if($tipoHabitante == 1){
 
-        }elseif($tipoHabitante == 2){
-            $jefeFamilia = $_POST['jefeFamilia'];
-
-            $sqlConsulta = "SELECT id, cedula FROM habitantes WHERE cedula = '$jefeFamilia'";
-            $stmtConsulta = $conn->prepare($sqlConsulta);
-            $stmtConsulta->execute();
-            $resultConsulta = $stmtConsulta->fetchAll(PDO::FETCH_ASSOC);
-
-            if($resultConsulta > 0){
-
-                foreach($resultConsulta as $cedulaJefe){
-
-                        $sqlInsert2="INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, fecha_nacimiento, telefono, id_edoCivil, discapacidad, pensionado, id_tipoHabitante, id_jefeFamilia, id_poligonal) VALUES ('$nombre', '$apellido', '$nacionalidad', '$cedula', '$fechaNac', '$telefono', '$edoCivil', '$discapacidad', '$pensionado', '$tipoHabitante', '".$cedulaJefe['id']."', '$poligonal')";
-                        $stmtInsert2 = $conn->prepare($sqlInsert2);
-                        $resultInsert2 = $stmtInsert2->execute();
-                        
-                        if ($resultInsert2) {
-                            echo    '<div class="alert alert-success d-flex align-items-center" role="alert">
-                                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                                        <div>
-                                            El habitante fue agregado correctamente.
-                                        </div>
-                                    </div>';
-                        }else {
-                            echo    '<div class="alert alert-danger d-flex align-items-center" role="alert">
-                                        <i class="bi bi-exclamation-triangle-fill p-1"></i>
-                                        <div>
-                                            Asegurese de haber ingresado la cedula correcta del Jefe de Familia.
-                                        </div>
-                                    </div>';
-                        }
-
+                $sqlInsert = "INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, fecha_nacimiento, telefono, id_edoCivil, discapacidad, pensionado, id_tipoHabitante, id_poligonal) VALUES ('$nombre', '$apellido', '$nacionalidad', '$cedula', '$fechaNac', '$telefono', '$edoCivil', '$discapacidad', '$pensionado', '$tipoHabitante', '$poligonal')";
+                $stmtInsert = $conn->prepare($sqlInsert);
+                $resultInsert = $stmtInsert->execute();
+    
+                if ($resultInsert) {
+                    echo 'ok';
+                } else {
+                    echo 'error';
                 }
-
-            } 
-
+    
+            }elseif($tipoHabitante == 2){
+                $jefeFamilia = $_POST['jefeFamilia'];
+    
+                $sqlConsulta = "SELECT id, cedula FROM habitantes WHERE cedula = '$jefeFamilia'";
+                $stmtConsulta = $conn->prepare($sqlConsulta);
+                $stmtConsulta->execute();
+                $resultConsulta = $stmtConsulta->fetchAll(PDO::FETCH_ASSOC);
+    
+                if($resultConsulta > 0){
+    
+                    foreach($resultConsulta as $cedulaJefe){
+    
+                            $sqlInsert2="INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, fecha_nacimiento, telefono, id_edoCivil, discapacidad, pensionado, id_tipoHabitante, id_jefeFamilia, id_poligonal) VALUES ('$nombre', '$apellido', '$nacionalidad', '$cedula', '$fechaNac', '$telefono', '$edoCivil', '$discapacidad', '$pensionado', '$tipoHabitante', '".$cedulaJefe['id']."', '$poligonal')";
+                            $stmtInsert2 = $conn->prepare($sqlInsert2);
+                            $resultInsert2 = $stmtInsert2->execute();
+                            
+                            if ($resultInsert2) {
+                                echo 'ok';
+                            }else {
+                                echo 'cedula';
+                            }
+    
+                    }
+    
+                } 
+    
+            }
         }
+
     }
 
 ?>

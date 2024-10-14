@@ -1,5 +1,7 @@
 // const { exists } = require("grunt");
 
+const { data } = require("browserslist");
+
 // const { data } = require("browserslist");
 
 function modalEditHabitante(a){
@@ -302,12 +304,12 @@ function regHabitante(){
     var fechaNac = document.getElementById('dateHabitanteReg').value;
     var telefono = document.getElementById('telHabitanteReg').value;
     var edoCivil = document.getElementById('edoCivilReg').value;
-    if (document.querySelector('#discapacidadInput')) {
-        var discapacidad = document.getElementById('discapacidadInput').value;
-    }else {
-        var discapacidad = document.getElementById('discapacidad').value;
-    }
-    
+    // if (document.querySelector('#discapacidadInput')) {
+    //     var discapacidad = document.getElementById('discapacidadInput').value;
+    // }else {
+    //     var discapacidad = document.getElementById('discapacidad').value;
+    // }
+    var discapacidad = document.getElementById('discapacidad').value;
     var pensionado = document.getElementById('radioHabitanteReg2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
     var poligonal = document.getElementById('poligonal_id').value;
@@ -336,6 +338,34 @@ function regHabitante(){
         },
         success: function(data){
             $('#msjRegister').html(data);
+            if(data == 'ok'){
+                swal({
+                    title: 'Registrado!',
+                   text: "Los datos se registraron con exito.",
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }if(data == 'error'){
+                swal({
+                    title: 'Error!',
+                    text: "Ocurrio un error al registrar los datos.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }if(data == 'existe'){
+                swal({
+                    title: 'Alerta!',
+                   text: "El habitante que esta intentando registrar ya existe!",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }
         }
     })
 
@@ -436,11 +466,10 @@ function valJefe(){
 
 function regReward(){
     var jefeFamilia = document.getElementById('cedulaJefe').value;
-    var fecha = document.getElementById('fechaEntrega').value;
     var beneficio_id = document.getElementById('beneficio_id').value;
     var referencia = document.getElementById('nroReferencia').value;
 
-    if (jefeFamilia == '' || fecha == '' || beneficio_id == '' || referencia == '') {
+    if (jefeFamilia == '' || beneficio_id == '' || referencia == '') {
         swal({
             title: 'Error!',
             text: "Por favor complete todos los campos",
@@ -467,11 +496,11 @@ function regReward(){
                 method: 'POST',
                 data: {
                     jefeFamilia: jefeFamilia,
-                    fecha: fecha,
                     beneficio_id: beneficio_id,
                     referencia: referencia
                 },
                 success: function(data){
+                    $('#errorDisplay').html(data);
                     if(data == 'ok'){
                         swal({
                             title: 'Exito!',
@@ -501,11 +530,72 @@ function regReward(){
                         });
                     }
                 }
-        
-        
             })
         }
     }
-    
-    
+}
+
+function regBeneficio(){
+    var name = document.getElementById('nameBeneficio').value;
+    var estado = document.getElementById('estatusBeneficio').value;
+
+    if (name == "" || estado == "") {
+        swal({
+            title: 'Error!',
+            text: "Por favor complete todos los campos",
+            type: 'error',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            closeOnConfirm: false
+        });
+    }else {
+        $.ajax({
+            url: './includes/regBeneficio.php',
+            method: 'POST',
+            data: {
+                name: name,
+                estado: estado
+            },
+            success: function(data){
+                $('#msjError').html(data);
+                if (data == "registrado") {
+                    swal({
+                        title: 'Exito!',
+                        text: "El beneficio se registro con exito!",
+                        type: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                } if (data == "existe") {
+                    swal({
+                        title: 'Alerta!',
+                        text: "La entrega que esta intentando registrar ya existe!",
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                } if (data == "error") {
+                    swal({
+                        title: 'Error!',
+                       text: "Ocurrio un error al registrar el beneficio.",
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                } if (data == "inactivo") {
+                    swal({
+                        title: 'Alerta!',
+                        text: "La entrega que esta intentando registrar ya existe, pero se encuentra inactiva!",
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                }
+            }
+        })
+    }
 }

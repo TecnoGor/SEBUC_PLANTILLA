@@ -1,7 +1,7 @@
 <div class="mdl-grid">
 
     <div class="tile-title-w-btn">
-        <p><a class="btn btn-primary icon-btn" onclick="modalRegUser()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a></p>
+        <p><a class="btn btn-primary icon-btn" onclick="modalRegUser()"><i class="bi bi-plus-square m-2"></i>Añadir Usuario</a></p>
     </div>
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">

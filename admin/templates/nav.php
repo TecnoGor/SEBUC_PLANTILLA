@@ -158,39 +158,6 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="products.html" class="full-width link_disabled">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-washing-machine"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								PRODUCTS
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="sales.html" class="full-width link_disabled">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-shopping-cart"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								SALES
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="inventory.html" class="full-width link_disabled">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-store"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								INVENTORY
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu link_disabled">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-wrench"></i>
@@ -223,7 +190,7 @@
 							</li>
 
 							<li class="full-width">
-								<a href="#!" class="full-width link_disabled">
+								<a onclick="listRewards()" class="full-width link_disabled">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-widgets"></i>
 									</div>

@@ -70,18 +70,13 @@
             <div class="row" id="rowContainer">
                 <div class="mb-3 col-md-4" id="radioDiscapacidad">
                     <label for="" class="form-label">Posee Alguna discapacidad?</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Si" name="discapacidad" id="discapacidad">
-                        <label class="form-check-label" for="discapacidad">
-                            Si
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="No" name="discapacidad" id="discapacidad" checked>
-                        <label class="form-check-label" for="discapacidad">
-                            No
-                        </label>
-                    </div>
+                    <select name="discapacidad" id="discapacidad" class="form-control">
+                        <option disabled selected> Seleccione ....</option>
+                        <option value="Discapacidades sensoriales y de la comunicación">Sensoriales y de la comunicación</option>
+                        <option value="Discapacidades motrices">Motrices</option>
+                        <option value="Discapacidades mentales">Mentales</option>
+                        <option value="Discapacidades múltiples y otras">Múltiples y otras</option>
+                    </select>
                 </div>
 
                 <div class="mb-3 col-md-4">
