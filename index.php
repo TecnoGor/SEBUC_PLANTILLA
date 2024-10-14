@@ -29,13 +29,13 @@
               <span class="bar-login"></span>
               <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
             </div>
-            <div class="group-material">
+            <!-- <div class="group-material">
                 <select class="material-control-login">
                     <option disabled selected>Tipo de usuario</option>
                     <option value="Personal">Personal administrativo</option>
                     <option value="Admin">Administrador</option>
                 </select>
-            </div>
+            </div> -->
             <button class="btn-login" id="logButton" type="button">Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i></button>
         </form>
     </div>   

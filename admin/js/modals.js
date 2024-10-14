@@ -318,7 +318,6 @@ function regHabitante(){
     }
    
 
-
     $.ajax({
         url: './includes/regHabitantes.php',
         method: 'POST',
@@ -360,6 +359,15 @@ function regHabitante(){
                 swal({
                     title: 'Alerta!',
                    text: "El habitante que esta intentando registrar ya existe!",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }if(data == 'vacio'){
+                swal({
+                    title: 'Alerta!',
+                   text: "Es necesario que rellene todos los campos!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'OK',

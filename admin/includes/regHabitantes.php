@@ -1,12 +1,7 @@
 <?php
 
     if(empty($_POST['nombre']) || empty($_POST['apellido']) || empty($_POST['nacionalidad']) || empty($_POST['cedula']) || empty($_POST['fechaNac']) || empty($_POST['telefono']) || empty($_POST['edoCivil']) || empty($_POST['discapacidad']) || empty($_POST['pensionado']) || empty($_POST['tipoHabitante'])){
-        echo    '<div class="alert alert-danger d-flex align-items-center" role="alert">
-                    <i class="bi bi-exclamation-triangle-fill p-1"></i>
-                    <div>
-                        Es necesario Rellenar todos los campos.
-                    </div>
-                </div>';
+        echo 'vacio';
     } else {
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
