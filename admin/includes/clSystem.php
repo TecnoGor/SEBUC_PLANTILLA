@@ -170,7 +170,7 @@
 	    	$objConn = new Conexion();
 	    	$conn = $objConn->connect();
 
-	    	$sql = "SELECT * FROM habitantes WHERE discapacidad != '' and discapacidad != 'No' and discapacidad != 'No posee';";
+	    	$sql = "SELECT * FROM habitantes WHERE discapacidad != '' and discapacidad != 'Ninguna' and discapacidad != 'No posee';";
 
 	    	$stmt = $conn->prepare($sql);
 	    	$stmt->execute();

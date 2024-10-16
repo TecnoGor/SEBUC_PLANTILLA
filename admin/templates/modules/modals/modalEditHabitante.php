@@ -69,20 +69,16 @@
             </div>
 
             <div class="row" id="rowContainerEdit">
-                <div class="mb-3 col-md-4" id="radioDiscapacidadEdit">
+            <div class="mb-3 col-md-4" id="radioDiscapacidad">
                     <label for="" class="form-label">Posee Alguna discapacidad?</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="Si" name="discapacidadEdit" id="discapacidadEdit1">
-                        <label class="form-check-label" for="discapacidadEdit">
-                            Si
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="No" name="discapacidadEdit" id="discapacidadEdit2">
-                        <label class="form-check-label" for="discapacidadEdit">
-                            No
-                        </label>
-                    </div>
+                    <select name="discapacidadEdit" id="discapacidadEdit" class="form-control">
+                        <option disabled selected> Seleccione ....</option>
+                        <option value="Ninguna">Ninguna</option>
+                        <option value="Discapacidades sensoriales y de la comunicación">Sensoriales y de la comunicación</option>
+                        <option value="Discapacidades motrices">Motrices</option>
+                        <option value="Discapacidades mentales">Mentales</option>
+                        <option value="Discapacidades múltiples y otras">Múltiples y otras</option>
+                    </select>
                 </div>
                 <div class="mb-3 col-md-4">
                     <label for="" class="form-label">Es Pensionado?</label>

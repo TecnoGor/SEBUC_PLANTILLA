@@ -58,7 +58,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button class="btn btn-primary" onclick="regUser()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Registrar</button>
       </div>
     </div>

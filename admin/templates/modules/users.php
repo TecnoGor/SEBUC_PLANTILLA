@@ -65,7 +65,7 @@
                         echo "<td class='mdl-data-table__cell--non-numeric'>".$tabla['id']."</td>";
                         echo "<td>".$tabla['nombres']."</td>";
                         echo "<td>".$tabla['user']."</td>";
-                        echo "<td>".$tabla['rol']."</td>";
+                        echo "<td>".$tabla['nombre_rol']."</td>";
                         echo "<td>Inactivo</td>";
                         echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditUser('. $tabla['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
                         echo "</tr>";

@@ -19,7 +19,7 @@
 
         $sqlRequest = "SELECT * FROM habitantes WHERE cedula = $cedula";
         $stmtRequest = $conn->prepare($sqlRequest);
-        $stmtRequest->execute;
+        $stmtRequest->execute();
 
         $resultReq = $stmtRequest->fetch(PDO::FETCH_ASSOC);
 

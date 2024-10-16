@@ -6,8 +6,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div id="msjEditUser"></div>
+        <div id="msjError"></div>
         <form method="POST" action="">
+        <input type="hidden" name="id" id="id">
             <div class="container" id="formContainer">
                 <div class="row">
                     
@@ -43,7 +44,7 @@
                     </div>
 
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="estadoEditUser">Rol</label>
+                        <label class="form-label" for="estadoEditUser">Estatus</label>
                         <select class="form-control" name="estadoEditUser" id="estadoEditUser">
                             <option disabled selected> Seleccione ...</option>
                             <option value="1">Activo</option>
@@ -58,8 +59,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button class="btn btn-primary" onclick="EditUser()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Editistrar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-primary" onclick="editUser()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Editar</button>
       </div>
     </div>
   </div>

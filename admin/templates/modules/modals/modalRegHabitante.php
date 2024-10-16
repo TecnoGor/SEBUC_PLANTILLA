@@ -72,6 +72,7 @@
                     <label for="" class="form-label">Posee Alguna discapacidad?</label>
                     <select name="discapacidad" id="discapacidad" class="form-control">
                         <option disabled selected> Seleccione ....</option>
+                        <option value="Ninguna">Ninguna</option>
                         <option value="Discapacidades sensoriales y de la comunicación">Sensoriales y de la comunicación</option>
                         <option value="Discapacidades motrices">Motrices</option>
                         <option value="Discapacidades mentales">Mentales</option>

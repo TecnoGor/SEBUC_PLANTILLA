@@ -30,6 +30,7 @@
                     <th>Nacionalidad</th>
                     <th>Cedula</th>
                     <th>Estado Civil</th>
+                    <th>Poligonal</th>
                     <!-- <th>Fecha de Nac.</th> -->
                     <th>Tipo de Habitante</th>
                     <th>Tlfno / Celular</th>
@@ -49,7 +50,7 @@
                 
                 include('../../includes/conn.php');
 
-                $sql = "SELECT h.id as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id";
+                $sql = "SELECT h.id as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, p.nombre AS namePoligonal, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec, poligonal AS p WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id && h.id_poligonal = p.id";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
 
@@ -66,6 +67,7 @@
                     echo "<td>" . $row->cedula. "</td>";
                     // echo "<td>" . $listado[$i]->sex . "</td>";
                     echo "<td>" . $row->nombreEdoCivil. "</td>";
+                    echo "<td>" . $row->namePoligonal. "</td>";
                     // echo "<td>" . $listado[$i]->fnac . "</td>";
                     echo "<td>" . $row->nombreTipo. "</td>";
                     echo "<td>" . $row->telefono. "</td>";

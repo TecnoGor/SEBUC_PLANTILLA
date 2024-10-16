@@ -81,7 +81,7 @@ function editHabitante() {
     if(document.querySelector('#discapacidadEdit')){
         var discapacidadInput = $('#discapacidadEdit').val();
     }
-    var discapacidad = null;
+    var discapacidad = document.getElementById('discapacidadEdit').value;
     const pensionado = $("input[name='radioHabitanteEdit2']:checked").val();
     // var pensionado = document.getElementById('radioHabitanteEdit2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteEdit').value;
@@ -89,12 +89,12 @@ function editHabitante() {
     if (document.querySelector('#idJefeEdit')) {
         var jefeFamilia = document.getElementById('idJefeEdit').value;
     }
-   
+   /*
     if(discapacidadRadio == undefined){
         discapacidad = discapacidadInput;
     } else {
         discapacidad = discapacidadRadio;
-    }
+    }*/
 
     $.ajax({
         url: './includes/editHabitantes.php',
@@ -212,6 +212,60 @@ function modalEditUser(a){
             }else {
 				swal('Atencion',data.msg,'error');
 			}
+        }
+
+    })
+}
+
+function editUser(){
+    var id = document.getElementById('id').value;
+    var nombres = document.getElementById('nameUserEdit').value;
+    var usuario = document.getElementById('userEdit').value;
+    var password = document.getElementById('psswdEditUser').value;
+    var rol = document.getElementById('rolEditUser').value;
+    var activo = document.getElementById('estadoEditUser').value;
+
+    $.ajax({
+        url: './includes/editUsers.php',
+        method: 'POST',
+        data: {
+            id: id,
+            nombres: nombres, 
+            usuario: usuario, 
+            password: password, 
+            rol: rol,
+            activo: activo
+        },
+        success: function(data){
+            if(data == 'vacio') {
+                swal({
+                    title: 'Alerta!',
+                    text: "Es necesario que rellene todos los campos!",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }
+            if(data == 'ok'){
+                swal({
+                    title: 'Editado!',
+                   text: "Los datos se editaron con exito.",
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }if(data == 'error'){
+                swal({
+                    title: 'Error!',
+                    text: "Ocurrio un error al editar los datos.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }
         }
 
     })
