@@ -43,7 +43,7 @@
                 
                 include('../../includes/conn.php');
 
-                $sql = "SELECT * FROM usuarios as u INNER JOIN rol as r ON u.rol = r.id";
+                $sql = "SELECT * FROM usuarios as u INNER JOIN rol as r ON u.rol = r.id_rol";
 
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();

@@ -11,6 +11,45 @@ function habitantes(){
     })
 }
 
+function hPrincipal(){
+    
+    $.get('./templates/modules/habitantesP.php', function(mensaje, estado){
+        
+        document.getElementById('homeInfo').style = 'display: none';
+        document.getElementById('templates').innerHTML=mensaje;
+
+    })
+}
+
+function hOriental(){
+    $.get('./templates/modules/habitantesO.php', function(mensaje, estado){
+        
+        document.getElementById('homeInfo').style = 'display: none';
+        document.getElementById('templates').innerHTML=mensaje;
+
+    })
+}
+
+function hFJavier(){
+    $.get('./templates/modules/habitantesFJ.php', function(mensaje, estado){
+        
+        document.getElementById('homeInfo').style = 'display: none';
+        document.getElementById('templates').innerHTML=mensaje;
+
+    })
+}
+
+function hCarabobo(){
+    
+    $.get('./templates/modules/habitantesC.php', function(mensaje, estado){
+        
+        document.getElementById('homeInfo').style = 'display: none';
+        document.getElementById('templates').innerHTML=mensaje;
+
+    })
+}
+
+
 function rewards(){
     $.get('./templates/modules/rewards.php', function(mensaje, estado){
         document.getElementById('homeInfo').style = 'display: none';
