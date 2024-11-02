@@ -14,7 +14,7 @@
                     
                     <div class="mb-3 col-md-12">
                         <label class="form-label">Nombres y Apellidos</label>
-                        <input class="form-control" type="text" name="nameUserEdit" id="nameUserEdit" placeholder="Introduce tu Nombre y Apellido">
+                        <input class="form-control" type="text" name="nameUserEdit" id="nameUserEdit">
                     </div>
                     
                 </div>
@@ -22,7 +22,7 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Usuario</label>
-                        <input class="form-control" type="text" name="userEdit" id="userEdit" placeholder="Introduce tu Nombre y Apellido">
+                        <input class="form-control" type="text" name="userEdit" id="userEdit">
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Contraseña</label>

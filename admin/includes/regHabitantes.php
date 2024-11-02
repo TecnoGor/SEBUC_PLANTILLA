@@ -41,7 +41,7 @@
             }elseif($tipoHabitante == 2){
                 $jefeFamilia = $_POST['jefeFamilia'];
     
-                $sqlConsulta = "SELECT id, cedula FROM habitantes WHERE cedula = '$jefeFamilia'";
+                $sqlConsulta = "SELECT id, cedula FROM habitantes WHERE cedula = '$jefeFamilia' AND id_tipoHabitante ";
                 $stmtConsulta = $conn->prepare($sqlConsulta);
                 $stmtConsulta->execute();
                 $resultConsulta = $stmtConsulta->fetchAll(PDO::FETCH_ASSOC);

@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Usuario</label>
-                        <input class="form-control" type="text" name="userReg" id="userReg" placeholder="Introduce tu Nombre y Apellido">
+                        <input class="form-control" type="text" name="userReg" id="userReg" placeholder="Introduzca el usuario">
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Contraseña</label>
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mb-3 col-md-6">
-                        <label class="form-label" for="estadoRegUser">Rol</label>
+                        <label class="form-label" for="estadoRegUser">Estatus</label>
                         <select class="form-control" name="estadoRegUser" id="estadoRegUser">
                             <option disabled selected> Seleccione ...</option>
                             <option value="1">Activo</option>
