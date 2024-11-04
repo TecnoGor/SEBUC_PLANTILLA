@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <div id="msjRegisterUser"></div>
-        <form method="POST" action="">
+        <form method="POST" action="" enctype="multipart/form-data">
             <div class="container" id="formContainer">
                 <div class="row">
                     
@@ -16,6 +16,17 @@
                         <input class="form-control" type="text" name="nameUserReg" id="nameUserReg" placeholder="Introduce tu Nombre y Apellido">
                     </div>
                     
+                </div>
+
+                <div class="row">
+
+                  <div class="mb-3">
+
+                    <label for="formFile" class="form-label">Imagen de perfil</label>
+                    <input class="form-control" type="file" name="pfImage" id="pfImage">
+
+                  </div>
+
                 </div>
 
                 <div class="row">

@@ -61,7 +61,14 @@ function modalEditHabitante(a){
 				$('#modalEditHabitante').modal('show');
 
 			}else {
-				swal('Atencion',data.msg,'error');
+				swal({
+                    title: 'Error!',
+                    text: "Ocurrio un error al intentar editar los datos.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
 			}
 		}
 	})
@@ -277,23 +284,55 @@ function editUser(){
 
 function regUser(){
     var nombres = document.getElementById('nameUserReg').value;
+    var pfImage = document.getElementById('pfImage').files[0];
     var usuario = document.getElementById('userReg').value;
     var password = document.getElementById('psswdRegUser').value;
     var rol = document.getElementById('rolRegUser').value;
     var activo = document.getElementById('estadoRegUser').value;
 
+    var formData = new FormData();
+    formData.append('nombres', nombres);
+    formData.append('pfImage', pfImage); // Agregar el archivo de imagen
+    formData.append('usuario', usuario);
+    formData.append('password', password);
+    formData.append('rol', rol);
+    formData.append('activo', activo);
+
     $.ajax({
         url: './includes/regUsers.php',
         method: 'POST',
-        data: {
-            nombres: nombres, 
-            usuario: usuario, 
-            password: password, 
-            rol: rol,
-            activo: activo
-        },
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(data){
-            $('#msjRegisterUser').html(data);
+            if (data == "Sucess") {
+                swal({
+                    title: 'Registrado!',
+                   text: "El usuario se registro con exito.",
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            } if (data == "Error") {
+                swal({
+                    title: 'Error!',
+                    text: "Ocurrio un error al registrar el usuario.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            } if (data == "vacio") {
+                swal({
+                    title: 'Alerta!',
+                   text: "Es necesario que rellene todos los campos!",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }
         }
 
     })

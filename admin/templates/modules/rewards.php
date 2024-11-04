@@ -25,7 +25,7 @@
                     <th>Poligonal</th>
                     <th>Beneficio Entregado</th>
                     <th>N° Referencia</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -41,8 +41,16 @@
                 
                 include('../../includes/conn.php');
 
-                $sql = "SELECT * FROM entrega_beneficio AS e INNER JOIN habitantes AS h ON e.id_jefe_familia = h.id_habitante
-                        INNER JOIN poligonal AS p ON h.id_poligonal = p.nombre
+                $sql = "SELECT e.id as id_entrega,
+                               h.nombres as nombres, 
+                               h.apellidos as apellidos,
+                               h.cedula as cedula,
+                               p.nombre as nombre,
+                               tp.nombre_beneficio as nombre_beneficio,
+                               e.nro_pago as nro_pago
+                        FROM entrega_beneficio AS e 
+                        INNER JOIN habitantes AS h ON e.id_jefe_familia = h.id_habitante
+                        INNER JOIN poligonal AS p ON h.id_poligonal = p.id
                         INNER JOIN tipo_beneficio AS tp ON e.id_beneficio = tp.id;";
 
                 $stmt = $conn->prepare($sql);
@@ -60,7 +68,7 @@
                     echo "<td>".$entregas['nombre']."</td>";
                     echo "<td>".$entregas['nombre_beneficio']."</td>";
                     echo "<td>".$entregas['nro_pago']."</td>";
-                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditEntrega('. $entregas['id_entrega'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
+                    // echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditEntrega('. $entregas['id_entrega'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
                     echo "</tr>";
                     $i++;
 

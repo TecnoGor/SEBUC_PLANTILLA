@@ -41,7 +41,7 @@
             }elseif($tipoHabitante == 2){
                 $jefeFamilia = $_POST['jefeFamilia'];
     
-                $sqlConsulta = "SELECT id, cedula FROM habitantes WHERE cedula = '$jefeFamilia' AND id_tipoHabitante ";
+                $sqlConsulta = "SELECT id_habitante, cedula FROM habitantes WHERE cedula = '$jefeFamilia' AND id_tipoHabitante = 1";
                 $stmtConsulta = $conn->prepare($sqlConsulta);
                 $stmtConsulta->execute();
                 $resultConsulta = $stmtConsulta->fetchAll(PDO::FETCH_ASSOC);
@@ -50,16 +50,16 @@
     
                     foreach($resultConsulta as $cedulaJefe){
     
-                            $sqlInsert2="INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, fecha_nacimiento, telefono, id_edoCivil, discapacidad, pensionado, id_tipoHabitante, id_jefeFamilia, id_poligonal) VALUES ('$nombre', '$apellido', '$nacionalidad', '$cedula', '$fechaNac', '$telefono', '$edoCivil', '$discapacidad', '$pensionado', '$tipoHabitante', '".$cedulaJefe['id']."', '$poligonal')";
-                            $stmtInsert2 = $conn->prepare($sqlInsert2);
-                            $resultInsert2 = $stmtInsert2->execute();
-                            
-                            if ($resultInsert2) {
-                                echo 'ok';
-                            }else {
-                                echo 'cedula';
-                            }
-    
+                        $sqlInsert2="INSERT INTO habitantes(nombres, apellidos, nacionalidad, cedula, fecha_nacimiento, telefono, id_edoCivil, discapacidad, pensionado, id_tipoHabitante, id_jefeFamilia, id_poligonal) VALUES ('$nombre', '$apellido', '$nacionalidad', '$cedula', '$fechaNac', '$telefono', '$edoCivil', '$discapacidad', '$pensionado', '$tipoHabitante', '".$cedulaJefe['id_habitante']."', '$poligonal')";
+                        $stmtInsert2 = $conn->prepare($sqlInsert2);
+                        $resultInsert2 = $stmtInsert2->execute();
+                        
+                        if ($resultInsert2) {
+                            echo 'ok';
+                        }else {
+                            echo 'cedula';
+                        }
+
                     }
     
                 } 

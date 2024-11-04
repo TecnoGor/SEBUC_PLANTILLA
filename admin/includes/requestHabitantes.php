@@ -4,7 +4,7 @@
 
     $id = $_POST['id'];
 
-    $sql = "SELECT * FROM habitantes WHERE id = $id";
+    $sql = "SELECT * FROM habitantes WHERE id_habitante = $id";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
