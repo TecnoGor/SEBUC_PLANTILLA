@@ -17,7 +17,7 @@
 					<li class="text-condensedLight noLink" ><small><?php echo $_SESSION['user']; ?></small></li>
 					<li class="noLink">
 						<figure>
-							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+							<img src="includes/images/<?php echo $_SESSION['imagen'];?>" alt="Avatar" class="img-responsive">
 						</figure>
 					</li>
 				</ul>
@@ -29,11 +29,12 @@
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
-				<i class="zmdi zmdi-close btn-menu"></i> SEBUC 
+				<!-- i class="zmdi zmdi-close btn-menu"></i -->
+				<h1><b>S E B U C</b></h1>
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<img src="includes/images/<?php echo $_SESSION['imagen'];?>" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>

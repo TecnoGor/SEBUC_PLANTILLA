@@ -22,6 +22,7 @@
 					$_SESSION['nomUser'] = $verify['nombres'];
 					$_SESSION['user'] = $verify['user'];
 					$_SESSION['rol'] = $verify['rol'];
+					$_SESSION['imagen'] = $verify['imagen'];
 
 					echo '<div class="alert alert-success"><button type="button" class="btn-close" data-dismiss="alert"></button>Redirigiendo</div>';
 

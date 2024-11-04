@@ -53,7 +53,7 @@ CREATE TABLE `entrega_beneficio` (
 --
 DELIMITER $$
 CREATE TRIGGER `before_insert_entregaBeneficio` BEFORE INSERT ON `entrega_beneficio` FOR EACH ROW BEGIN
-    IF NEW.id_jefe_familia NOT IN (SELECT id FROM habitantes WHERE id_tipoHabitante = 1) THEN
+    IF NEW.id_jefe_familia NOT IN (SELECT id_habitante FROM habitantes WHERE id_tipoHabitante = 1) THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'El valor de id_habitante no corresponde a un habitante de tipo 1';
     END IF;
