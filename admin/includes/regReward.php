@@ -19,8 +19,8 @@
             $resultJefe = $stmtRequest->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($resultJefe as $jefeId) {
-                $idJefe = $jefeId['id'];
-                $sqlInsert = "INSERT INTO entrega_beneficio(id_beneficio, id_jefe_familia, nro_pago) VALUES ('$beneficio', $idJefe, '$referencia');";
+                $idJefe = $jefeId['id_habitante'];
+                $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, nro_pago) VALUES ($beneficio, $idJefe, $referencia);";
                 $stmtInsert = $conn->prepare($sqlInsert);
                 $stmtInsert->execute();
 

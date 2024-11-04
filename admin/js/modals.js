@@ -188,6 +188,10 @@ function modalRegUser(){
     $('#modalRegUser').modal('show');
 }
 
+function modalRegEntrega(){
+    $('#modalRegEntrega').modal('show');
+}
+
 function modalEditUser(a){
 
     var id = a;
@@ -507,7 +511,14 @@ function valJefe(){
             },
             success: function(data){
                 if(data == 'VALIDO'){
-                    document.getElementById('cedulaJefe').style.borderColor='green';
+                    swal({
+                        title: 'Encontrado!',
+                       text: "La cedula ingresada coincide con un jefe de familia!.",
+                        type: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
                 }if(data == 'nulo'){
                     swal({
                         title: 'Alerta!',
@@ -517,6 +528,7 @@ function valJefe(){
                         confirmButtonText: 'OK',
                         closeOnConfirm: false
                     });
+                    document.getElementById('cedulaJefe').value = "";
                 }
             }
         })

@@ -40,7 +40,7 @@
 								
 									include('../../includes/conn.php');
 
-									$sql = "SELECT * FROM entrega_beneficio AS e INNER JOIN habitantes AS h WHERE e.id_jefe_familia = h.id";
+									$sql = "SELECT * FROM entrega_beneficio AS e INNER JOIN habitantes AS h ON e.id_jefe_familia = h.id";
 
 									$stmt = $conn->prepare($sql);
 									$stmt->execute();
@@ -118,7 +118,7 @@
 
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<label class="form-label" for="nroReferencia">Numero de Pago:</label>
-										<input class="form-control" type="number" size="6" id="nroReferencia">
+										<input class="form-control" type="number" id="nroReferencia">
 									</div>
 									<p class="text-center">
 									<button class="btn btn-primary" onclick="regReward()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Registrar</button>

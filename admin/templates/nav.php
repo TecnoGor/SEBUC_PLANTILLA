@@ -75,6 +75,40 @@
 								<i class="zmdi zmdi-face"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
+								TIPOS DE HABITANTES
+							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
+						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a onclick="bosses()" style="cursor: pointer;" class="full-width link_disabled">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-account"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										JEFES DE FAMILIA
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a onclick="handicapped()" style="cursor: pointer;" class="full-width link_disabled">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-accounts"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										DISCAPACITADOS
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="full-width divider-menu-h"></li>
+					<!-- <li class="full-width">
+						<a style="cursor: pointer;" class="full-width btn-subMenu link_disabled">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-face"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
 								POLIGONALES
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
@@ -122,7 +156,7 @@
 							</li>
 						</ul>
 					</li>
-					<li class="full-width divider-menu-h"></li>
+					<li class="full-width divider-menu-h"></li> -->
 					<li class="full-width">
 						<a class="full-width btn-subMenu link_disabled">
 							<div class="navLateral-body-cl">
@@ -177,40 +211,7 @@
 						</ul>
 					</li>
 					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a style="cursor: pointer;" class="full-width btn-subMenu link_disabled">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-face"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								TIPOS DE HABITANTES
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a onclick="bosses()" style="cursor: pointer;" class="full-width link_disabled">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										JEFES DE FAMILIA
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a onclick="handicapped()" style="cursor: pointer;" class="full-width link_disabled">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										DISCAPACITADOS
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
-					<li class="full-width divider-menu-h"></li>
+					
 					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu link_disabled">
 							<div class="navLateral-body-cl">
