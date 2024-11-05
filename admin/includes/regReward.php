@@ -21,7 +21,9 @@
             foreach ($resultJefe as $jefeId) {
                 $idJefe = $jefeId['id_habitante'];
 
-                $sqlRequest2 = "SELECT * FROM entrega_beneficio WHERE nro_pago = $referencia;";
+                
+
+                $sqlRequest2 = "SELECT * FROM entrega_beneficio WHERE nro_pago = '$beneficio' || fecha_entrega >= DATE_FORMAT(NOW(), '%Y-%m-01') AND fecha_entrega < DATE_FORMAT(NOW() + INTERVAL 1 MONTH, '%Y-%m-01');";
                 $stmtRequest2 = $conn->prepare($sqlRequest2);
                 $stmtRequest2->execute();
 

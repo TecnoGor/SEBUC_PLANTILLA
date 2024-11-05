@@ -58,7 +58,7 @@
                         echo "<td>".$tabla['user']."</td>";
                         echo "<td>".$tabla['nombre_rol']."</td>";
                         echo "<td>Activo</td>";
-                        echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditUser('. $tabla['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
+                        echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditUser('. $tabla['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" onclick="disableUserSelect('. $tabla['id'] .')"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
                         echo "</tr>";
                     } else {
                         echo "<tr>";
@@ -67,7 +67,7 @@
                         echo "<td>".$tabla['user']."</td>";
                         echo "<td>".$tabla['nombre_rol']."</td>";
                         echo "<td>Inactivo</td>";
-                        echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditUser('. $tabla['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
+                        echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditUser('. $tabla['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" onclick="disableUserSelect('. $tabla['id'] .')"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
                         echo "</tr>";
                     }
 

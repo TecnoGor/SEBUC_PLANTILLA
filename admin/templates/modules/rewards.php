@@ -63,7 +63,7 @@
                 
                     echo "<tr>";
                     echo "<td class='mdl-data-table__cell--non-numeric'>".$i."</td>";
-                    echo "<td>".$entregas['nombres'] . "" . $entregas['apellidos'] ."</td>";
+                    echo "<td>".$entregas['nombres'] . " " . $entregas['apellidos'] ."</td>";
                     echo "<td>".$entregas['cedula']."</td>";
                     echo "<td>".$entregas['nombre']."</td>";
                     echo "<td>".$entregas['nombre_beneficio']."</td>";

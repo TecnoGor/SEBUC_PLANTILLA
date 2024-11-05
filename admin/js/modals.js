@@ -215,6 +215,7 @@ function modalEditUser(a){
             if (data.status) {
                 document.querySelector('#id').value = data.data.id;
                 document.querySelector('#nameUserEdit').value = data.data.nombres;
+                // document.querySelector('#pfImageEdit').files[0] = data.data.imagen;
                 document.querySelector('#userEdit').value = data.data.user;
                 document.querySelector('#rolEditUser').value = data.data.rol;
                 document.querySelector('#estadoEditUser').value = data.data.activo;
@@ -231,23 +232,29 @@ function modalEditUser(a){
 function editUser(){
     var id = document.getElementById('id').value;
     var nombres = document.getElementById('nameUserEdit').value;
+    var pfImage = document.getElementById('pfImageEdit').files[0];
     var usuario = document.getElementById('userEdit').value;
     var password = document.getElementById('psswdEditUser').value;
     var rol = document.getElementById('rolEditUser').value;
     var activo = document.getElementById('estadoEditUser').value;
 
+    var formData = new FormData();
+    formData.append('id', id);
+    formData.append('nombres', nombres);
+    formData.append('pfImage', pfImage); // Agregar el archivo de imagen
+    formData.append('usuario', usuario);
+    formData.append('password', password);
+    formData.append('rol', rol);
+    formData.append('activo', activo);
+
     $.ajax({
         url: './includes/editUsers.php',
         method: 'POST',
-        data: {
-            id: id,
-            nombres: nombres, 
-            usuario: usuario, 
-            password: password, 
-            rol: rol,
-            activo: activo
-        },
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(data){
+            $('#msjError').html=data;
             if(data == 'vacio') {
                 swal({
                     title: 'Alerta!',
@@ -329,7 +336,7 @@ function regUser(){
                    text: "Es necesario que rellene todos los campos!",
                     type: 'error',
                     showCancelButton: false,
-                    confirmButtonText: 'OK',
+                    confirmButtonText: 'Ok.',
                     closeOnConfirm: false
                 });
             }
@@ -338,6 +345,49 @@ function regUser(){
     })
 }
 
+function disableUserSelect(a) {
+    var user = a;
+
+    swal({
+        title: '¿Estas Seguro?',
+       text: "¿Estas seguro que deseas eliminar este usuario?",
+        type: 'error',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar',
+        closeOnConfirm: false
+    },
+    function(isConfirm){
+        if (isConfirm) {
+            $.ajax({
+                url: './includes/delUser.php',
+                method: 'POST',
+                data: {user: user},
+                success: function(data) {
+                    if (data == 'ok') {
+                        swal({
+                            title: 'Eliminado!',
+                            text: 'El usuario ha sido eliminado.',
+                            type: 'success',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    } if (data == 'error') {
+                        swal({
+                            title: 'Error!',
+                            text: "Ocurrio un error al eliminar el usuario.",
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    }
+                }
+            })   
+        }
+    });
+
+}
 
 function jefeFamilia(){
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
@@ -613,7 +663,7 @@ function regReward(){
                     referencia: referencia
                 },
                 success: function(data){
-                    $('#errorDisplay').html(data);
+                    // $('#errorDisplay').html(data);
                     if(data == 'ok'){
                         swal({
                             title: 'Exito!',
@@ -641,6 +691,8 @@ function regReward(){
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
                         });
+                        document.getElementById('cedulaJefe').value = "";
+                        document.getElementById('nroReferencia').value = "";
                     }
                 }
             })
@@ -689,6 +741,7 @@ function regBeneficio(){
                         confirmButtonText: 'OK',
                         closeOnConfirm: false
                     });
+                    
                 } if (data == "error") {
                     swal({
                         title: 'Error!',
