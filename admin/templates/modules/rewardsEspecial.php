@@ -1,7 +1,7 @@
 <div class="mdl-grid">
 
     <div class="tile-title-w-btn">
-        <p><a class="btn btn-primary icon-btn" onclick="modalRegEntrega()"><i class="bi bi-plus-square m-2"></i>Entregar Beneficio</a></p>
+        <p><a class="btn btn-primary icon-btn" onclick="modalRegEntregaEspecial()"><i class="bi bi-plus-square m-2"></i>Entregar Beneficio</a></p>
     </div>
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
@@ -34,7 +34,7 @@
                         FROM entrega_beneficio AS e 
                         INNER JOIN habitantes AS h ON e.id_jefe_familia = h.id_habitante
                         INNER JOIN poligonal AS p ON h.id_poligonal = p.id
-                        INNER JOIN tipo_beneficio AS tp ON e.id_beneficio = tp.id;";
+                        INNER JOIN tipo_beneficio AS tp ON e.id_beneficio = tp.id WHERE tp.especial = 1;";
 
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();

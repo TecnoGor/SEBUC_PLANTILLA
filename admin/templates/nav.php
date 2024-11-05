@@ -189,6 +189,16 @@
 									</div>
 								</a>
 							</li>
+							<li class="full-width">
+								<a onclick="rewardsEspecial()" style="cursor: pointer;" class="full-width link_disabled">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-truck"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										JORNADAS ESPECIALES
+									</div>
+								</a>
+							</li>
 							<!-- <li class="full-width">
 								<a href="payments.html" class="full-width">
 									<div class="navLateral-body-cl">

@@ -5,6 +5,9 @@
 		require_once('templates/modules/modals/modalRegUser.php');
 		require_once('templates/modules/modals/modalEditUser.php');
 		require_once('templates/modules/modals/modalRegEntrega.php');
+		require_once('templates/modules/modals/modalRegEntregaEspecial.php');
+		require_once('templates/modules/modals/modalRegReward.php');
+		require_once('templates/modules/modals/modalEditBeneficio.php');
 	?>
 	
 	<!-- pageContent -->

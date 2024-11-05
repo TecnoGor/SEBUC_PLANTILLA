@@ -3,7 +3,7 @@
 
 	if (!empty($_POST)) {
 		if (empty($_POST['login']) || empty($_POST['pass'])) {
-			echo '<div class="alert alert-danger"><button type="button" class="btn-close" aria-label="Close" for="msjAdmin"></button>Todos los campos son necesarios</div>';
+			echo 'vacio';
 		} else {
 			require_once 'conn.php';
 
@@ -24,17 +24,17 @@
 					$_SESSION['rol'] = $verify['rol'];
 					$_SESSION['imagen'] = $verify['imagen'];
 
-					echo '<div class="alert alert-success"><button type="button" class="btn-close" data-dismiss="alert"></button>Redirigiendo</div>';
+					echo 'Redirigiendo';
 
 				} else {
 
-					echo '<div class="alert alert-danger"><button type="button" class="btn-close" data-dismiss="alert"></button>Usuario o contraseña incorrectos</div>';
+					echo 'errLog';
 
 				}
 
 			} else {
 
-				echo '<div class="alert alert-danger"><button type="button" class="btn-close" data-dismiss="alert"></button>Usuario o contraseña incorrectos</div>';
+				echo 'errLog';
 
 			}
 

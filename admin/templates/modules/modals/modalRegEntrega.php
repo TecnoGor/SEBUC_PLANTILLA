@@ -26,7 +26,7 @@
                             <option disabled selected>Seleccione...</option>
                                 <?php
                                     include('includes/conn.php');
-                                    $sqlRw = "SELECT * FROM tipo_beneficio WHERE estatus = 1 AND especial = 0;";
+                                    $sqlRw = "SELECT * FROM tipo_beneficio WHERE estatus = 1 AND especial = 2;";
                                     $stmtRw = $conn->prepare($sqlRw);
                                     $stmtRw->execute();
 

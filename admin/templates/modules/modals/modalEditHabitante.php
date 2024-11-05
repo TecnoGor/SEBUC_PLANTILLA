@@ -52,7 +52,7 @@
                     </div>
                     <div class="mb-3 col-md-4">
                         <label class="form-label">Numero Telefonico</label>
-                        <input class="form-control" type="tel" name="telefonoEdit" id="telefonoEdit" placeholder="Numero de celular">
+                        <input class="form-control" type="number" name="telefonoEdit" id="telefonoEdit" placeholder="Numero de celular">
                     </div>
 
                     <div class="mb-3 col-md-4">

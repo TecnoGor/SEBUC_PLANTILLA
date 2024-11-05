@@ -1,6 +1,7 @@
 // const { exists } = require("grunt");
 
 const { data } = require("browserslist");
+const { url } = require("inspector");
 
 // const { data } = require("browserslist");
 
@@ -199,6 +200,14 @@ function modalRegEntrega(){
     $('#modalRegEntrega').modal('show');
 }
 
+function modalRegEntregaEspecial(){
+    $('#modalRegEntregaEspecial').modal('show');
+}
+
+function modalRegReward(){
+    $('#modalRegReward').modal('show');
+}
+
 function modalEditUser(a){
 
     var id = a;
@@ -333,7 +342,7 @@ function regUser(){
             } if (data == "vacio") {
                 swal({
                     title: 'Alerta!',
-                   text: "Es necesario que rellene todos los campos!",
+                    text: "Es necesario que rellene todos los campos!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'Ok.',
@@ -572,7 +581,7 @@ function regPoligonal(){
                 swal({
                     title: 'Alerta!',
                    text: "La poligonal que esta intentando registrar ya existe!",
-                    type: 'error',
+                    type: 'info',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
@@ -612,7 +621,50 @@ function valJefe(){
                     swal({
                         title: 'Alerta!',
                        text: "La cedula no coincide con ningun jefe de familia!",
-                        type: 'error',
+                        type: 'info',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                    document.getElementById('cedulaJefe').value = "";
+                }
+            }
+        })
+    
+    }
+
+    
+}
+
+function valJefeEspecial(){
+    var jefe = document.getElementById('cedulaJefeEspecial').value;
+    console.log(jefe);
+
+    if (jefe != '') {
+
+        console.log('lleno');
+
+        $.ajax({
+            url: './includes/valJefe.php',
+            method: 'POST',
+            data:{
+                jefe:jefe
+            },
+            success: function(data){
+                if(data == 'VALIDO'){
+                    swal({
+                        title: 'Encontrado!',
+                       text: "La cedula ingresada coincide con un jefe de familia!.",
+                        type: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                }if(data == 'nulo'){
+                    swal({
+                        title: 'Alerta!',
+                       text: "La cedula no coincide con ningun jefe de familia!",
+                        type: 'info',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
                         closeOnConfirm: false
@@ -648,7 +700,7 @@ function regReward(){
             swal({
                 title: 'Error!',
                 text: "Los campos numericos no deben ser negativos!",
-                type: 'error',
+                type: 'warning',
                 showCancelButton: false,
                 confirmButtonText: 'OK',
                 closeOnConfirm: false
@@ -686,7 +738,7 @@ function regReward(){
                         swal({
                             title: 'Alerta!',
                            text: "La entrega que esta intentando registrar ya existe!",
-                            type: 'error',
+                            type: 'info',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
@@ -700,15 +752,102 @@ function regReward(){
     }
 }
 
+function regRewardEspecial(){
+    var jefeFamilia = document.getElementById('cedulaJefeEspecial').value;
+    var beneficio_id = document.getElementById('beneficio_idEspecial').value;
+    var referencia = document.getElementById('nroReferenciaEspecial').value;
+
+    if (jefeFamilia == '' || beneficio_id == '' || referencia == '') {
+        swal({
+            title: 'Error!',
+            text: "Por favor complete todos los campos",
+            type: 'error',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            closeOnConfirm: false
+        });
+        
+    }else {
+
+        if (jefeFamilia <= 0 || referencia <= 0) {
+            swal({
+                title: 'Error!',
+                text: "Los campos numericos no deben ser negativos!",
+                type: 'warning',
+                showCancelButton: false,
+                confirmButtonText: 'OK',
+                closeOnConfirm: false
+            });
+        }else {
+            $.ajax({
+                url: './includes/regReward.php',
+                method: 'POST',
+                data: {
+                    jefeFamilia: jefeFamilia,
+                    beneficio_id: beneficio_id,
+                    referencia: referencia
+                },
+                success: function(data){
+                    // $('#errorDisplay').html(data);
+                    if(data == 'ok'){
+                        swal({
+                            title: 'Exito!',
+                            text: "La entrega se registro con exito!",
+                            type: 'success',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    } if(data == 'error') {
+                        swal({
+                            title: 'Error!',
+                           text: "Ocurrio un error al registrar los datos.",
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                        document.getElementById('cedulaJefeEspecial').value = "";
+                        document.getElementById('nroReferenciaEspecial').value = "";
+                    }if(data == 'existe'){
+                        swal({
+                            title: 'Alerta!',
+                            text: "La entrega que esta intentando registrar ya existe!",
+                            type: 'info',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                        document.getElementById('cedulaJefeEspecial').value = "";
+                        document.getElementById('nroReferenciaEspecial').value = "";
+                    }if (data == 'exMonth') {
+                        swal({
+                            title: 'Alerta!',
+                            text: "Este Jefe de Familia ya recibio este beneficio!",
+                            type: 'info',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                        document.getElementById('cedulaJefeEspecial').value = "";
+                        document.getElementById('nroReferenciaEspecial').value = "";
+                    }
+                }
+            })
+        }
+    }
+}
+
 function regBeneficio(){
     var name = document.getElementById('nameBeneficio').value;
     var estado = document.getElementById('estatusBeneficio').value;
+    var especial = document.getElementById('especialBeneficio').value;
 
     if (name == "" || estado == "") {
         swal({
             title: 'Error!',
             text: "Por favor complete todos los campos",
-            type: 'error',
+            type: 'warning',
             showCancelButton: false,
             confirmButtonText: 'OK',
             closeOnConfirm: false
@@ -719,7 +858,8 @@ function regBeneficio(){
             method: 'POST',
             data: {
                 name: name,
-                estado: estado
+                estado: estado,
+                especial: especial
             },
             success: function(data){
                 $('#msjError').html(data);
@@ -736,7 +876,7 @@ function regBeneficio(){
                     swal({
                         title: 'Alerta!',
                         text: "La entrega que esta intentando registrar ya existe!",
-                        type: 'error',
+                        type: 'info',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
                         closeOnConfirm: false
@@ -764,4 +904,97 @@ function regBeneficio(){
             }
         })
     }
+}
+
+function modalEditBeneficio(a) {
+    var idBeneficio = a;
+
+    $.ajax({
+        url: './includes/requestBeneficio.php',
+        method: 'POST',
+        data: {
+            idBeneficio: idBeneficio
+        },
+        success: function(data){
+            var data = JSON.parse(data);
+
+            if (data.status) {
+                document.querySelector('#id').value = data.data.id;
+                document.querySelector('#nameBeneficioEdit').value = data.data.nombre_beneficio;
+                document.querySelector('#estatusBeneficioEdit').value = data.data.estatus;
+                document.querySelector('#especialBeneficioEdit').value = data.data.especial;
+
+                $('#modalEditReward').modal('show');
+            } else {
+                swal({
+                    title: 'Error!',
+                    text: "Ocurrio un error al editar el beneficio.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            }
+        }
+    })
+}
+
+function editBeneficio(){
+    var id = document.querySelector('#id').value;
+    var name = document.querySelector('#nameBeneficioEdit').value;
+    var estado = document.querySelector('#estatusBeneficioEdit').value;
+    var especial = document.querySelector('#especialBeneficioEdit').value;
+
+    swal({
+        title: 'Alerta!',
+        text: "Esta seguro que desea editar?",
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+        closeOnConfirm: false
+    },
+    function(isConfirm){
+        if (isConfirm) {
+            $.ajax({
+                url: './includes/editReward.php',
+                method: 'POST',
+                data: {
+                    id: id,
+                    name: name,
+                    estado: estado,
+                    especial: especial
+                },
+                success: function(data){
+                    if (data == 'ok') {
+                        swal({
+                            title: 'Exito!',
+                            text: "El beneficio se edito con exito!",
+                            type: 'success',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    } if (data == 'error') {
+                        swal({
+                            title: 'Error!',
+                            text: "Ocurrio un error al editar el beneficio.",
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    } if (data == 'vacio') {
+                        swal({
+                            title: 'Alerta!',
+                            text: "Es necesario rellenar todos los campos.",
+                            type: 'info',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    }
+                }
+            })
+        }
+    });
 }
