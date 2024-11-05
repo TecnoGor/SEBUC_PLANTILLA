@@ -10,12 +10,14 @@
 ?>
 
 <body>
+
   <div class="login-container full-cover-background">
     <div class="form-container">
         <p class="text-center" style="margin-top: 17px;">
-           <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+           <!-- <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i> -->
+            <img src="assets/img/logoSEBUC.png" alt="" width="300px">
        </p>
-       <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión con tu cuenta</h4>
+       <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión</h4>
        <form method="POST" action="">
             <div class="group-material-login">
               <input type="text" class="material-login-control" id="user" required="" maxlength="70">
@@ -29,13 +31,6 @@
               <span class="bar-login"></span>
               <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
             </div>
-            <!-- <div class="group-material">
-                <select class="material-control-login">
-                    <option disabled selected>Tipo de usuario</option>
-                    <option value="Personal">Personal administrativo</option>
-                    <option value="Admin">Administrador</option>
-                </select>
-            </div> -->
             <button class="btn-login" id="logButton" type="button">Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i></button>
         </form>
     </div>   

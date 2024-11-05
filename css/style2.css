@@ -1,0 +1,38 @@
+.slider-Carrusel {
+    width: 1280px;
+    height: auto;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+
+.slider-Carrusel ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slider 20s infinite alternate ease-in-out;
+}
+
+.slider-Carrusel li {
+    width: 100%;
+    list-style: none;
+    position: relative;
+}
+
+.slider-Carrusel img {
+    position: absolute;
+    width: 100%;
+}
+
+@keyframes slider {
+    0% { margin-left: 0; }
+    20% { margin-left: 0; }
+
+    25% { margin-left: -100%; }
+    45% { margin-left: -100%; }
+
+    50% { margin-left: -200%; }
+    70% { margin-left: -200%; }
+
+    75% { margin-left: -200%; }
+    100% { margin-left: -200%; }
+}
