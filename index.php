@@ -9,9 +9,9 @@
 
 ?>
 
-<body>
+<body class="slider_Bg">
 
-  <div class="login-container full-cover-background">
+  <div class="login-container fBgContainer">
     <div class="form-container">
         <p class="text-center" style="margin-top: 17px;">
            <!-- <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i> -->
