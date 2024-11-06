@@ -40,13 +40,13 @@
                     <div class="mb-3 col-md-4">
                         <label for="" class="form-label">Género</label>
                         <div class="form-check">
-                            <input class="form-check-input" value="Masculino" type="radio" name="generoHabitanteReg" id="generoHabitanteReg">
+                            <input class="form-check-input" value="Masculino" type="radio" name="generoHabitanteReg" id="generoHabitanteReg1">
                             <label class="form-check-label" for="generoHabitanteReg">
                                 Masculino
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" value="Femenino" type="radio" name="generoHabitanteReg" id="generoHabitanteReg">
+                            <input class="form-check-input" value="Femenino" type="radio" name="generoHabitanteReg" id="generoHabitanteReg2">
                             <label class="form-check-label" for="generoHabitanteReg">
                                 Femenino
                             </label>

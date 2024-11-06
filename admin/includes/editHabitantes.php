@@ -4,6 +4,7 @@
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $nacionalidad = $_POST['nacionalidad'];
+        $genero = $_POST['genero'];
         $cedula = $_POST['cedula'];
         $fechaNac = $_POST['fechaNac'];
         $telefono = $_POST['telefono'];
@@ -17,17 +18,12 @@
 
         if($tipoHabitante == 1){
 
-            $sqlInsert = "UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal' WHERE id = '$id'";
+            $sqlInsert = "UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal' WHERE id = '$id'";
             $stmtInsert = $conn->prepare($sqlInsert);
             $resultInsert = $stmtInsert->execute();
 
             if ($resultInsert) {
-                echo    '<div class="alert alert-success d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                            <div>
-                                El habitante fue actualizado correctamente.
-                            </div>
-                        </div>';
+                echo 'ok';
             }
 
         }elseif($tipoHabitante == 2){
@@ -42,24 +38,14 @@
 
                 foreach($resultConsulta as $cedulaJefe){
 
-                        $sqlInsert2="UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal', id_jefeFamilia = '" .$cedulaJefe['id']. "' WHERE id = '$id'";
+                        $sqlInsert2="UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal', id_jefeFamilia = '" .$cedulaJefe['id']. "' WHERE id = '$id'";
                         $stmtInsert2 = $conn->prepare($sqlInsert2);
                         $resultInsert2 = $stmtInsert2->execute();
                         
                         if ($resultInsert2) {
-                            echo    '<div class="alert alert-success d-flex align-items-center" role="alert">
-                                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                                        <div>
-                                            El habitante fue actualizado correctamente.
-                                        </div>
-                                    </div>';
+                            echo 'ok';
                         }else {
-                        '<div class="alert alert-danger d-flex align-items-center" role="alert">
-                            <i class="bi bi-exclamation-triangle-fill p-1"></i>
-                            <div>
-                                Asegurese de haber ingresado la cedula correcta del Jefe de Familia.
-                            </div>
-                        </div>';
+                            echo 'cedula';
                         }
 
                 }

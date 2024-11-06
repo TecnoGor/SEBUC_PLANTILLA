@@ -84,8 +84,9 @@ function editHabitante() {
     var fechaNac = document.getElementById('dateHabitanteEdit').value;
     var telefono = document.getElementById('telefonoEdit').value;
     var edoCivil = document.getElementById('edoCivilEdit').value;
-    const discapacidadRadio = $("input[name='discapacidadEdit']:checked").val();
-    console.log(discapacidadRadio);
+    // const discapacidadRadio = $("input[name='discapacidadEdit']:checked").val();
+    // console.log(discapacidadRadio);
+    var genero = $("input[name='generoHabitanteEdit']:checked").val();
     if(document.querySelector('#discapacidadEdit')){
         var discapacidadInput = $('#discapacidadEdit').val();
     }
@@ -97,12 +98,6 @@ function editHabitante() {
     if (document.querySelector('#idJefeEdit')) {
         var jefeFamilia = document.getElementById('idJefeEdit').value;
     }
-   /*
-    if(discapacidadRadio == undefined){
-        discapacidad = discapacidadInput;
-    } else {
-        discapacidad = discapacidadRadio;
-    }*/
 
     $.ajax({
         url: './includes/editHabitantes.php',
@@ -112,6 +107,7 @@ function editHabitante() {
             nombre:nombre,
             apellido:apellido,
             nacionalidad:nacionalidad,
+            genero:genero,
             cedula:cedula,
             fechaNac:fechaNac,
             telefono:telefono,
@@ -123,7 +119,27 @@ function editHabitante() {
             jefeFamilia:jefeFamilia
         },
         success: function(data){
-            $('#msjEdit').html(data);
+            $('#msjEdit').html=data;
+            if (data == 'ok') {
+                swal({
+                    title: 'Editado!',
+                   text: "Los datos se editaron con exito.",
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
+            } if (data == 'cedula') {
+                swal({
+                    title: 'Alerta!',
+                    text: "Asegurese de haber ingresado la cedula del jefe de familia correctamente!",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'Ok.',
+                    closeOnConfirm: false
+                });
+                document.getElementById('idJefeEdit').value = '';
+            }
         }
     })
 }
@@ -457,6 +473,7 @@ function regHabitante(){
     var apellido = document.getElementById('name2HabitanteReg').value;
     var nacionalidad = document.getElementById('nacionalidadHabitanteReg').value;
     var genero = $("input[name='generoHabitanteReg']:checked").val();
+    console.log(genero);
     var cedula = document.getElementById('cedulaHabitanteReg').value;
     var fechaNac = document.getElementById('dateHabitanteReg').value;
     var telefono = document.getElementById('telHabitanteReg').value;
