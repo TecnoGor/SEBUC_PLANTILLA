@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label for="" class="form-label">Nacionalidad</label>
                         <div class="form-check">
                             <input class="form-check-input" value="Venezolano" type="radio" name="nacionalidadHabitanteReg" id="nacionalidadHabitanteReg">
@@ -37,7 +37,22 @@
                             </label>
                         </div>
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
+                        <label for="" class="form-label">Género</label>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Masculino" type="radio" name="generoHabitanteReg" id="generoHabitanteReg">
+                            <label class="form-check-label" for="generoHabitanteReg">
+                                Masculino
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="Femenino" type="radio" name="generoHabitanteReg" id="generoHabitanteReg">
+                            <label class="form-check-label" for="generoHabitanteReg">
+                                Femenino
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-4">
                         <label class="form-label">Cedula</label>
                         <input type="number" name="cedulaHabitanteReg" id="cedulaHabitanteReg" class="form-control">
                     </div>

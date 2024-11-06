@@ -456,6 +456,7 @@ function regHabitante(){
     var nombre = document.getElementById('nameHabitanteReg').value;
     var apellido = document.getElementById('name2HabitanteReg').value;
     var nacionalidad = document.getElementById('nacionalidadHabitanteReg').value;
+    var genero = $("input[name='generoHabitanteReg']:checked").val();
     var cedula = document.getElementById('cedulaHabitanteReg').value;
     var fechaNac = document.getElementById('dateHabitanteReg').value;
     var telefono = document.getElementById('telHabitanteReg').value;
@@ -481,6 +482,7 @@ function regHabitante(){
             nombre:nombre,
             apellido:apellido,
             nacionalidad:nacionalidad,
+            genero:genero,
             cedula:cedula,
             fechaNac:fechaNac,
             telefono:telefono,
