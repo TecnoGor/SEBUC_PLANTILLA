@@ -30,7 +30,7 @@
 		<div class="full-width navLateral-body">
 			<div class="full-width navLateral-body-logo text-center tittles">
 				<!-- i class="zmdi zmdi-close btn-menu"></i -->
-				<h1><b>S E B U C</b></h1>
+				<h2><b>S E B U C</b></h2>
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
@@ -38,7 +38,8 @@
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						<?php echo $_SESSION['nomUser'];?><br>
+						<b><?php echo $_SESSION['nomUser'];?><br></b>
+						
 						<small>Administrador</small>
 					</span>
 				</figcaption>

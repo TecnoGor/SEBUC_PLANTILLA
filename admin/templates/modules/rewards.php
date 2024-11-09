@@ -12,7 +12,7 @@
                 <tr>
                     <th class="mdl-data-table__cell--non-numeric">Nº</th>
                     <th>Nombre y Apellido</th>
-                    <th>Cedula</th>
+                    <th>Cédula</th>
                     <th>Poligonal</th>
                     <th>Beneficio Entregado</th>
                     <th>N° Referencia</th>

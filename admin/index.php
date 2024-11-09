@@ -8,6 +8,8 @@
 		require_once('templates/modules/modals/modalRegEntregaEspecial.php');
 		require_once('templates/modules/modals/modalRegReward.php');
 		require_once('templates/modules/modals/modalEditBeneficio.php');
+		require_once('templates/modules/modals/modalRegPoligonal.php');
+		require_once('templates/modules/modals/modalEditPoligonal.php');
 	?>
 	
 	<!-- pageContent -->

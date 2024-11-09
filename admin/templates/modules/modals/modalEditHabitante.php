@@ -13,11 +13,11 @@
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Nombres</label>
-                        <input class="form-control" type="text" name="nameHabitanteEdit" id="nameHabitanteEdit" placeholder="Introduce tu Nombre y Apellido">
+                        <input class="form-control" type="text" name="nameHabitanteEdit" id="nameHabitanteEdit" placeholder="Introduzca los nombres de los habitantes">
                     </div>
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Apellidos</label>
-                        <input class="form-control" type="text" name="name2HabitanteEdit" id="name2HabitanteEdit" placeholder="Introduce tu Nombre y Apellido">
+                        <input class="form-control" type="text" name="name2HabitanteEdit" id="name2HabitanteEdit" placeholder="Introduce los apellidos de los habitantes">
                     </div>
                     
                 </div>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="mb-3 col-md-4">
-                        <label class="form-label">Cedula</label>
+                        <label class="form-label">Cédula</label>
                         <input type="number" name="cedulaHabitanteEdit" id="cedulaHabitanteEdit" class="form-control">
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         <input class="form-control" type="date" name="dateHabitanteEdit" id="dateHabitanteEdit" placeholder="Introduce tu fecha de nacimiento">
                     </div>
                     <div class="mb-3 col-md-4">
-                        <label class="form-label">Numero Telefonico</label>
+                        <label class="form-label">Número Telefónico</label>
                         <input class="form-control" type="number" name="telefonoEdit" id="telefonoEdit" placeholder="Numero de celular">
                     </div>
 

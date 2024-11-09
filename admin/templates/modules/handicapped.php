@@ -1,3 +1,6 @@
+
+<h2 class="text-center">Lista de Habitantes con Diversidad Funcional</h2><hr>
+
 <div class="mdl-grid">
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
@@ -10,7 +13,7 @@
                     <th class="mdl-data-table__cell--non-numeric">Nº</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
-                    <th>Cedula</th>
+                    <th>Cédula</th>
                     <th>Nacionalidad</th>
                     <th>Estado Civil</th>
                     <th>Tlfno / Celular</th>

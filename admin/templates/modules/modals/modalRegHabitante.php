@@ -2,27 +2,24 @@
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> Registrar un Nuevo Habitante</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> Registrar un Nuevo Habitante </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div id="msjRegister"></div>
         <form method="POST" action="">
             <div class="container" id="formContainer">
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label">Nombres</label>
-                        <input class="form-control" type="text" name="nameHabitanteReg" id="nameHabitanteReg" placeholder="Introduce tu Nombre y Apellido">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label">Apellidos</label>
-                        <input class="form-control" type="text" name="name2HabitanteReg" id="name2HabitanteReg" placeholder="Introduce tu Nombre y Apellido">
-                    </div>
-                    
-                </div>
 
                 <div class="row">
                     <div class="mb-3 col-md-4">
+
+                        <label class="form-label">Cédula</label>
+                        <input type="number" name="cedulaHabitanteReg" id="cedulaHabitanteReg" class="form-control">
+
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                    
                         <label for="" class="form-label">Nacionalidad</label>
                         <div class="form-check">
                             <input class="form-check-input" value="Venezolano" type="radio" name="nacionalidadHabitanteReg" id="nacionalidadHabitanteReg">
@@ -36,6 +33,7 @@
                                 Extranjero
                             </label>
                         </div>
+
                     </div>
                     <div class="mb-3 col-md-4">
                         <label for="" class="form-label">Género</label>
@@ -52,9 +50,35 @@
                             </label>
                         </div>
                     </div>
-                    <div class="mb-3 col-md-4">
-                        <label class="form-label">Cedula</label>
-                        <input type="number" name="cedulaHabitanteReg" id="cedulaHabitanteReg" class="form-control">
+                    
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Nombres</label>
+                        <input class="form-control" type="text" name="nameHabitanteReg" id="nameHabitanteReg" placeholder="Introduzca los nombres del Habitante">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Apellidos</label>
+                        <input class="form-control" type="text" name="name2HabitanteReg" id="name2HabitanteReg" placeholder="Introduzca los apellidos del Habitante">
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+
+                        <label class="form-label" for="tipoHabitanteReg">Tipo Habitante</label>
+                        <select class="form-control" name="tipoHabitanteReg" onchange="jefeFamilia()" id="tipoHabitanteReg">
+                            <option disabled selected>Seleccione...</option>
+                            <option value="1">Jefe de Familia</option>
+                            <option value="2">Integrante de Familia</option>
+                        </select>
+
+                    </div>    
+                    <div class="mb-3 col-md-6">
+                        <label for="idJefe" class="form-label">Jefe de Familia</label>
+                        <input type="text" disabled class="form-control" id="idJefe" name="idJefe">
                     </div>
                 </div>
 
@@ -65,7 +89,7 @@
                         <input class="form-control" type="date" name="dateHabitanteReg" id="dateHabitanteReg" placeholder="Introduce tu fecha de nacimiento">
                     </div>
                     <div class="mb-3 col-md-4">
-                        <label class="form-label">Numero Telefonico</label>
+                        <label class="form-label">Número Telefónico</label>
                         <input class="form-control" type="number" name="telHabitanteReg" id="telHabitanteReg" placeholder="Numero de celular">
                     </div>
 
@@ -84,7 +108,7 @@
 
             <div class="row" id="rowContainer">
                 <div class="mb-3 col-md-4" id="radioDiscapacidad">
-                    <label for="" class="form-label">Posee Alguna discapacidad?</label>
+                    <label for="" class="form-label">¿Posee Alguna discapacidad?</label>
                     <select name="discapacidad" id="discapacidad" class="form-control">
                         <option disabled selected> Seleccione ....</option>
                         <option value="Ninguna">Ninguna</option>
@@ -110,15 +134,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="mb-3 col-md-4">
-
-                    <label class="form-label" for="tipoHabitanteReg">Tipo Habitante</label>
-                    <select class="form-control" name="tipoHabitanteReg" onchange="jefeFamilia()" id="tipoHabitanteReg">
-                        <option disabled selected>Seleccione...</option>
-                        <option value="1">Jefe de Familia</option>
-                        <option value="2">Integrante de Familia</option>
-                    </select>
-                </div>
+                
             </div>
 
             <div class="row" id="divSelectHabitante">

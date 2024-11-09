@@ -63,7 +63,7 @@ function modalEditHabitante(a){
 
 			}else {
 				swal({
-                    title: 'Error!',
+                    title: '¡Error!',
                     text: "Ocurrio un error al intentar editar los datos.",
                     type: 'error',
                     showCancelButton: false,
@@ -123,7 +123,7 @@ function editHabitante() {
             if (data == 'ok') {
                 swal({
                     title: 'Editado!',
-                   text: "Los datos se editaron con exito.",
+                    text: "¡Los datos se editaron con éxito.",
                     type: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -131,8 +131,8 @@ function editHabitante() {
                 });
             } if (data == 'cedula') {
                 swal({
-                    title: 'Alerta!',
-                    text: "Asegurese de haber ingresado la cedula del jefe de familia correctamente!",
+                    title: '¡Alerta!',
+                    text: "¡Asegurese de haber ingresado la cedula del jefe de familia correctamente!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'Ok.',
@@ -224,6 +224,33 @@ function modalRegReward(){
     $('#modalRegReward').modal('show');
 }
 
+function modalRegPoligonal() {
+    $('#modalRegPoligonal').modal('show');
+}
+
+function modalEditPoligonal(a) {
+    var id = a;
+    console.log(id);
+    $.ajax({
+        url: './includes/requestPoligonal.php',
+        method: 'POST',
+        data: {
+            id: id
+        },
+        success: function(data) {
+            var data = JSON.parse(data);
+            if (data.status) {
+                document.querySelector('#id_poligonal').value = data.data.id;
+                document.querySelector('#namePoligonalEdit').value = data.data.nombre;
+                document.querySelector('#comunidadEdit').value = data.data.id_comunidad;
+                $('#modalEditPoligonal').modal('show');
+            }else{
+                swal('Atencion',data.msg,'error');
+            }
+        }
+    })
+}
+
 function modalEditUser(a){
 
     var id = a;
@@ -282,8 +309,8 @@ function editUser(){
             $('#msjError').html=data;
             if(data == 'vacio') {
                 swal({
-                    title: 'Alerta!',
-                    text: "Es necesario que rellene todos los campos!",
+                    title: '¡Alerta!',
+                    text: "¡Es necesario que rellene todos los campos!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -292,8 +319,8 @@ function editUser(){
             }
             if(data == 'ok'){
                 swal({
-                    title: 'Editado!',
-                   text: "Los datos se editaron con exito.",
+                    title: '¡Editado!',
+                   text: "Los datos se editaron con éxito.",
                     type: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -301,7 +328,7 @@ function editUser(){
                 });
             }if(data == 'error'){
                 swal({
-                    title: 'Error!',
+                    title: '¡Error!',
                     text: "Ocurrio un error al editar los datos.",
                     type: 'error',
                     showCancelButton: false,
@@ -339,8 +366,8 @@ function regUser(){
         success: function(data){
             if (data == "Sucess") {
                 swal({
-                    title: 'Registrado!',
-                   text: "El usuario se registro con exito.",
+                    title: '¡Registrado!',
+                   text: "¡El usuario se registro con éxito!",
                     type: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -348,7 +375,7 @@ function regUser(){
                 });
             } if (data == "Error") {
                 swal({
-                    title: 'Error!',
+                    title: '¡Error!',
                     text: "Ocurrio un error al registrar el usuario.",
                     type: 'error',
                     showCancelButton: false,
@@ -357,8 +384,8 @@ function regUser(){
                 });
             } if (data == "vacio") {
                 swal({
-                    title: 'Alerta!',
-                    text: "Es necesario que rellene todos los campos!",
+                    title: '¡Alerta!',
+                    text: "¡Es necesario que rellene todos los campos!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'Ok.',
@@ -370,12 +397,55 @@ function regUser(){
     })
 }
 
+function delPoligonal(a) {
+    var id = a;
+
+    swal({
+        title: '¿Estás Seguro?',
+        text: "¿Estás seguro que deseas eliminar esta poligonal?",
+        type: 'error',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar',
+        closeOnConfirm: false
+    },
+    function(isConfirm){
+        if (isConfirm) {
+            $.ajax({
+                url: './includes/delPoligonal.php',
+                method: 'POST',
+                data: {id: id},
+                success: function(data) {
+                    if (data == 'ok') {
+                        swal({
+                            title: '¡Eliminado!',
+                            text: 'La poligonal ha sido eliminada.',
+                            type: 'success',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    } if (data == 'error') {
+                        swal({
+                            title: '¡Error!',
+                            text: "Ocurrio un error al eliminar la poligonal.",
+                            type: 'error',
+                            showCancelButton: false,
+                            confirmButtonText: 'OK',
+                            closeOnConfirm: false
+                        });
+                    }
+                }
+            })   
+        }
+    });
+}
+
 function disableUserSelect(a) {
     var user = a;
 
     swal({
-        title: '¿Estas Seguro?',
-       text: "¿Estas seguro que deseas eliminar este usuario?",
+        title: '¿Estás Seguro?',
+        text: "¿Estás seguro que deseas eliminar este usuario?",
         type: 'error',
         showCancelButton: true,
         confirmButtonText: 'Si, eliminar',
@@ -390,7 +460,7 @@ function disableUserSelect(a) {
                 success: function(data) {
                     if (data == 'ok') {
                         swal({
-                            title: 'Eliminado!',
+                            title: '¡Eliminado!',
                             text: 'El usuario ha sido eliminado.',
                             type: 'success',
                             showCancelButton: false,
@@ -399,7 +469,7 @@ function disableUserSelect(a) {
                         });
                     } if (data == 'error') {
                         swal({
-                            title: 'Error!',
+                            title: '¡Error!',
                             text: "Ocurrio un error al eliminar el usuario.",
                             type: 'error',
                             showCancelButton: false,
@@ -417,24 +487,16 @@ function disableUserSelect(a) {
 function jefeFamilia(){
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
     var containerForm = document.getElementById('divSelectHabitante');
+    var id_jefe = document.getElementById('idJefe');
     console.log(tipoHabitante);
-    if(tipoHabitante == 2){
-        // const divRowField = document.createElement("div");
-        // divRowField.className = "row";
-        const divHabField = document.createElement("div");
-        divHabField.className = "mb-3 col-md-4";
-        const labelHabField = document.createElement("label");
-        labelHabField.className = "form-label";
-        labelHabField.textContent = "Ingrese la cedula de su Jefe de Familia";
-        const inputHabField = document.createElement("input");
-        inputHabField.type = "number";
-        inputHabField.name = "idJefe"
-        inputHabField.className = "form-control";
-        inputHabField.id = "idJefe";
+    
+    if (tipoHabitante == 1) {
 
-        containerForm.appendChild(divHabField);
-        divHabField.appendChild(labelHabField);
-        divHabField.appendChild(inputHabField);
+        id_jefe.disabled = true;
+        
+    }if(tipoHabitante == 2){
+    
+        id_jefe.removeAttribute('disabled');
 
     }
 }
@@ -478,11 +540,7 @@ function regHabitante(){
     var fechaNac = document.getElementById('dateHabitanteReg').value;
     var telefono = document.getElementById('telHabitanteReg').value;
     var edoCivil = document.getElementById('edoCivilReg').value;
-    // if (document.querySelector('#discapacidadInput')) {
-    //     var discapacidad = document.getElementById('discapacidadInput').value;
-    // }else {
-    //     var discapacidad = document.getElementById('discapacidad').value;
-    // }
+    
     var discapacidad = document.getElementById('discapacidad').value;
     var pensionado = document.getElementById('radioHabitanteReg2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
@@ -514,8 +572,8 @@ function regHabitante(){
             $('#msjRegister').html(data);
             if(data == 'ok'){
                 swal({
-                    title: 'Registrado!',
-                   text: "Los datos se registraron con exito.",
+                    title: '¡Registrado!',
+                   text: "Los datos se registraron con éxito.",
                     type: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -523,7 +581,7 @@ function regHabitante(){
                 });
             }if(data == 'error'){
                 swal({
-                    title: 'Error!',
+                    title: '¡Error!',
                     text: "Ocurrio un error al registrar los datos.",
                     type: 'error',
                     showCancelButton: false,
@@ -532,8 +590,8 @@ function regHabitante(){
                 });
             }if(data == 'existe'){
                 swal({
-                    title: 'Alerta!',
-                   text: "El habitante que esta intentando registrar ya existe!",
+                    title: '¡Alerta!',
+                   text: "¡El habitante que esta intentando registrar ya existe!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -541,8 +599,8 @@ function regHabitante(){
                 });
             }if(data == 'vacio'){
                 swal({
-                    title: 'Alerta!',
-                   text: "Es necesario que rellene todos los campos!",
+                    title: '!Alerta!',
+                   text: "¡Es necesario que rellene todos los campos!",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -561,8 +619,8 @@ function regPoligonal(){
     if(nombre == '' || comunidadID == ''){
 
         swal({
-            title: 'Datos',
-           text: "Es necesario rellenar todos los datos.",
+            title: '¡Alerta!',
+            text: "Es necesario rellenar todos los datos.",
             type: 'warning',
             showCancelButton: false,
             confirmButtonText: 'OK',
@@ -580,8 +638,8 @@ function regPoligonal(){
            success:function(data){
             if(data == 'Registrado'){
                 swal({
-                    title: 'Registrado!',
-                   text: "Los datos se registraron con exito.",
+                    title: '¡Registrado!',
+                   text: "¡Los datos se registraron con éxito!",
                     type: 'success',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -589,8 +647,8 @@ function regPoligonal(){
                 });
             }if(data == 'Error'){
                 swal({
-                    title: 'Error!',
-                   text: "Ocurrio un error al registrar los datos.",
+                    title: '¡Error!',
+                    text: "Ocurrio un error al registrar los datos.",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -598,8 +656,8 @@ function regPoligonal(){
                 });
             }if(data == 'existe'){
                 swal({
-                    title: 'Alerta!',
-                   text: "La poligonal que esta intentando registrar ya existe!",
+                    title: '¡Alerta!',
+                    text: "¡La poligonal que esta intentando registrar ya existe!",
                     type: 'info',
                     showCancelButton: false,
                     confirmButtonText: 'OK',
@@ -630,7 +688,7 @@ function valJefe(){
                 if(data == 'VALIDO'){
                     swal({
                         title: 'Encontrado!',
-                       text: "La cedula ingresada coincide con un jefe de familia!.",
+                        text: "La cédula ingresada coincide con un jefe de familia!.",
                         type: 'success',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -639,7 +697,7 @@ function valJefe(){
                 }if(data == 'nulo'){
                     swal({
                         title: 'Alerta!',
-                       text: "La cedula no coincide con ningun jefe de familia!",
+                       text: "¡La cédula no coincide con ningun jefe de familia!",
                         type: 'info',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -672,8 +730,8 @@ function valJefeEspecial(){
             success: function(data){
                 if(data == 'VALIDO'){
                     swal({
-                        title: 'Encontrado!',
-                       text: "La cedula ingresada coincide con un jefe de familia!.",
+                        title: '¡Encontrado!',
+                        text: "¡La cédula ingresada coincide con un jefe de familia!",
                         type: 'success',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -681,8 +739,8 @@ function valJefeEspecial(){
                     });
                 }if(data == 'nulo'){
                     swal({
-                        title: 'Alerta!',
-                       text: "La cedula no coincide con ningun jefe de familia!",
+                        title: '¡Alerta!',
+                        text: "¡La cédula no coincide con ningun jefe de familia!",
                         type: 'info',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -705,8 +763,8 @@ function regReward(){
 
     if (jefeFamilia == '' || beneficio_id == '' || referencia == '') {
         swal({
-            title: 'Error!',
-            text: "Por favor complete todos los campos",
+            title: '¡Error!',
+            text: "Por favor, complete todos los campos.",
             type: 'error',
             showCancelButton: false,
             confirmButtonText: 'OK',
@@ -717,8 +775,8 @@ function regReward(){
 
         if (jefeFamilia <= 0 || referencia <= 0) {
             swal({
-                title: 'Error!',
-                text: "Los campos numericos no deben ser negativos!",
+                title: '¡Error!',
+                text: "¡Los campos numericos no deben ser negativos!",
                 type: 'warning',
                 showCancelButton: false,
                 confirmButtonText: 'OK',
@@ -737,8 +795,8 @@ function regReward(){
                     // $('#errorDisplay').html(data);
                     if(data == 'ok'){
                         swal({
-                            title: 'Exito!',
-                            text: "La entrega se registro con exito!",
+                            title: '¡Éxito!',
+                            text: "¡La entrega se registro con éxito!",
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -746,8 +804,8 @@ function regReward(){
                         });
                     } if(data == 'error') {
                         swal({
-                            title: 'Error!',
-                           text: "Ocurrio un error al registrar los datos.",
+                            title: '¡Error!',
+                            text: "Ocurrio un error al registrar los datos.",
                             type: 'error',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -755,8 +813,8 @@ function regReward(){
                         });
                     }if(data == 'existe'){
                         swal({
-                            title: 'Alerta!',
-                           text: "La entrega que esta intentando registrar ya existe!",
+                            title: '¡Alerta!',
+                            text: "La entrega que esta intentando registrar ya existe!",
                             type: 'info',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -778,8 +836,8 @@ function regRewardEspecial(){
 
     if (jefeFamilia == '' || beneficio_id == '') {
         swal({
-            title: 'Error!',
-            text: "Por favor complete todos los campos",
+            title: '¡Error!',
+            text: "Por favor, complete todos los campos.",
             type: 'error',
             showCancelButton: false,
             confirmButtonText: 'OK',
@@ -790,8 +848,8 @@ function regRewardEspecial(){
 
         if (jefeFamilia <= 0 || referencia < 0) {
             swal({
-                title: 'Error!',
-                text: "Los campos numericos no deben ser negativos!",
+                title: '¡Error!',
+                text: "¡Los campos numéricos no deben ser negativos!",
                 type: 'warning',
                 showCancelButton: false,
                 confirmButtonText: 'OK',
@@ -810,8 +868,8 @@ function regRewardEspecial(){
                     // $('#errorDisplay').html(data);
                     if(data == 'ok'){
                         swal({
-                            title: 'Exito!',
-                            text: "La entrega se registro con exito!",
+                            title: '¡Éxito!',
+                            text: "¡La entrega se registro con éxito!",
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -819,7 +877,7 @@ function regRewardEspecial(){
                         });
                     } if(data == 'error') {
                         swal({
-                            title: 'Error!',
+                            title: '¡Error!',
                            text: "Ocurrio un error al registrar los datos.",
                             type: 'error',
                             showCancelButton: false,
@@ -830,8 +888,8 @@ function regRewardEspecial(){
                         document.getElementById('nroReferenciaEspecial').value = "";
                     }if(data == 'existe'){
                         swal({
-                            title: 'Alerta!',
-                            text: "La entrega que esta intentando registrar ya existe!",
+                            title: '¡Alerta!',
+                            text: "¡La entrega que esta intentando registrar ya existe!",
                             type: 'info',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -841,8 +899,8 @@ function regRewardEspecial(){
                         document.getElementById('nroReferenciaEspecial').value = "";
                     }if (data == 'exMonth') {
                         swal({
-                            title: 'Alerta!',
-                            text: "Este Jefe de Familia ya recibio este beneficio!",
+                            title: '¡Alerta!',
+                            text: "¡Este Jefe de Familia ya recibió este beneficio!",
                             type: 'info',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -864,7 +922,7 @@ function regBeneficio(){
 
     if (name == "" || estado == "") {
         swal({
-            title: 'Error!',
+            title: '¡Error!',
             text: "Por favor complete todos los campos",
             type: 'warning',
             showCancelButton: false,
@@ -884,8 +942,8 @@ function regBeneficio(){
                 $('#msjError').html(data);
                 if (data == "registrado") {
                     swal({
-                        title: 'Exito!',
-                        text: "El beneficio se registro con exito!",
+                        title: '¡Éxito!',
+                        text: "¡El beneficio se registro con éxito!",
                         type: 'success',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -893,8 +951,8 @@ function regBeneficio(){
                     });
                 } if (data == "existe") {
                     swal({
-                        title: 'Alerta!',
-                        text: "La entrega que esta intentando registrar ya existe!",
+                        title: '¡Alerta!',
+                        text: "El beneficio que esta intentando registrar ya existe!",
                         type: 'info',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -903,7 +961,7 @@ function regBeneficio(){
                     
                 } if (data == "error") {
                     swal({
-                        title: 'Error!',
+                        title: '¡Error!',
                        text: "Ocurrio un error al registrar el beneficio.",
                         type: 'error',
                         showCancelButton: false,
@@ -912,8 +970,8 @@ function regBeneficio(){
                     });
                 } if (data == "inactivo") {
                     swal({
-                        title: 'Alerta!',
-                        text: "La entrega que esta intentando registrar ya existe, pero se encuentra inactiva!",
+                        title: '¡Alerta!',
+                        text: "¡El beneficio que esta intentando registrar ya existe, pero se encuentra inactiva!",
                         type: 'error',
                         showCancelButton: false,
                         confirmButtonText: 'OK',
@@ -946,7 +1004,7 @@ function modalEditBeneficio(a) {
                 $('#modalEditReward').modal('show');
             } else {
                 swal({
-                    title: 'Error!',
+                    title: '¡Error!',
                     text: "Ocurrio un error al editar el beneficio.",
                     type: 'error',
                     showCancelButton: false,
@@ -965,8 +1023,8 @@ function editBeneficio(){
     var especial = document.querySelector('#especialBeneficioEdit').value;
 
     swal({
-        title: 'Alerta!',
-        text: "Esta seguro que desea editar?",
+        title: '¡Alerta!',
+        text: "¿Está seguro que desea editar?",
         type: 'info',
         showCancelButton: true,
         confirmButtonText: 'OK',
@@ -986,8 +1044,8 @@ function editBeneficio(){
                 success: function(data){
                     if (data == 'ok') {
                         swal({
-                            title: 'Exito!',
-                            text: "El beneficio se edito con exito!",
+                            title: '¡Éxito!',
+                            text: "¡El beneficio se edito con éxito!",
                             type: 'success',
                             showCancelButton: false,
                             confirmButtonText: 'OK',
@@ -995,7 +1053,7 @@ function editBeneficio(){
                         });
                     } if (data == 'error') {
                         swal({
-                            title: 'Error!',
+                            title: '¡Error!',
                             text: "Ocurrio un error al editar el beneficio.",
                             type: 'error',
                             showCancelButton: false,
@@ -1004,7 +1062,7 @@ function editBeneficio(){
                         });
                     } if (data == 'vacio') {
                         swal({
-                            title: 'Alerta!',
+                            title: '¡Alerta!',
                             text: "Es necesario rellenar todos los campos.",
                             type: 'info',
                             showCancelButton: false,

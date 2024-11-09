@@ -15,7 +15,7 @@
     <div class="form-container">
         <p class="text-center" style="margin-top: 17px;">
            <!-- <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i> -->
-            <img src="assets/img/logoSEBUC.png" alt="" width="300px">
+            <img src="assets/img/logoSEBUC.png" alt="" width="325px">
        </p>
        <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión</h4>
        <form method="POST" action="">

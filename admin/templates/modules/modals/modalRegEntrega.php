@@ -13,7 +13,7 @@
                 <div class="row">
                     
                     <div class="mb-3 col-md-12">
-                        <label class="form-label" for="cedulaJefe">Cedula de Jefe de Familia</label>
+                        <label class="form-label" for="cedulaJefe">Cédula de Jefe de Familia</label>
                         <input class="form-control" type="number" onblur="valJefe()" id="cedulaJefe">
                     </div>
                     

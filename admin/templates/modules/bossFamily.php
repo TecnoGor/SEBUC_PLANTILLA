@@ -1,9 +1,9 @@
+<h2 class="text-center">Jefes de Familia</h2><hr>
+
 <div class="mdl-grid">
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-        
-        
-        
+               
         <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
                 <tr>
@@ -11,7 +11,7 @@
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Nacionalidad</th>
-                    <th>Cedula</th>
+                    <th>Cédula</th>
                     <th>Estado Civil</th>
                     <th>Tipo de Habitante</th>
                     <th>Tlfno / Celular</th>
