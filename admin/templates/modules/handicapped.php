@@ -15,7 +15,7 @@
                     <th>Estado Civil</th>
                     <th>Tlfno / Celular</th>
                     <th>Discapacidad</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +44,7 @@
                     // echo "<td>" . $listado[$i]->tipo_habitante . "</td>";
                     echo "<td>" . $listado[$i]->cel . "</td>";
                     echo "<td>" . $listado[$i]->discapacidad . "</td>";
-                    echo '<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>';
+                    // echo '<td><button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"><i class="zmdi zmdi-more"></i></button></td>';
                     // echo "<td>" . '<a href="actualizar.php?upd=' . $listado[$i]->id_cl . '" class="boton_edit" title="Editar Habitante"><img src="../fontawesome/svgs/regular/pen-to-square.svg" class="icon_edit"></a>' . "</td>";
                     echo "</tr>";
                     $i++;

@@ -776,7 +776,7 @@ function regRewardEspecial(){
     var beneficio_id = document.getElementById('beneficio_idEspecial').value;
     var referencia = document.getElementById('nroReferenciaEspecial').value;
 
-    if (jefeFamilia == '' || beneficio_id == '' || referencia == '') {
+    if (jefeFamilia == '' || beneficio_id == '') {
         swal({
             title: 'Error!',
             text: "Por favor complete todos los campos",
@@ -788,7 +788,7 @@ function regRewardEspecial(){
         
     }else {
 
-        if (jefeFamilia <= 0 || referencia <= 0) {
+        if (jefeFamilia <= 0 || referencia < 0) {
             swal({
                 title: 'Error!',
                 text: "Los campos numericos no deben ser negativos!",

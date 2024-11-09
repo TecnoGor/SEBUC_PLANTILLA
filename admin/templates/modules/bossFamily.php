@@ -23,7 +23,7 @@
                 
                 include('../../includes/conn.php');
 
-                $sql = "SELECT h.id as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id && h.id_tipoHabitante = 1";
+                $sql = "SELECT h.id_habitante as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id && h.id_tipoHabitante = 1";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
 

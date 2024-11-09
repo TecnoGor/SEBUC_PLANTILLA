@@ -180,7 +180,7 @@
 	    	while($row = $stmt->fetch(PDO::FETCH_OBJ)) {
 	            $objClSystem = new pSystem();
 
-	            $objClSystem->id_cl = $row->id;
+	            $objClSystem->id_cl = $row->id_habitante;
 	            $objClSystem->nom = $row->nombres;
 	            $objClSystem->snom = $row->apellidos;
 	            $objClSystem->ced = $row->cedula;
