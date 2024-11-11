@@ -279,7 +279,6 @@ html, body{
 }
 /*=============Estilos barra superior*/
 .navBar{
-	background-color: #3F51B5;
 	height: 45px;
 	position: absolute;
 	top: 0;
@@ -288,6 +287,7 @@ html, body{
 	color: #fff;
 }
 .navBar-options{
+	background: linear-gradient(to right, #46bcad, #4443c2, #46bcad);
 	line-height: 45px;
 	height: 45px;
 	position: absolute;
@@ -378,6 +378,8 @@ html, body{
 	/*box-shadow: 0 0px 15px rgba(0,0,0,.4);*/
 	border-right: 1px solid #E1E1E1;
 	transition: all .3s ease-in-out;
+	background-image: url('../assets/img/bgSysEdit.jpeg');
+	background-size: cover;
 }
 .navLateral-change{
 	pointer-events: none;
@@ -386,9 +388,8 @@ html, body{
 }
 .navLateral-body{
 	/* background-color: #fff; */
-	background-image: url('../assets/img/bgSys2.jpg');
-	background-size: cover;
-	background-color: rgba(255, 255, 255, 0.5);
+	
+	/* background-color: rgba(255, 255, 255, 0.5); */
 	z-index: 82;
 	left: 0;
 	padding-bottom: 30px;
@@ -399,7 +400,8 @@ html, body{
 	color: #fff;
 	width: 100%;
 	font-size: 25px;
-	background-color: #3F51B5;
+	/* background-color: #3F51B5; */
+	background: linear-gradient(to right, #46bcad, #46bcad, #46bcad);
 }
 .navLateral-body-logo .zmdi-close{
 	width: 0;

@@ -1,5 +1,8 @@
 	<!-- navBar -->
 	<div class="full-width navBar">
+	<!-- <div class="navLateral-body-logo text-left tittles" style="margin-left: 4%; margin-top: 5px;">
+				<h2><b>S E B U C</b></h2>
+			</div> -->
 		<div class="full-width navBar-options">
 			<i class="zmdi zmdi-more-vert btn-menu" id="btn-menu"></i>	
 			<div class="mdl-tooltip" for="btn-menu">Menu</div>
@@ -26,9 +29,10 @@
 	</div>
 	<!-- navLateral -->
 	<section class="full-width navLateral">
+	
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
-			<div class="full-width navLateral-body-logo text-center tittles">
+		<div class="full-width navLateral-body-logo text-center tittles">
 				<!-- i class="zmdi zmdi-close btn-menu"></i -->
 				<h2><b>S E B U C</b></h2>
 			</div>
@@ -44,9 +48,9 @@
 					</span>
 				</figcaption>
 			</figure>
-			<div class="full-width tittles navLateral-body-tittle-menu">
+			<!-- <div class="full-width tittles navLateral-body-tittle-menu">
 				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; DASHBOARD</span>
-			</div>
+			</div> -->
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
 					<li class="full-width">
@@ -55,7 +59,7 @@
 								<i class="zmdi zmdi-view-dashboard"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								INICIO
+								DASHBOARD
 							</div>
                         </a>
 					</li>
