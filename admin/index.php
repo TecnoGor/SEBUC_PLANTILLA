@@ -14,9 +14,9 @@
 	
 	<!-- pageContent -->
 	<section id="pageContentId" class="full-width pageContent">
-		<!-- <section class="full-width text-center" style="padding: 40px 0;">
+		<section id="tilesResponsive" class="full-width text-center" style="padding: 40px 0;">
 			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
-			 Tiles 
+			
 			<article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
@@ -44,7 +44,7 @@
 				</div>
 				<i class="zmdi zmdi-truck tile-icon"></i>
 			</article>
-			<article class="full-width tile">
+			<!-- <article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
 						9<br>
@@ -70,11 +70,22 @@
 					</span>
 				</div>
 				<i class="zmdi zmdi-shopping-cart tile-icon"></i>
-			</article>
-		</section> -->
+			</article> -->
+		</section>
 		<section id="homeInfo" class="full-width" style="margin: 30px 0;">
-			<h3 class="text-center tittles">RESPONSIVE TIMELINE</h3>
-			<!-- TimeLine -->
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<?php include('templates/modules/charts/chartI.php');?>
+					</div>
+					
+				</div>
+				
+			</div>
+			<!-- <h3 class="text-center tittles">RESPONSIVE TIMELINE</h3>
 			<div id="timeline-c" class="timeline-c">
 				<div class="timeline-c-box">
 	                <div class="timeline-c-box-icon bg-info">
@@ -124,7 +135,7 @@
 	                    <span class="timeline-date"><i class="zmdi zmdi-calendar-note zmdi-hc-fw"></i>08-04-2016</span>
 	                </div>
 	            </div>
-			</div>
+			</div> -->
 		</section>
 		
 		<div id="templates">
