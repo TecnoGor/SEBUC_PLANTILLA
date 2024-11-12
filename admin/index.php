@@ -78,10 +78,10 @@
 
 				<div class="row">
 
-					<div class="col-md-6">
+					<div class="col-md-6 rounded bg-light bg-gradient">
 						<?php include('templates/modules/charts/chartI.php');?>
 					</div>
-					
+
 				</div>
 				
 			</div>
