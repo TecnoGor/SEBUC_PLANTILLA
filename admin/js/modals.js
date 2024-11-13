@@ -492,6 +492,7 @@ function jefeFamilia(){
     
     if (tipoHabitante == 1) {
 
+        id_jefe.value = "";
         id_jefe.disabled = true;
         
     }if(tipoHabitante == 2){
@@ -579,6 +580,19 @@ function regHabitante(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                nombre.value= "";
+                apellido.value="";
+                nacionalidad.value="";
+                genero.value="";
+                cedula.value="";
+                fechaNac.value="";
+                telefono.value="";
+                edoCivil.value="";
+                discapacidad.value="";
+                pensionado.value="";
+                tipoHabitante.value="";
+                poligonal.value="";
+                habitantes();
             }if(data == 'error'){
                 swal({
                     title: '¡Error!',
@@ -645,6 +659,7 @@ function regPoligonal(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                poligonales();
             }if(data == 'Error'){
                 swal({
                     title: '¡Error!',

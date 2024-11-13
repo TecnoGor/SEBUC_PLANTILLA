@@ -16,34 +16,13 @@
 	<section id="pageContentId" class="full-width pageContent">
 		<section id="tilesResponsive" class="full-width text-center" style="padding: 40px 0;">
 			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
+
+			<?php
 			
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						2<br>
-						<small>Administrators</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-account tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						71<br>
-						<small>Clients</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-accounts tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						7<br>
-						<small>Providers</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-truck tile-icon"></i>
-			</article>
+			require('templates/modules/countEtiquetas.php');
+			
+			?>
+			
 			<!-- <article class="full-width tile">
 				<div class="tile-text">
 					<span class="text-condensedLight">
@@ -77,11 +56,13 @@
 			<div class="container">
 
 				<div class="row">
-
-					<div class="col-md-6 rounded bg-light bg-gradient">
-						<?php include('templates/modules/charts/chartI.php');?>
+					<div class="col-md-7 m-3 rounded bg-light bg-gradient">
+						<?php include('templates/modules/charts/chartII.php');?>
 					</div>
 
+					<div class="col-md-4 m-2 rounded bg-light bg-gradient">
+						<?php include('templates/modules/charts/chartI.php');?>
+					</div>
 				</div>
 				
 			</div>

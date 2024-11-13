@@ -1,7 +1,39 @@
-<div">
-		<canvas id="chart2" style="height: 40vh !important; width: 600px;"></canvas>
+    <div>
+		<canvas id="chart2"></canvas>
 	</div>
     <?php 
+
+            
+        $host = "localhost";
+        $dbname = "sebuc";
+        $user = "root";
+        $password = "";
+
+        $conn = "mysql:host=".$host.";dbname=".$dbname;
+
+        try {
+            $conn = new PDO($conn, $user, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // echo "Conexion establecida";
+        } catch (PDOException $e) {
+            echo "Error al establecer conexion" . $e->getMessage();
+        }
+
+        $sqlII = "SELECT 
+                    COUNT(CASE WHEN id_poligonal = 1 THEN 1 END) AS countOriental,
+                    COUNT(CASE WHEN id_poligonal = 2 THEN 1 END) AS countCarabobo,
+                    COUNT(CASE WHEN id_poligonal = 3 THEN 1 END) AS countFJavier,
+                    COUNT(CASE WHEN id_poligonal = 4 THEN 1 END) AS countPrincipal
+                FROM 
+                    habitantes;";
+
+        $stmtII = $conn->prepare($sqlII);
+        $stmtII->execute();
+        $resultII = $stmtII->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($resultII as $datosII) {
+    
+
     ?>
 	<script>// modules are defined as an array
 // [ module function, map of requires ]
@@ -593,23 +625,28 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _auto = require("chart.js/auto");
 var _autoDefault = parcelHelpers.interopDefault(_auto);
 let canvas1 = document.getElementById("chart2").getContext("2d");
+var countOriental = <?= $datosII['countOriental'];?>;
+var countCarabobo = <?= $datosII['countCarabobo'];?>;
+var countFJavier = <?= $datosII['countFJavier'];?>;
+var countPrincipal = <?= $datosII['countPrincipal'];?>;
+<?php }?>
 var chart = new (0, _autoDefault.default)(canvas1, {
     type: "bar",
     data: {
         labels: [
-            "Jefes de Familia",
-            "Integrantes",
-            "Menores de Edad",
-            "Adultos mayores"
+            "Oriental",
+            "Carabobo",
+            "Francisco Javier",
+            "Principal"
         ],
         datasets: [
             {
-                label: "todos",
+                label: "Cantidad de casos",
                 data: [
-                    50,
-                    5,
-                    3,
-                    10
+                    countOriental,
+                    countCarabobo,
+                    countFJavier,
+                    countPrincipal
                 ],
                 backgroundColor: [
                     "#f0f",

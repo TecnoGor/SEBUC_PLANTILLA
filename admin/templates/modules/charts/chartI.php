@@ -3,45 +3,34 @@
 	</div>
     <?php 
 
-    $host = "localhost";
-    $dbname = "sebuc";
-    $user = "root";
-    $password = "";
+        $host = "localhost";
+        $dbname = "sebuc";
+        $user = "root";
+        $password = "";
 
-    $conn = "mysql:host=".$host.";dbname=".$dbname;
+        $conn = "mysql:host=".$host.";dbname=".$dbname;
 
-    try {
-        $conn = new PDO($conn, $user, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        // echo "Conexion establecida";
-    } catch (PDOException $e) {
-        echo "Error al establecer conexion" . $e->getMessage();
-    }
+        try {
+            $conn = new PDO($conn, $user, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // echo "Conexion establecida";
+        } catch (PDOException $e) {
+            echo "Error al establecer conexion" . $e->getMessage();
+        }
 
-    $sql = "SELECT 
-                COUNT(CASE WHEN id_tipoHabitante = 1 THEN 1 END) AS countJefes,
-                COUNT(CASE WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) < 18 THEN 1 END) AS countMenor,
-                COUNT(CASE WHEN discapacidad != 'Ninguno' THEN 1 END) AS countDiscapacitado,
-                COUNT(CASE WHEN id_tipoHabitante = 2 THEN 1 END) AS countIntegrantes
-            FROM 
-                habitantes;";
+        $sql = "SELECT 
+                    COUNT(CASE WHEN id_tipoHabitante = 1 THEN 1 END) AS countJefes,
+                    COUNT(CASE WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) < 18 THEN 1 END) AS countMenor,
+                    COUNT(CASE WHEN discapacidad != 'Ninguna' THEN 1 END) AS countDiscapacitado,
+                    COUNT(CASE WHEN id_tipoHabitante = 2 THEN 1 END) AS countIntegrantes
+                FROM 
+                    habitantes;";
 
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($result as $datos) {
-        # code...
-    
-
-    // $sql = "SELECT * FROM habitantes WHERE tipo_habitante = 'Jefe de Familia';";
-
-    // $stmt = $conn->prepare($sql);
-    // $stmt->execute();
-
-    // $row = $stmt->rowCount();
-
-    // $cantidad = $row;
+        foreach ($result as $datos) {
 
     ?>
 	<script>// modules are defined as an array
