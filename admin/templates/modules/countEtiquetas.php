@@ -3,10 +3,9 @@
 include('../includes/conn.php');
 
 $sql = "SELECT
-            COUNT(CASE WHEN usuarios.activo = 1 THEN 1 END) AS countUsuarios,
-            COUNT(CASE WHEN habitantes.id_habitante != 0 THEN 1 END) AS countHabitantes,
-            COUNT(CASE WHEN entrega_beneficio.id_beneficio = 1 THEN 1 END) AS countEntregas
-        FROM usuarios, habitantes, entrega_beneficio;
+           (SELECT COUNT(CASE WHEN u.activo = 1 THEN 1 END) FROM usuarios u) AS countUsuarios,
+           (SELECT COUNT(CASE WHEN h.id_habitante != 0 THEN 1 END) FROM habitantes h) AS countHabitantes,
+           (SELECT COUNT(CASE WHEN eb.id_beneficio != 0 THEN 1 END) FROM entrega_beneficio eb) AS countEntregas;
 ";
 
 $stmtProviders = $conn->prepare($sql);
@@ -21,7 +20,7 @@ foreach($resultProviders AS $rowProviders) {
     <div class="tile-text">
         <span class="text-condensedLight">
             <?php echo $rowProviders['countUsuarios'];?><br>
-            <small>Administrators</small>
+            <small>Usuarios</small>
         </span>
     </div>
     <i class="zmdi zmdi-account tile-icon"></i>
@@ -30,7 +29,7 @@ foreach($resultProviders AS $rowProviders) {
     <div class="tile-text">
         <span class="text-condensedLight">
         <?php echo $rowProviders['countHabitantes'];?><br>
-            <small>Clients</small>
+            <small>Habitantes</small>
         </span>
     </div>
     <i class="zmdi zmdi-accounts tile-icon"></i>
@@ -39,7 +38,7 @@ foreach($resultProviders AS $rowProviders) {
     <div class="tile-text">
         <span class="text-condensedLight">
         <?php echo $rowProviders['countEntregas'];?><br>
-            <small>Providers</small>
+            <small>Entregas</small>
         </span>
     </div>
     <i class="zmdi zmdi-truck tile-icon"></i>

@@ -14,7 +14,7 @@
 	
 	<!-- pageContent -->
 	<section id="pageContentId" class="full-width pageContent">
-		<section id="tilesResponsive" class="full-width text-center" style="padding: 40px 0;">
+		<section id="tilesResponsive" class="full-width text-center" style="padding: 20px 0;">
 			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
 
 			<?php

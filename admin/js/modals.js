@@ -580,18 +580,6 @@ function regHabitante(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
-                nombre.value= "";
-                apellido.value="";
-                nacionalidad.value="";
-                genero.value="";
-                cedula.value="";
-                fechaNac.value="";
-                telefono.value="";
-                edoCivil.value="";
-                discapacidad.value="";
-                pensionado.value="";
-                tipoHabitante.value="";
-                poligonal.value="";
                 habitantes();
             }if(data == 'error'){
                 swal({
@@ -817,6 +805,7 @@ function regReward(){
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
                         });
+                        rewards();
                     } if(data == 'error') {
                         swal({
                             title: '¡Error!',
@@ -890,6 +879,7 @@ function regRewardEspecial(){
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
                         });
+                        rewardsEspecial();
                     } if(data == 'error') {
                         swal({
                             title: '¡Error!',

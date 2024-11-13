@@ -1,4 +1,3 @@
-	
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
 	<script src="js/material.min.js" ></script>
@@ -11,31 +10,7 @@
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>
 	<script src="../node_modules/chart.js/dist/chart.umd.js"></script>
-	<!-- <script src="../node_modules/chart.js/dist/chart.js"></script> -->
-	<script>
-		const ctx = document.getElementById('acquisitions');
-
-		new Chart(ctx, {
-			type: 'bar',
-			data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			datasets: [{
-				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
-				borderWidth: 1
-			}]
-			},
-			options: {
-			scales: {
-				y: {
-				beginAtZero: true
-				}
-			}
-			}
-		});
-	</script>
-
-	
+	<!-- <script src="../node_modules/chart.js/dist/chart.js"></script> -->	
 
 <?php 
 
@@ -136,7 +111,7 @@
             data: {
             labels: ['Oriental', 'Carabobo', 'Francisco Javier', 'Principal'],
             datasets: [{
-                label: '# of Votes',
+                label: 'Cantidad de Habitantes por Poligonal',
                 data: [countOriental, countCarabobo, countFJavier, countPrincipal],
                 borderWidth: 1
             }]
@@ -152,6 +127,75 @@
     </script>
     
 
+	<script>
+
+		<?php
+		
+			$sqlIII = "SELECT 
+							YEAR(fecha_entrega) AS anio,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 1 THEN 1 ELSE 0 END) AS enero,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 2 THEN 1 ELSE 0 END) AS febrero,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 3 THEN 1 ELSE 0 END) AS marzo,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 4 THEN 1 ELSE 0 END) AS abril,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 5 THEN 1 ELSE 0 END) AS mayo,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 6 THEN 1 ELSE 0 END) AS junio,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 7 THEN 1 ELSE 0 END) AS julio,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 8 THEN 1 ELSE 0 END) AS agosto,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 9 THEN 1 ELSE 0 END) AS septiembre,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 10 THEN 1 ELSE 0 END) AS octubre,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 11 THEN 1 ELSE 0 END) AS noviembre,
+							SUM(CASE WHEN MONTH(fecha_entrega) = 12 THEN 1 ELSE 0 END) AS diciembre
+						FROM 
+							entrega_beneficio
+						GROUP BY 
+							YEAR(fecha_entrega)
+						ORDER BY 
+							anio;";
+
+			$stmtIII = $conn->prepare($sqlIII);
+			$stmtIII->execute();
+
+			$resultIII = $stmtIII->fetchAll(PDO::FETCH_ASSOC);
+
+			foreach ($resultIII as $jornadas) {
+				# code...
+			}
+
+		?>
+
+		const ctx = document.getElementById('acquisitions');
+		let enero =  <?= $jornadas['enero']; ?>;
+		let febrero = <?= $jornadas['febrero']; ?>;
+		let marzo = <?= $jornadas['marzo']; ?>;
+		let abril = <?= $jornadas['abril']; ?>;
+		let mayo = <?= $jornadas['mayo']; ?>;
+		let junio = <?= $jornadas['junio']; ?>;
+		let julio = <?= $jornadas['julio']; ?>;
+		let agosto = <?= $jornadas['agosto']; ?>;
+		let septiembre = <?= $jornadas['septiembre']; ?>;
+		let octubre = <?= $jornadas['octubre']; ?>;
+		let noviembre = <?= $jornadas['noviembre']; ?>;
+		let diciembre = <?= $jornadas['diciembre']; ?>;
+
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+			labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+			datasets: [{
+				label: 'N° de Entregas',
+				data: [enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre],
+				borderWidth: 1
+			}]
+			},
+			options: {
+			scales: {
+				y: {
+				beginAtZero: true
+				}
+			}
+			}
+		});
+	</script>
 
 
 
