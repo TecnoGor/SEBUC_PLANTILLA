@@ -1,5 +1,7 @@
-<div class="mdl-grid">
+<h2 class="text-center" style="font-family: 'OswaldLight';">ENTREGA DE BENEFICIOS ESPECIAL</h2><hr>
 
+<div class="mdl-grid">
+    
     <div class="tile-title-w-btn">
         <p><a class="btn btn-primary icon-btn" onclick="modalRegEntregaEspecial()"><i class="bi bi-plus-square m-2"></i>Entregar Beneficio</a></p>
     </div>

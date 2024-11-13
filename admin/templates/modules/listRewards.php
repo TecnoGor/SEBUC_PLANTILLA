@@ -1,3 +1,5 @@
+<h2 class="text-center" style="font-family: 'OswaldLight';">BENEFICIOS</h2><hr>
+
 <div class="mdl-grid">
 
     <div class="tile-title-w-btn">
