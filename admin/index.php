@@ -57,11 +57,18 @@
 
 				<div class="row">
 					<div class="col-md-7 m-3 rounded bg-light bg-gradient">
-						<?php include('templates/modules/charts/chartII.php');?>
+					<canvas id="chart2"></canvas>
+						
 					</div>
 
 					<div class="col-md-4 m-2 rounded bg-light bg-gradient">
-						<?php include('templates/modules/charts/chartI.php');?>
+					<canvas id="chart1"></canvas>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-11 m-3 rounded bg-light bg-gradient">
+						<canvas id="acquisitions"></canvas>
 					</div>
 				</div>
 				

@@ -10,6 +10,151 @@
 	<script src="js/modals.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>
+	<script src="../node_modules/chart.js/dist/chart.umd.js"></script>
+	<!-- <script src="../node_modules/chart.js/dist/chart.js"></script> -->
+	<script>
+		const ctx = document.getElementById('acquisitions');
+
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 3, 5, 2, 3],
+				borderWidth: 1
+			}]
+			},
+			options: {
+			scales: {
+				y: {
+				beginAtZero: true
+				}
+			}
+			}
+		});
+	</script>
+
+	
+
+<?php 
+
+        $host = "localhost";
+        $dbname = "sebuc";
+        $user = "root";
+        $password = "";
+
+        $conn = "mysql:host=".$host.";dbname=".$dbname;
+
+        try {
+            $conn = new PDO($conn, $user, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // echo "Conexion establecida";
+        } catch (PDOException $e) {
+            echo "Error al establecer conexion" . $e->getMessage();
+        }
+
+        $sql = "SELECT 
+                    COUNT(CASE WHEN id_tipoHabitante = 1 THEN 1 END) AS countJefes,
+                    COUNT(CASE WHEN TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE()) < 18 THEN 1 END) AS countMenor,
+                    COUNT(CASE WHEN discapacidad != 'Ninguna' THEN 1 END) AS countDiscapacitado,
+                    COUNT(CASE WHEN id_tipoHabitante = 2 THEN 1 END) AS countIntegrantes
+                FROM 
+                    habitantes;";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $datos) {
+
+    ?>
+
+<script>
+    const ctxI = document.getElementById('chart1');
+
+    let countJefes = <?= $datos['countJefes'];?>;
+    let countIntegrantes = <?= $datos['countIntegrantes'];?>;
+    let countDiscapacitado = <?= $datos['countDiscapacitado'];?>;
+    let countMenor = <?= $datos['countMenor'];?>;
+
+    <?php
+
+        }
+?>
+
+    new Chart(ctxI, {
+        type: 'doughnut',
+        data: {
+        labels: ['Jefes de Familia', 'Integrantes de Familia', 'Diversidad Funcional', 'Menores de edad'],
+        datasets: [{
+            label: '# of Votes',
+            data: [countJefes, countIntegrantes, countDiscapacitado, countMenor],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+</script>
+	<?php
+
+		$sqlII = "SELECT 
+                    COUNT(CASE WHEN id_poligonal = 1 THEN 1 END) AS countOriental,
+                    COUNT(CASE WHEN id_poligonal = 2 THEN 1 END) AS countCarabobo,
+                    COUNT(CASE WHEN id_poligonal = 3 THEN 1 END) AS countFJavier,
+                    COUNT(CASE WHEN id_poligonal = 4 THEN 1 END) AS countPrincipal
+                FROM 
+                    habitantes;";
+
+        $stmtII = $conn->prepare($sqlII);
+        $stmtII->execute();
+        $resultII = $stmtII->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($resultII as $datosII) {
+    
+
+    ?>
+    <script>
+        const ctxII = document.getElementById('chart2');
+        var countOriental = <?= $datosII['countOriental'];?>;
+        var countCarabobo = <?= $datosII['countCarabobo'];?>;
+        var countFJavier = <?= $datosII['countFJavier'];?>;
+        var countPrincipal = <?= $datosII['countPrincipal'];?>;
+		<?php 
+
+		}
+
+		?>
+        new Chart(ctxII, {
+            type: 'bar',
+            data: {
+            labels: ['Oriental', 'Carabobo', 'Francisco Javier', 'Principal'],
+            datasets: [{
+                label: '# of Votes',
+                data: [countOriental, countCarabobo, countFJavier, countPrincipal],
+                borderWidth: 1
+            }]
+            },
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+    </script>
+    
+
+
+
+
 	<script>
 		const campo1 = document.getElementById('nameBeneficioEdit');
 
