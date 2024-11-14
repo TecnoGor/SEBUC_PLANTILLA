@@ -49,10 +49,15 @@
                 </div>
                 
                 <div class="row">
+                        
+                    <div class="mb-3 col-md-6">
+                        <label for="idJefe" class="form-label">Jefe de Familia</label>
+                        <input type="text" disabled class="form-control" id="idJefe" name="idJefe">
+                    </div>
 
                     <div class="mb-3 col-md-6">
                         <label for="" class="form-label">Parentezco</label>
-                        <select name="parentezco" id="parentezco" class="form-control">
+                        <select name="parentezcoReg" disabled id="parentezcoReg" class="form-control">
                             <option disabled selected>Seleccione...</option>
                             <option value="1">Abuelo(a)</option>
                             <option value="2">Madre</option>
@@ -64,11 +69,7 @@
                             <option value="8">Nieto(a)</option>
                         </select>
                     </div>
-                        
-                    <div class="mb-3 col-md-6">
-                        <label for="idJefe" class="form-label">Jefe de Familia</label>
-                        <input type="text" disabled class="form-control" id="idJefe" name="idJefe">
-                    </div>
+                    
                 </div>
 
                 <div class="row">
@@ -122,7 +123,7 @@
             </div>
 
             <div class="row" id="rowContainer">
-                <div class="mb-3 col-md-4" id="radioDiscapacidad">
+                <div class="mb-3 col-md-6" id="radioDiscapacidad">
                     <label for="" class="form-label">¿Posee Alguna discapacidad?</label>
                     <select name="discapacidad" id="discapacidad" class="form-control">
                         <option disabled selected> Seleccione ....</option>
@@ -134,7 +135,7 @@
                     </select>
                 </div>
 
-                <div class="mb-3 col-md-4">
+                <div class="mb-3 col-md-2">
                     <label for="" class="form-label">Es Pensionado?</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" value="Si" name="radioHabitanteReg2" id="radioHabitanteReg2">
@@ -150,10 +151,6 @@
                     </div>
                 </div>
                 
-            </div>
-
-            <div class="row" id="divSelectHabitante">
-
                 <div class="mb-3 col-md-4">
                     <label class="form-label" for="poligonal_id">Poligonal</label>
                     <select class="form-control" name="poligonal_id" id="poligonal_id">
@@ -164,14 +161,13 @@
                         <option value="4">Principal</option>
                     </select>
                 </div>
-                
-            </div>
 
+            </div>
 
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button class="btn btn-primary" onclick="regHabitante()" type="button"><i class="bi bi-check-circle-fill me-3"></i>Registrar</button>
       </div>
     </div>

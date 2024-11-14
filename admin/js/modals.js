@@ -84,6 +84,7 @@ function editHabitante() {
     var fechaNac = document.getElementById('dateHabitanteEdit').value;
     var telefono = document.getElementById('telefonoEdit').value;
     var edoCivil = document.getElementById('edoCivilEdit').value;
+    var parentezco = document.getElementById('parentezcoEdit').value;
     // const discapacidadRadio = $("input[name='discapacidadEdit']:checked").val();
     // console.log(discapacidadRadio);
     var genero = $("input[name='generoHabitanteEdit']:checked").val();
@@ -107,6 +108,7 @@ function editHabitante() {
             nombre:nombre,
             apellido:apellido,
             nacionalidad:nacionalidad,
+            parentezco: parentezco,
             genero:genero,
             cedula:cedula,
             fechaNac:fechaNac,
@@ -495,50 +497,53 @@ function disableUserSelect(a) {
 
 function jefeFamilia(){
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
-    var containerForm = document.getElementById('divSelectHabitante');
     var id_jefe = document.getElementById('idJefe');
+    var parentezco = document.getElementById('parentezcoReg');
     console.log(tipoHabitante);
     
     if (tipoHabitante == 1) {
 
         id_jefe.value = "";
         id_jefe.disabled = true;
+        parentezco.value = "";
+        parentezco.disabled = true;
         
     }if(tipoHabitante == 2){
     
         id_jefe.removeAttribute('disabled');
+        parentezco.removeAttribute('disabled');
 
     }
 }
 
-$('#discapacidad').click(function(){
-    var valueRadio = document.getElementById('discapacidad').value;
-    console.log(valueRadio);
-    if(valueRadio == 'Si'){
-        var contenedor = document.getElementById('contenedorDiscapacidad');
-        var rowContenedor = document.getElementById('rowContainer');
-        var radios = document.getElementById('radioDiscapacidad');
+// $('#discapacidad').click(function(){
+//     var valueRadio = document.getElementById('discapacidad').value;
+//     console.log(valueRadio);
+//     if(valueRadio == 'Si'){
+//         var contenedor = document.getElementById('contenedorDiscapacidad');
+//         var rowContenedor = document.getElementById('rowContainer');
+//         var radios = document.getElementById('radioDiscapacidad');
 
-        const divField = document.createElement("div");
-        divField.className = "mb-3 col-md-4";
+//         const divField = document.createElement("div");
+//         divField.className = "mb-3 col-md-4";
 
-        const labelField = document.createElement("label");
-        labelField.className = "form-label";
-        labelField.textContent = "Especifique Discapacidad"
+//         const labelField = document.createElement("label");
+//         labelField.className = "form-label";
+//         labelField.textContent = "Especifique Discapacidad"
 
-        const inputField = document.createElement("input");
-        inputField.type = "text";
-        inputField.id = "discapacidadInput";
-        inputField.name = "discapacidadInput";
-        inputField.className = "form-control";
-        inputField.placeholder = "Especifique su discapacidad";
+//         const inputField = document.createElement("input");
+//         inputField.type = "text";
+//         inputField.id = "discapacidadInput";
+//         inputField.name = "discapacidadInput";
+//         inputField.className = "form-control";
+//         inputField.placeholder = "Especifique su discapacidad";
 
-        rowContenedor.appendChild(divField);
-        divField.appendChild(labelField);
-        divField.appendChild(inputField);        
-        radios.style= "display: none";
-    }
-})
+//         rowContenedor.appendChild(divField);
+//         divField.appendChild(labelField);
+//         divField.appendChild(inputField);        
+//         radios.style= "display: none";
+//     }
+// })
 
 function regHabitante(){
     var nombre = document.getElementById('nameHabitanteReg').value;
@@ -550,6 +555,7 @@ function regHabitante(){
     var fechaNac = document.getElementById('dateHabitanteReg').value;
     var telefono = document.getElementById('telHabitanteReg').value;
     var edoCivil = document.getElementById('edoCivilReg').value;
+    var parentezco = document.getElementById('parentezcoReg').value;
     
     var discapacidad = document.getElementById('discapacidad').value;
     var pensionado = document.getElementById('radioHabitanteReg2').value;
@@ -566,6 +572,7 @@ function regHabitante(){
         data: {
             nombre:nombre,
             apellido:apellido,
+            parentezco:parentezco,
             nacionalidad:nacionalidad,
             genero:genero,
             cedula:cedula,

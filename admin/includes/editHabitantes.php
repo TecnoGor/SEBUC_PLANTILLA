@@ -4,6 +4,7 @@
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $nacionalidad = $_POST['nacionalidad'];
+        $parentezco = $_POST['parentezco'];
         $genero = $_POST['genero'];
         $cedula = $_POST['cedula'];
         $fechaNac = $_POST['fechaNac'];
@@ -18,7 +19,7 @@
 
         if($tipoHabitante == 1){
 
-            $sqlInsert = "UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal' WHERE id_habitante = '$id'";
+            $sqlInsert = "UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_parentezco = '$parentezco', id_poligonal = '$poligonal' WHERE id_habitante = '$id'";
             $stmtInsert = $conn->prepare($sqlInsert);
             $resultInsert = $stmtInsert->execute();
 
@@ -40,7 +41,7 @@
 
                 foreach($resultConsulta as $cedulaJefe){
 
-                        $sqlInsert2="UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal', id_jefeFamilia = '" .$cedulaJefe['id']. "' WHERE id_habitante = '$id'";
+                        $sqlInsert2="UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_parentezco = '$parentezco', id_poligonal = '$poligonal', id_jefeFamilia = '" .$cedulaJefe['id']. "' WHERE id_habitante = '$id'";
                         $stmtInsert2 = $conn->prepare($sqlInsert2);
                         $resultInsert2 = $stmtInsert2->execute();
                         

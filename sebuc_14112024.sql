@@ -59,8 +59,8 @@ CREATE TABLE `entrega_beneficio` (
 -- Volcado de datos para la tabla `entrega_beneficio`
 --
 
-INSERT INTO `entrega_beneficio` (`id`, `id_beneficio`, `id_jefe_familia`, `fecha_entrega`, `nro_pago`, `confirmacion`) VALUES
-(5, 2, 27, '2024-11-13', 123464, 0);
+-- INSERT INTO `entrega_beneficio` (`id`, `id_beneficio`, `id_jefe_familia`, `fecha_entrega`, `nro_pago`, `confirmacion`) VALUES
+-- (5, 2, 27, '2024-11-13', 123464, 0);
 
 --
 -- Disparadores `entrega_beneficio`
@@ -144,10 +144,10 @@ CREATE TABLE `habitantes` (
 -- Volcado de datos para la tabla `habitantes`
 --
 
-INSERT INTO `habitantes` (`id_habitante`, `nombres`, `apellidos`, `nacionalidad`, `genero`, `cedula`, `id_edoCivil`, `fecha_nacimiento`, `id_tipoHabitante`, `id_parentezco`, `telefono`, `discapacidad`, `pensionado`, `id_poligonal`, `id_jefeFamilia`) VALUES
-(25, 'Robert', 'Gonzalez', 'Venezolano', 'Masculino', 31870428, 1, '2005-08-09', 1, NULL, '1', 'Ninguna', 'Si', 1, NULL),
-(26, 'Marisela', 'Pacheco', 'Venezolano', 'Femenino', 6262182, 1, '2005-08-09', 2, NULL, '1', 'Ninguna', 'Si', 1, 25),
-(27, 'Lisneida', 'Macias', 'Venezolano', 'Femenino', 27747111, 1, '1990-08-09', 1, NULL, '04168264050', 'Ninguna', 'Si', 1, NULL);
+-- INSERT INTO `habitantes` (`id_habitante`, `nombres`, `apellidos`, `nacionalidad`, `genero`, `cedula`, `id_edoCivil`, `fecha_nacimiento`, `id_tipoHabitante`, `id_parentezco`, `telefono`, `discapacidad`, `pensionado`, `id_poligonal`, `id_jefeFamilia`) VALUES
+-- (25, 'Robert', 'Gonzalez', 'Venezolano', 'Masculino', 31870428, 1, '2005-08-09', 1, NULL, '1', 'Ninguna', 'Si', 1, NULL),
+-- (26, 'Marisela', 'Pacheco', 'Venezolano', 'Femenino', 6262182, 1, '2005-08-09', 2, NULL, '1', 'Ninguna', 'Si', 1, 25),
+-- (27, 'Lisneida', 'Macias', 'Venezolano', 'Femenino', 27747111, 1, '1990-08-09', 1, NULL, '04168264050', 'Ninguna', 'Si', 1, NULL);
 
 -- --------------------------------------------------------
 
