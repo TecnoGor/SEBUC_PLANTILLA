@@ -67,6 +67,7 @@
                             <option value="6">Sobrino(a)</option>
                             <option value="7">Hijo(a)</option>
                             <option value="8">Nieto(a)</option>
+                            <option value="9">Pareja</option>
                         </select>
                     </div>
                     

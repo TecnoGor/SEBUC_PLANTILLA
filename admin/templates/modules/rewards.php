@@ -36,7 +36,7 @@
                         FROM entrega_beneficio AS e 
                         INNER JOIN habitantes AS h ON e.id_jefe_familia = h.id_habitante
                         INNER JOIN poligonal AS p ON h.id_poligonal = p.id
-                        INNER JOIN tipo_beneficio AS tp ON e.id_beneficio = tp.id;";
+                        INNER JOIN tipo_beneficio AS tp ON e.id_beneficio = tp.id WHERE tp.especial = 2;";
 
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();

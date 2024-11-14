@@ -1,6 +1,6 @@
 <?php
 
-    if(empty($_POST['jefeFamilia']) || empty($_POST['beneficio_id']) || empty($_POST['referencia'])){
+    if(empty($_POST['jefeFamilia']) || empty($_POST['beneficio_id']) || empty($_POST['metodo']) || empty($_POST['monto']) || empty($_POST['referencia'])){
 
         echo "Vacio";
 
@@ -9,6 +9,8 @@
 
         $jefe = $_POST['jefeFamilia'];
         $beneficio = $_POST['beneficio_id'];
+        $metodo = $_POST['metodo'];
+        $monto = $_POST['monto'];
         $referencia = $_POST['referencia'];
 
         
@@ -42,7 +44,7 @@
                     if ($resultEntregaII > 0) {
                         echo "exMonth";
                     }else {
-                        $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, nro_pago) VALUES ($beneficio, $idJefe, $referencia);";
+                        $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, nro_pago, metodo, monto) VALUES ($beneficio, $idJefe, $referencia, $metodo, $monto);";
                         $stmtInsert = $conn->prepare($sqlInsert);
                         $stmtInsert->execute();
 

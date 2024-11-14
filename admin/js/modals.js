@@ -29,34 +29,22 @@ function modalEditHabitante(a){
                 document.querySelector('#telefonoEdit').value = data.data.telefono;
                 document.querySelector('#tipoHabitanteEdit').value = data.data.id_tipoHabitante;
                 document.querySelector('#poligonal_idEdit').value = data.data.id_poligonal;
-                if (document.querySelector('#inputJefe')) {
-                    const inputJefe = document.getElementById('inputJefe');
-                    inputJefe.remove();
-                }
+                document.querySelector('#parentezcoEdit').value = data.data.id_parentezco;
+                var id_jefe = document.querySelector('#idJefeEdit');
+                var parentezco = document.querySelector('#parentezcoEdit');
+                // if (document.querySelector('#inputJefe')) {
+                //     const inputJefe = document.getElementById('inputJefe');
+                //     inputJefe.remove();
+                // }
                 if (data.data.id_tipoHabitante == 1) {
-                    if (document.querySelector('#inputJefe')) {
-                        const inputJefe = document.getElementById('inputJefe');
-                        inputJefe.remove();
-                    }
+                    
+                    id_jefe.value = "";
+                    id_jefe.disabled = true;
+                    parentezco.disabled = true;
                 }
                 if (data.data.id_tipoHabitante == 2) {
-                    var containerForm = document.getElementById('divSelectHabitanteEdit');
-                    const divHabField = document.createElement("div");
-                    divHabField.className = "mb-3 col-md-4";
-                    divHabField.id = "inputJefe";
-
-                    const labelHabField = document.createElement("label");
-                    labelHabField.className = "form-label";
-                    labelHabField.textContent = "Ingrese la cedula de su Jefe de Familia";
-                    const inputHabField = document.createElement("input");
-                    inputHabField.type = "number";
-                    inputHabField.name = "idJefeEdit"
-                    inputHabField.className = "form-control";
-                    inputHabField.id = "idJefeEdit";
-
-                    containerForm.appendChild(divHabField);
-                    divHabField.appendChild(labelHabField);
-                    divHabField.appendChild(inputHabField);
+                    id_jefe.removeAttribute('disabled');
+                    parentezco.removeAttribute('disabled');
                 }
 
 				$('#modalEditHabitante').modal('show');
@@ -131,6 +119,7 @@ function editHabitante() {
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                habitantes();
             } if (data == 'cedula') {
                 swal({
                     title: '¡Alerta!',
@@ -153,65 +142,6 @@ function editHabitante() {
             }
         }
     })
-}
-
-$('#discapacidadEdit1').click(function(){
-    var valueRadio = document.getElementById('discapacidadEdit1').value;
-    console.log(valueRadio);
-    if(valueRadio == 'Si'){
-        // var contenedor = document.getElementById('contenedorDiscapacidad');
-        var rowContenedor = document.getElementById('rowContainerEdit');
-        const radios = document.getElementById('radioDiscapacidadEdit');
-
-        const divField = document.createElement("div");
-        divField.className = "mb-3 col-md-4";
-
-        const labelField = document.createElement("label");
-        labelField.className = "form-label";
-        labelField.textContent = "Especifique Discapacidad"
-
-        const inputField = document.createElement("input");
-        inputField.type = "text";
-        inputField.id = "discapacidadEdit";
-        inputField.name = "discapacidadEdit";
-        inputField.className = "form-control";
-        inputField.placeholder = "Especifique su discapacidad";
-
-        rowContenedor.appendChild(divField);
-        divField.appendChild(labelField);
-        divField.appendChild(inputField);        
-        radios.remove();
-    }
-    if (valueRadio == 'No') {
-        var contenedor = document.getElementById('contenedorDiscapacidad');
-        radios.style = "display:flex";
-
-    } 
-})
-
-function jefeFamiliaEdit(){
-    var tipoHabitante = document.getElementById('tipoHabitanteEdit').value;
-    var containerForm = document.getElementById('divSelectHabitanteEdit');
-    console.log(tipoHabitante);
-    if(tipoHabitante == 2){
-        // const divRowField = document.createElement("div");
-        // divRowField.className = "row";
-        const divHabField = document.createElement("div");
-        divHabField.className = "mb-3 col-md-4";
-        const labelHabField = document.createElement("label");
-        labelHabField.className = "form-label";
-        labelHabField.textContent = "Ingrese la cedula de su Jefe de Familia";
-        const inputHabField = document.createElement("input");
-        inputHabField.type = "number";
-        inputHabField.name = "idJefeEdit"
-        inputHabField.className = "form-control";
-        inputHabField.id = "idJefeEdit";
-
-        containerForm.appendChild(divHabField);
-        divHabField.appendChild(labelHabField);
-        divHabField.appendChild(inputHabField);
-
-    }
 }
 
 
@@ -327,6 +257,7 @@ function editUser(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                
             }
             if(data == 'ok'){
                 swal({
@@ -337,6 +268,7 @@ function editUser(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                users();
             }if(data == 'error'){
                 swal({
                     title: '¡Error!',
@@ -384,6 +316,7 @@ function regUser(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                users();
             } if (data == "Error") {
                 swal({
                     title: '¡Error!',
@@ -596,6 +529,15 @@ function regHabitante(){
                     confirmButtonText: 'OK',
                     closeOnConfirm: false
                 });
+                document.getElementById('nameHabitanteReg').value = '';
+                document.getElementById('name2HabitanteReg').value = '';
+                document.getElementById('cedulaHabitanteReg').value = '';
+                document.getElementById('dateHabitanteReg').value = '';
+                document.getElementById('telHabitanteReg').value = '';
+                document.getElementById('edoCivilReg').value = '';
+                document.getElementById('parentezcoReg').value = '';
+                document.getElementById('discapacidad').value = '';
+                document.getElementById('tipoHabitanteReg').value = '';
                 habitantes();
             }if(data == 'error'){
                 swal({
@@ -778,6 +720,8 @@ function valJefeEspecial(){
 function regReward(){
     var jefeFamilia = document.getElementById('cedulaJefe').value;
     var beneficio_id = document.getElementById('beneficio_id').value;
+    var metodo = document.getElementById('methodPago').value;
+    var monto = document.getElementById('montoEntrega').value;
     var referencia = document.getElementById('nroReferencia').value;
 
     if (jefeFamilia == '' || beneficio_id == '' || referencia == '') {
@@ -808,6 +752,8 @@ function regReward(){
                 data: {
                     jefeFamilia: jefeFamilia,
                     beneficio_id: beneficio_id,
+                    metodo: metodo,
+                    monto: monto,
                     referencia: referencia
                 },
                 success: function(data){
@@ -852,6 +798,8 @@ function regReward(){
 function regRewardEspecial(){
     var jefeFamilia = document.getElementById('cedulaJefeEspecial').value;
     var beneficio_id = document.getElementById('beneficio_idEspecial').value;
+    var metodo = document.getElementById('methodPagoEspecial').value;
+    var monto = document.getElementById('montoEntregaEspecial').value;
     var referencia = document.getElementById('nroReferenciaEspecial').value;
 
     if (jefeFamilia == '' || beneficio_id == '') {
@@ -882,6 +830,8 @@ function regRewardEspecial(){
                 data: {
                     jefeFamilia: jefeFamilia,
                     beneficio_id: beneficio_id,
+                    metodo: metodo,
+                    monto: monto,
                     referencia: referencia
                 },
                 success: function(data){
