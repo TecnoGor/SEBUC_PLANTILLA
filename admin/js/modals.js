@@ -139,6 +139,15 @@ function editHabitante() {
                     closeOnConfirm: false
                 });
                 document.getElementById('idJefeEdit').value = '';
+            }if (data == 'error') {
+                swal({
+                    title: '¡Error!',
+                    text: "Ocurrio un error al editar los datos.",
+                    type: 'error',
+                    showCancelButton: false,
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: false
+                });
             }
         }
     })

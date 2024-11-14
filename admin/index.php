@@ -15,7 +15,7 @@
 	<!-- pageContent -->
 	<section id="pageContentId" class="full-width pageContent">
 		<section id="tilesResponsive" class="full-width text-center" style="padding: 20px 0;">
-			<h3 class="text-center tittles">RESPONSIVE TILES</h3>
+			<!-- <h3 class="text-center tittles">RESPONSIVE TILES</h3> -->
 
 			<?php
 			
@@ -23,53 +23,28 @@
 			
 			?>
 			
-			<!-- <article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						9<br>
-						<small>Categories</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-label tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						121<br>
-						<small>Products</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-washing-machine tile-icon"></i>
-			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						47<br>
-						<small>Sales</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-shopping-cart tile-icon"></i>
-			</article> -->
 		</section>
 		<section id="homeInfo" class="full-width" style="margin: 30px 0;">
 
 			<div class="container">
 
 				<div class="row">
-					<div class="col-md-7 m-3 rounded bg-light bg-gradient">
+					<div class="col-md-4 m-3 rounded bg-light bg-gradient">
 					<canvas id="chart2"></canvas>
 						
 					</div>
 
-					<div class="col-md-4 m-2 rounded bg-light bg-gradient">
+					<div class="col-md-3 m-2 rounded bg-light bg-gradient">
 					<canvas id="chart1"></canvas>
+					</div>
+
+					<div class="col-md-4 m-3 rounded bg-light bg-gradient">
+						<canvas id="acquisitions"></canvas>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-md-11 m-3 rounded bg-light bg-gradient">
-						<canvas id="acquisitions"></canvas>
-					</div>
+					
 				</div>
 				
 			</div>
