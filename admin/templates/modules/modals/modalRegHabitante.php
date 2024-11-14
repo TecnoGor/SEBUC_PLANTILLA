@@ -35,6 +35,51 @@
                         </div>
 
                     </div>
+
+                    <div class="mb-3 col-md-4">
+
+                        <label class="form-label" for="tipoHabitanteReg">Tipo Habitante</label>
+                        <select class="form-control" name="tipoHabitanteReg" onchange="jefeFamilia()" id="tipoHabitanteReg">
+                            <option disabled selected>Seleccione...</option>
+                            <option value="1">Jefe de Familia</option>
+                            <option value="2">Integrante de Familia</option>
+                        </select>
+
+                    </div>
+                </div>
+                
+                <div class="row">
+
+                    <div class="mb-3 col-md-6">
+                        <label for="" class="form-label">Parentezco</label>
+                        <select name="parentezco" id="parentezco" class="form-control">
+                            <option disabled selected>Seleccione...</option>
+                            <option value="1">Abuelo(a)</option>
+                            <option value="2">Madre</option>
+                            <option value="3">Padre</option>
+                            <option value="4">Hermano(a)</option>
+                            <option value="5">Tio(a)</option>
+                            <option value="6">Sobrino(a)</option>
+                            <option value="7">Hijo(a)</option>
+                            <option value="8">Nieto(a)</option>
+                        </select>
+                    </div>
+                        
+                    <div class="mb-3 col-md-6">
+                        <label for="idJefe" class="form-label">Jefe de Familia</label>
+                        <input type="text" disabled class="form-control" id="idJefe" name="idJefe">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Nombres</label>
+                        <input class="form-control" type="text" name="nameHabitanteReg" id="nameHabitanteReg" placeholder="Introduzca los nombres del Habitante">
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Apellidos</label>
+                        <input class="form-control" type="text" name="name2HabitanteReg" id="name2HabitanteReg" placeholder="Introduzca los apellidos del Habitante">
+                    </div>
                     <div class="mb-3 col-md-4">
                         <label for="" class="form-label">Género</label>
                         <div class="form-check">
@@ -49,36 +94,6 @@
                                 Femenino
                             </label>
                         </div>
-                    </div>
-                    
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label">Nombres</label>
-                        <input class="form-control" type="text" name="nameHabitanteReg" id="nameHabitanteReg" placeholder="Introduzca los nombres del Habitante">
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label">Apellidos</label>
-                        <input class="form-control" type="text" name="name2HabitanteReg" id="name2HabitanteReg" placeholder="Introduzca los apellidos del Habitante">
-                    </div>
-                    
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-
-                        <label class="form-label" for="tipoHabitanteReg">Tipo Habitante</label>
-                        <select class="form-control" name="tipoHabitanteReg" onchange="jefeFamilia()" id="tipoHabitanteReg">
-                            <option disabled selected>Seleccione...</option>
-                            <option value="1">Jefe de Familia</option>
-                            <option value="2">Integrante de Familia</option>
-                        </select>
-
-                    </div>    
-                    <div class="mb-3 col-md-6">
-                        <label for="idJefe" class="form-label">Jefe de Familia</label>
-                        <input type="text" disabled class="form-control" id="idJefe" name="idJefe">
                     </div>
                 </div>
 

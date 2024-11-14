@@ -204,7 +204,7 @@
 
 		campo1.addEventListener('input', function() {
 			// Expresión regular para permitir solo letras y números
-			const regex = /^[a-zA-Z]*$/;
+			const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/;
 
 			// Verifica si el valor actual coincide con la expresión regular
 			if (!regex.test(campo1.value)) {
@@ -222,7 +222,7 @@
 
 		campo2.addEventListener('input', function() {
 			// Expresión regular para permitir solo letras y números
-			const regex = /^[a-zA-Z]*$/;
+			const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/;
 
 			// Verifica si el valor actual coincide con la expresión regular
 			if (!regex.test(campo2.value)) {
@@ -233,7 +233,7 @@
 
 		campo3.addEventListener('input', function() {
 			// Expresión regular para permitir solo letras y números
-			const regex = /^[a-zA-Z]*$/;
+			const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/;
 
 			// Verifica si el valor actual coincide con la expresión regular
 			if (!regex.test(campo3.value)) {
@@ -244,7 +244,7 @@
 
 		campo4.addEventListener('input', function() {
 			// Expresión regular para permitir solo letras y números
-			const regex = /^[a-zA-Z]*$/;
+			const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/;
 
 			// Verifica si el valor actual coincide con la expresión regular
 			if (!regex.test(campo4.value)) {
@@ -255,7 +255,7 @@
 
 		campo5.addEventListener('input', function() {
 			// Expresión regular para permitir solo letras y números
-			const regex = /^[a-zA-Z-á]*$/;
+			const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]*$/;
 
 			// Verifica si el valor actual coincide con la expresión regular
 			if (!regex.test(campo5.value)) {
