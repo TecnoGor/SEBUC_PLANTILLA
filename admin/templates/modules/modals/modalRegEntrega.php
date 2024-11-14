@@ -12,15 +12,12 @@
             <div class="container" id="formContainer">
                 <div class="row">
                     
-                    <div class="mb-3 col-md-12">
+                    <div class="mb-3 col-md-6">
                         <label class="form-label" for="cedulaJefe">Cédula de Jefe de Familia</label>
                         <input class="form-control" type="number" onblur="valJefe()" id="cedulaJefe">
                     </div>
                     
-                </div>
-
-                <div class="row">
-                    <div class="mb-3 col-md-12">
+                    <div class="mb-3 col-md-6">
                         <label class="form-label" for="beneficio_id">Beneficios</label>
                         <select class="form-control" name="beneficio_id" id="beneficio_id">
                             <option disabled selected>Seleccione...</option>
@@ -42,14 +39,27 @@
                             ?>
                         </select>
                     </div>
-                    
 
                 </div>
 
+
                 <div class="row">
-                    <div class="mb-3 col-md-12">
-                        <label class="form-label" for="nroReferencia">Numero de Pago:</label>
+                    <div class="mb-3 col-md-4">
+                      <label for="">Método de Pago</label>
+                      <select name="methodPago" id="methodPago" class="form-control">
+                        <option value="1">Efectivo</option>
+                        <option value="2">Transferencia</option>
+                        <option value="3">Pago Movil</option>
+                        <option value="4">BioPago</option>
+                      </select>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="nroReferencia">Número de Pago:</label>
                         <input class="form-control" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="6" id="nroReferencia">
+                    </div>
+                    <div class="mb-3 col-md-4">
+                      <label for="montoEntrega" class="form-label">Monto</label>
+                      <input type="float" class="form-control" placeholder="0,00 Bs." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" id="montoEntrega">
                     </div>
                 </div>
 
