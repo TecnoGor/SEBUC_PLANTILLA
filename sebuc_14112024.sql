@@ -62,9 +62,9 @@ CREATE TABLE `entrega_beneficio` (
 --
 
 INSERT INTO `entrega_beneficio` (`id`, `id_beneficio`, `id_jefe_familia`, `fecha_entrega`, `nro_pago`, `metodo`, `monto`, `confirmacion`) VALUES
-(6, 1, 30, '2024-11-14', 324543, 1, 30, 0),
-(7, 3, 29, '2024-11-14', 354656, 2, 90, 0),
-(8, 2, 30, '2024-11-14', 347821, 2, 134, 0);
+(6, 1, 3, '2024-11-14', 324543, 1, 30, 0),
+(7, 3, 2, '2024-11-14', 354656, 2, 90, 0),
+(8, 2, 3, '2024-11-14', 347821, 2, 134, 0);
 
 --
 -- Disparadores `entrega_beneficio`
@@ -149,18 +149,18 @@ CREATE TABLE `habitantes` (
 --
 
 INSERT INTO `habitantes` (`id_habitante`, `nombres`, `apellidos`, `nacionalidad`, `genero`, `cedula`, `id_edoCivil`, `fecha_nacimiento`, `id_tipoHabitante`, `id_parentezco`, `telefono`, `discapacidad`, `pensionado`, `id_poligonal`, `id_jefeFamilia`) VALUES
-(28, 'Ana Maria', 'Guadua Marquez', 'Venezolano', 'Femenino', 10105092, 3, '1967-05-03', 1, NULL, '04166048901', 'Ninguna', 'Si', 3, NULL),
-(29, 'Victelia Bautista', 'Civila', 'Venezolano', 'Femenino', 5424518, 1, '1955-10-21', 1, NULL, '04241971654', 'Ninguna', 'Si', 2, NULL),
-(30, 'Deivis Eduardo', 'Andrade', 'Venezolano', 'Masculino', 17140266, 1, '1979-04-07', 1, NULL, '04244249310', 'Ninguna', 'Si', 1, NULL),
-(31, 'Tiodulfa', 'Zambrano', 'Venezolano', 'Femenino', 13977928, 1, '1977-10-12', 1, NULL, '04122063139', 'Ninguna', 'Si', 4, NULL),
-(32, 'Sixto', 'Andrade', 'Venezolano', 'Masculino', 11188948, 1, '1968-03-28', 2, 9, '', 'Ninguna', 'Si', 4, 31),
-(33, 'Dailin', 'Molina', 'Venezolano', 'Femenino', 27597710, 1, '2000-01-24', 2, 7, '', 'Ninguna', 'Si', 4, 31),
-(34, 'Erika ', 'Ruiz', 'Venezolano', 'Femenino', 14384911, 1, '1979-10-13', 2, 9, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 1, 30),
-(35, 'Eliana ', 'Andrade', 'Venezolano', 'Femenino', 33390787, 1, '2006-07-07', 2, 7, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 1, 30),
-(36, 'Yolimar ', 'Sivila', 'Venezolano', 'Femenino', 15821760, 1, '1982-07-06', 2, 7, '', 'Ninguna', 'Si', 2, 29),
-(37, 'Sara', 'Blanco', 'Venezolano', 'Femenino', 0, 1, '2017-10-06', 2, 8, '', 'Ninguna', 'Si', 2, 29),
-(38, 'Jesus Alberto', 'Peña Guadua', 'Venezolano', 'Masculino', 6908826, 1, '1964-07-20', 2, 9, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 3, 28),
-(39, 'Jesus Alberto ', 'Peña Guadua', 'Venezolano', 'Masculino', 24195262, 1, '1993-06-16', 2, 7, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 3, 28);
+(1, 'Ana Maria', 'Guadua Marquez', 'Venezolano', 'Femenino', 10105092, 3, '1967-05-03', 1, NULL, '04166048901', 'Ninguna', 'Si', 3, NULL),
+(2, 'Victelia Bautista', 'Civila', 'Venezolano', 'Femenino', 5424518, 1, '1955-10-21', 1, NULL, '04241971654', 'Ninguna', 'Si', 2, NULL),
+(3, 'Deivis Eduardo', 'Andrade', 'Venezolano', 'Masculino', 17140266, 1, '1979-04-07', 1, NULL, '04244249310', 'Ninguna', 'Si', 1, NULL),
+(4, 'Tiodulfa', 'Zambrano', 'Venezolano', 'Femenino', 13977928, 1, '1977-10-12', 1, NULL, '04122063139', 'Ninguna', 'Si', 4, NULL),
+(5, 'Sixto', 'Andrade', 'Venezolano', 'Masculino', 11188948, 1, '1968-03-28', 2, 9, '', 'Ninguna', 'Si', 4, 31),
+(6, 'Dailin', 'Molina', 'Venezolano', 'Femenino', 27597710, 1, '2000-01-24', 2, 7, '', 'Ninguna', 'Si', 4, 31),
+(7, 'Erika ', 'Ruiz', 'Venezolano', 'Femenino', 14384911, 1, '1979-10-13', 2, 9, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 1, 30),
+(8, 'Eliana ', 'Andrade', 'Venezolano', 'Femenino', 33390787, 1, '2006-07-07', 2, 7, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 1, 30),
+(9, 'Yolimar ', 'Sivila', 'Venezolano', 'Femenino', 15821760, 1, '1982-07-06', 2, 7, '', 'Ninguna', 'Si', 2, 29),
+(10, 'Sara', 'Blanco', 'Venezolano', 'Femenino', 0, 1, '2017-10-06', 2, 8, '', 'Ninguna', 'Si', 2, 29),
+(11, 'Jesus Alberto', 'Peña Guadua', 'Venezolano', 'Masculino', 6908826, 1, '1964-07-20', 2, 9, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 3, 28),
+(12, 'Jesus Alberto ', 'Peña Guadua', 'Venezolano', 'Masculino', 24195262, 1, '1993-06-16', 2, 7, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 3, 28);
 
 -- --------------------------------------------------------
 
@@ -433,7 +433,7 @@ ALTER TABLE `comunidad`
 -- AUTO_INCREMENT de la tabla `entrega_beneficio`
 --
 ALTER TABLE `entrega_beneficio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_civil`
@@ -451,7 +451,7 @@ ALTER TABLE `estatus`
 -- AUTO_INCREMENT de la tabla `habitantes`
 --
 ALTER TABLE `habitantes`
-  MODIFY `id_habitante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_habitante` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `jefes_calle`
@@ -499,7 +499,7 @@ ALTER TABLE `tipo_habitante`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
