@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2024 a las 12:42:57
+-- Tiempo de generación: 15-11-2024 a las 01:15:08
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -52,6 +52,8 @@ CREATE TABLE `entrega_beneficio` (
   `id_jefe_familia` int(11) NOT NULL,
   `fecha_entrega` date NOT NULL DEFAULT current_timestamp(),
   `nro_pago` int(11) NOT NULL,
+  `metodo` int(11) NOT NULL,
+  `monto` float NOT NULL,
   `confirmacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -59,8 +61,10 @@ CREATE TABLE `entrega_beneficio` (
 -- Volcado de datos para la tabla `entrega_beneficio`
 --
 
--- INSERT INTO `entrega_beneficio` (`id`, `id_beneficio`, `id_jefe_familia`, `fecha_entrega`, `nro_pago`, `confirmacion`) VALUES
--- (5, 2, 27, '2024-11-13', 123464, 0);
+INSERT INTO `entrega_beneficio` (`id`, `id_beneficio`, `id_jefe_familia`, `fecha_entrega`, `nro_pago`, `metodo`, `monto`, `confirmacion`) VALUES
+(6, 1, 30, '2024-11-14', 324543, 1, 30, 0),
+(7, 3, 29, '2024-11-14', 354656, 2, 90, 0),
+(8, 2, 30, '2024-11-14', 347821, 2, 134, 0);
 
 --
 -- Disparadores `entrega_beneficio`
@@ -128,7 +132,7 @@ CREATE TABLE `habitantes` (
   `apellidos` varchar(50) NOT NULL,
   `nacionalidad` varchar(10) NOT NULL,
   `genero` varchar(50) NOT NULL,
-  `cedula` int(11) NOT NULL,
+  `cedula` int(11) DEFAULT NULL,
   `id_edoCivil` int(11) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `id_tipoHabitante` int(11) NOT NULL,
@@ -144,10 +148,19 @@ CREATE TABLE `habitantes` (
 -- Volcado de datos para la tabla `habitantes`
 --
 
--- INSERT INTO `habitantes` (`id_habitante`, `nombres`, `apellidos`, `nacionalidad`, `genero`, `cedula`, `id_edoCivil`, `fecha_nacimiento`, `id_tipoHabitante`, `id_parentezco`, `telefono`, `discapacidad`, `pensionado`, `id_poligonal`, `id_jefeFamilia`) VALUES
--- (25, 'Robert', 'Gonzalez', 'Venezolano', 'Masculino', 31870428, 1, '2005-08-09', 1, NULL, '1', 'Ninguna', 'Si', 1, NULL),
--- (26, 'Marisela', 'Pacheco', 'Venezolano', 'Femenino', 6262182, 1, '2005-08-09', 2, NULL, '1', 'Ninguna', 'Si', 1, 25),
--- (27, 'Lisneida', 'Macias', 'Venezolano', 'Femenino', 27747111, 1, '1990-08-09', 1, NULL, '04168264050', 'Ninguna', 'Si', 1, NULL);
+INSERT INTO `habitantes` (`id_habitante`, `nombres`, `apellidos`, `nacionalidad`, `genero`, `cedula`, `id_edoCivil`, `fecha_nacimiento`, `id_tipoHabitante`, `id_parentezco`, `telefono`, `discapacidad`, `pensionado`, `id_poligonal`, `id_jefeFamilia`) VALUES
+(28, 'Ana Maria', 'Guadua Marquez', 'Venezolano', 'Femenino', 10105092, 3, '1967-05-03', 1, NULL, '04166048901', 'Ninguna', 'Si', 3, NULL),
+(29, 'Victelia Bautista', 'Civila', 'Venezolano', 'Femenino', 5424518, 1, '1955-10-21', 1, NULL, '04241971654', 'Ninguna', 'Si', 2, NULL),
+(30, 'Deivis Eduardo', 'Andrade', 'Venezolano', 'Masculino', 17140266, 1, '1979-04-07', 1, NULL, '04244249310', 'Ninguna', 'Si', 1, NULL),
+(31, 'Tiodulfa', 'Zambrano', 'Venezolano', 'Femenino', 13977928, 1, '1977-10-12', 1, NULL, '04122063139', 'Ninguna', 'Si', 4, NULL),
+(32, 'Sixto', 'Andrade', 'Venezolano', 'Masculino', 11188948, 1, '1968-03-28', 2, 9, '', 'Ninguna', 'Si', 4, 31),
+(33, 'Dailin', 'Molina', 'Venezolano', 'Femenino', 27597710, 1, '2000-01-24', 2, 7, '', 'Ninguna', 'Si', 4, 31),
+(34, 'Erika ', 'Ruiz', 'Venezolano', 'Femenino', 14384911, 1, '1979-10-13', 2, 9, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 1, 30),
+(35, 'Eliana ', 'Andrade', 'Venezolano', 'Femenino', 33390787, 1, '2006-07-07', 2, 7, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 1, 30),
+(36, 'Yolimar ', 'Sivila', 'Venezolano', 'Femenino', 15821760, 1, '1982-07-06', 2, 7, '', 'Ninguna', 'Si', 2, 29),
+(37, 'Sara', 'Blanco', 'Venezolano', 'Femenino', 0, 1, '2017-10-06', 2, 8, '', 'Ninguna', 'Si', 2, 29),
+(38, 'Jesus Alberto', 'Peña Guadua', 'Venezolano', 'Masculino', 6908826, 1, '1964-07-20', 2, 9, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 3, 28),
+(39, 'Jesus Alberto ', 'Peña Guadua', 'Venezolano', 'Masculino', 24195262, 1, '1993-06-16', 2, 7, '', 'Discapacidades sensoriales y de la comunicación', 'Si', 3, 28);
 
 -- --------------------------------------------------------
 
@@ -159,6 +172,27 @@ CREATE TABLE `jefes_calle` (
   `id` int(11) NOT NULL,
   `id_habitante` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `metodos`
+--
+
+CREATE TABLE `metodos` (
+  `id_metodo` int(11) NOT NULL,
+  `method_nom` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `metodos`
+--
+
+INSERT INTO `metodos` (`id_metodo`, `method_nom`) VALUES
+(1, 'Efectivo'),
+(2, 'Transferencia'),
+(3, 'Pago Movil'),
+(4, 'BioPago');
 
 -- --------------------------------------------------------
 
@@ -183,7 +217,8 @@ INSERT INTO `parentezco` (`id_parentezco`, `nombre_parentezco`) VALUES
 (5, 'Tio(a)'),
 (6, 'Sobrino(a)'),
 (7, 'Hijo(a)'),
-(8, 'Nieto(a)');
+(8, 'Nieto(a)'),
+(9, 'Pareja');
 
 -- --------------------------------------------------------
 
@@ -290,7 +325,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `user`, `nombres`, `password`, `rol`, `activo`, `fecha_creacion`, `imagen`) VALUES
-(1, 'admin', 'Lenni Quintero', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '2024-09-30 00:05:38', 'logo_ICO.png');
+(1, 'lenniQ', 'Lenni Quintero', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, '2024-09-30 00:05:38', 'Lenni.png');
 
 --
 -- Índices para tablas volcadas
@@ -306,7 +341,8 @@ ALTER TABLE `comunidad`
 -- Indices de la tabla `entrega_beneficio`
 --
 ALTER TABLE `entrega_beneficio`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_method` (`metodo`);
 
 --
 -- Indices de la tabla `estado_civil`
@@ -328,7 +364,8 @@ ALTER TABLE `habitantes`
   ADD KEY `fk_habitanteJefeFamilia` (`id_jefeFamilia`),
   ADD KEY `fk_edoCivil` (`id_edoCivil`),
   ADD KEY `fk_tipoHabitante` (`id_tipoHabitante`),
-  ADD KEY `fk_poligonal` (`id_poligonal`);
+  ADD KEY `fk_poligonal` (`id_poligonal`),
+  ADD KEY `fk_parentezco` (`id_parentezco`);
 
 --
 -- Indices de la tabla `jefes_calle`
@@ -336,6 +373,12 @@ ALTER TABLE `habitantes`
 ALTER TABLE `jefes_calle`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_habitanteJefe` (`id_habitante`);
+
+--
+-- Indices de la tabla `metodos`
+--
+ALTER TABLE `metodos`
+  ADD PRIMARY KEY (`id_metodo`);
 
 --
 -- Indices de la tabla `parentezco`
@@ -390,7 +433,7 @@ ALTER TABLE `comunidad`
 -- AUTO_INCREMENT de la tabla `entrega_beneficio`
 --
 ALTER TABLE `entrega_beneficio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_civil`
@@ -408,7 +451,7 @@ ALTER TABLE `estatus`
 -- AUTO_INCREMENT de la tabla `habitantes`
 --
 ALTER TABLE `habitantes`
-  MODIFY `id_habitante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_habitante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `jefes_calle`
@@ -417,16 +460,22 @@ ALTER TABLE `jefes_calle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `metodos`
+--
+ALTER TABLE `metodos`
+  MODIFY `id_metodo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `parentezco`
 --
 ALTER TABLE `parentezco`
-  MODIFY `id_parentezco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_parentezco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `poligonal`
 --
 ALTER TABLE `poligonal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -450,11 +499,17 @@ ALTER TABLE `tipo_habitante`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `entrega_beneficio`
+--
+ALTER TABLE `entrega_beneficio`
+  ADD CONSTRAINT `fk_method` FOREIGN KEY (`metodo`) REFERENCES `metodos` (`id_metodo`);
 
 --
 -- Filtros para la tabla `habitantes`
@@ -462,6 +517,7 @@ ALTER TABLE `usuarios`
 ALTER TABLE `habitantes`
   ADD CONSTRAINT `fk_edoCivil` FOREIGN KEY (`id_edoCivil`) REFERENCES `estado_civil` (`id`),
   ADD CONSTRAINT `fk_habitanteJefeFamilia` FOREIGN KEY (`id_jefeFamilia`) REFERENCES `habitantes` (`id_habitante`),
+  ADD CONSTRAINT `fk_parentezco` FOREIGN KEY (`id_parentezco`) REFERENCES `parentezco` (`id_parentezco`),
   ADD CONSTRAINT `fk_poligonal` FOREIGN KEY (`id_poligonal`) REFERENCES `poligonal` (`id`),
   ADD CONSTRAINT `fk_tipoHabitante` FOREIGN KEY (`id_tipoHabitante`) REFERENCES `tipo_habitante` (`id`);
 
