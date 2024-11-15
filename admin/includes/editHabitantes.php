@@ -19,7 +19,7 @@
 
         if($tipoHabitante == 1){
 
-            $sqlInsert = "UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_parentezco = '$parentezco', id_poligonal = '$poligonal' WHERE id_habitante = '$id'";
+            $sqlInsert = "UPDATE habitantes SET nombres = '$nombre', apellidos = '$apellido', nacionalidad = '$nacionalidad', genero = '$genero', cedula = '$cedula', fecha_nacimiento = '$fechaNac', telefono = '$telefono', id_edoCivil = '$edoCivil', discapacidad = '$discapacidad', pensionado = '$pensionado', id_tipoHabitante = '$tipoHabitante', id_poligonal = '$poligonal' WHERE id_habitante = '$id'";
             $stmtInsert = $conn->prepare($sqlInsert);
             $resultInsert = $stmtInsert->execute();
 

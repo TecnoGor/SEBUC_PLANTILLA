@@ -102,7 +102,7 @@
 										<i class="zmdi zmdi-accounts"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										DISCAPACITADOS
+										DIVERSIDAD FUNCIONAL
 									</div>
 								</a>
 							</li>

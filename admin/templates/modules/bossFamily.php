@@ -15,7 +15,7 @@
                     <th>Estado Civil</th>
                     <th>Tipo de Habitante</th>
                     <th>Tlfno / Celular</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +43,7 @@
                     // echo "<td>" . $listado[$i]->fnac . "</td>";
                     echo "<td>" . $row->nombreTipo. "</td>";
                     echo "<td>" . $row->telefono. "</td>";
-                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante(' . $row->idH .')"><i class="bi bi-pencil-square fs-5"></i></a></div>' . '</td>';
+                    // echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante(' . $row->idH .')"><i class="bi bi-pencil-square fs-5"></i></a></div>' . '</td>';
                     // echo "<td>" . '<a href="actualizar.php?upd=' . $listado[$i]->id_cl . '" class="boton_edit" title="Editar Habitante"><img src="../fontawesome/svgs/regular/pen-to-square.svg" class="icon_edit"></a>' . "</td>";
                     echo "</tr>";
                     $j++;

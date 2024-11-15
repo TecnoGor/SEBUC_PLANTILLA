@@ -368,6 +368,7 @@ function delPoligonal(a) {
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
                         });
+                        poligonales();
                     } if (data == 'error') {
                         swal({
                             title: '¡Error!',
@@ -411,6 +412,7 @@ function disableUserSelect(a) {
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
                         });
+                        users();
                     } if (data == 'error') {
                         swal({
                             title: '¡Error!',
@@ -489,7 +491,6 @@ function regHabitante(){
     var telefono = document.getElementById('telHabitanteReg').value;
     var edoCivil = document.getElementById('edoCivilReg').value;
     var parentezco = document.getElementById('parentezcoReg').value;
-    
     var discapacidad = document.getElementById('discapacidad').value;
     var pensionado = document.getElementById('radioHabitanteReg2').value;
     var tipoHabitante = document.getElementById('tipoHabitanteReg').value;
@@ -534,10 +535,9 @@ function regHabitante(){
                 document.getElementById('cedulaHabitanteReg').value = '';
                 document.getElementById('dateHabitanteReg').value = '';
                 document.getElementById('telHabitanteReg').value = '';
-                document.getElementById('edoCivilReg').value = '';
                 document.getElementById('parentezcoReg').value = '';
                 document.getElementById('discapacidad').value = '';
-                document.getElementById('tipoHabitanteReg').value = '';
+                document.getElementById('idJefe').value = '';
                 habitantes();
             }if(data == 'error'){
                 swal({
@@ -1022,6 +1022,7 @@ function editBeneficio(){
                             confirmButtonText: 'OK',
                             closeOnConfirm: false
                         });
+                        listRewards();
                     } if (data == 'error') {
                         swal({
                             title: '¡Error!',

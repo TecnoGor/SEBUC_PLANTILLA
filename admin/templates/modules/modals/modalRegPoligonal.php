@@ -36,7 +36,7 @@
                                                     
                             ?>
 
-                            <option value="<?php echo $comunidad['id'];?>"><?php echo $comunidad['nombreComunidad'];?></option>
+                            <option value="<?php echo $comunidad['id_comunidad'];?>"><?php echo $comunidad['nombreComunidad'];?></option>
                             
                             <?php
 

@@ -44,8 +44,9 @@
 					}elseif ($entregas['especial'] == 2){
 						echo "<td>". "No" ."</td>";
 					}
-                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditBeneficio('. $entregas['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a><a class="btn btn-primary" onclick="delReward('. $entregas['id'] .')"><i class="bi bi-trash fs-5"></i></a></div>' ."</td>";
+                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditBeneficio('. $entregas['id'] .')"><i class="bi bi-pencil-square fs-5"></i></a></div>' ."</td>";
                     echo "</tr>";
+                    // <a class="btn btn-primary" onclick="delReward('. $entregas['id'] .')"><i class="bi bi-trash fs-5"></i></a>
                     $i++;
 
                 }
