@@ -42,7 +42,7 @@
                     $resultEntregaII = $stmtRequestII->fetch(PDO::FETCH_ASSOC);
 
                     if ($resultEntregaII > 0) {
-                        echo "exMonth";
+                        echo "existe";
                     }else {
                         $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, nro_pago, metodo, monto) VALUES ($beneficio, $idJefe, $referencia, $metodo, $monto);";
                         $stmtInsert = $conn->prepare($sqlInsert);
