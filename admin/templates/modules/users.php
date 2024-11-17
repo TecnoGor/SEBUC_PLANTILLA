@@ -11,7 +11,7 @@
     
     
         
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+        <table id="tableUsers" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
                 <!-- <tr>
                     <th class="mdl-data-table__cell--non-numeric">Name</th>

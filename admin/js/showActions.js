@@ -56,9 +56,14 @@ function hCarabobo(){
 
 function rewards(){
     $.get('./templates/modules/rewards.php', function(mensaje, estado){
+
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tableEntregas').DataTable();
+        });
+
     })
 }
 
@@ -67,6 +72,9 @@ function rewardsEspecial(){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tableEntregasEspecial').DataTable();
+        });
     })
 }
 
@@ -75,6 +83,9 @@ function bosses(){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tableBosses').DataTable();
+        });
     })
 }
 
@@ -83,6 +94,9 @@ function handicapped(){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tableHandicapped').DataTable();
+        });
     })
 }
 
@@ -91,6 +105,9 @@ function users(){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tableUsers').DataTable();
+        });
     })
 }
 
@@ -99,6 +116,9 @@ function poligonales(){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tablePoligonales').DataTable();
+        });
     })
 }
 
@@ -107,5 +127,8 @@ function listRewards(){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
+        $(document).ready( function () {
+            $('#tableBeneficios').DataTable();
+        });
     })
 }

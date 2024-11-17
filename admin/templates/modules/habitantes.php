@@ -6,11 +6,12 @@
     
     <div class="tile-title-w-btn">
         <p><a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a></p>
-    </div>
+    </div> 
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+    <hr>
         
-        <table id="tableHab" class="display">
+        <table id="tableHab" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
                 <!-- <tr>
                     <th class="mdl-data-table__cell--non-numeric">Name</th>

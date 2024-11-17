@@ -8,7 +8,7 @@
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
         
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+        <table id="tableBeneficios" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
 
                 <tr>
