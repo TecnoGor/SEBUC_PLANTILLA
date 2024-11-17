@@ -2,6 +2,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "chart.js": "^4.4.6"
+    "chart.js": "^4.4.6",
+    "datatables.net-dt": "^2.1.8"
   }
 }

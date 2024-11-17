@@ -24,6 +24,9 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="../node_modules/datatables.net-dt/css/dataTables.dataTables.css">
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="../node_modules/datatables.net/js/dataTables.js"></script>
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 </head>
 <body class="bgSystem">

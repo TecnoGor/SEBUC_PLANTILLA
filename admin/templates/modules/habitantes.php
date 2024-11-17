@@ -3,17 +3,14 @@
 <h2 class="text-center" style="font-family: 'OswaldLight';">LISTA DE HABITANTES</h2><hr>
 
 <div class="mdl-grid">
-
+    
     <div class="tile-title-w-btn">
         <p><a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a></p>
     </div>
     
     <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
         
-    
-    
-        
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+        <table id="tableHab" class="display">
             <thead>
                 <!-- <tr>
                     <th class="mdl-data-table__cell--non-numeric">Name</th>
@@ -26,7 +23,7 @@
                 
 
                 <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Nº</th>
+                    <th>Nº</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Nacionalidad</th>
@@ -53,7 +50,7 @@
 
                 while($row = $stmt->fetch(PDO::FETCH_OBJ)){
                     echo "<tr>";
-                    echo '<td class="mdl-data-table__cell--non-numeric">' . $j . "</td>";
+                    echo '<td>' . $j . "</td>";
                     echo "<td>" . $row->nombres. "</td>";
                     echo "<td>" . $row->apellidos. "</td>";
                     echo "<td>" . $row->nacionalidad. "</td>";
@@ -74,4 +71,6 @@
             </tbody>
         </table>
     </div>
+    
 </div>
+
