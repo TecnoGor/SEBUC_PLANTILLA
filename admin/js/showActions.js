@@ -5,7 +5,14 @@ function habitantes(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML=mensaje;
         $(document).ready( function () {
-            $('#tableHab').DataTable();
+            $('#tableHab').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+            
         } );
 
     })
@@ -61,7 +68,13 @@ function rewards(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tableEntregas').DataTable();
+            $('#tableEntregas').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
 
     })
@@ -73,7 +86,13 @@ function rewardsEspecial(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tableEntregasEspecial').DataTable();
+            $('#tableEntregasEspecial').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
     })
 }
@@ -84,7 +103,13 @@ function bosses(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tableBosses').DataTable();
+            $('#tableBosses').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
     })
 }
@@ -95,7 +120,13 @@ function handicapped(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tableHandicapped').DataTable();
+            $('#tableHandicapped').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
     })
 }
@@ -106,7 +137,13 @@ function users(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tableUsers').DataTable();
+            $('#tableUsers').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
     })
 }
@@ -117,7 +154,13 @@ function poligonales(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tablePoligonales').DataTable();
+            $('#tablePoligonales').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
     })
 }
@@ -128,7 +171,13 @@ function listRewards(){
         document.getElementById('tilesResponsive').style = 'display: none';
         document.getElementById('templates').innerHTML = mensaje;
         $(document).ready( function () {
-            $('#tableBeneficios').DataTable();
+            $('#tableBeneficios').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
         });
     })
 }

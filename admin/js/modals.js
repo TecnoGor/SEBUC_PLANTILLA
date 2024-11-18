@@ -32,10 +32,7 @@ function modalEditHabitante(a){
                 document.querySelector('#parentezcoEdit').value = data.data.id_parentezco;
                 var id_jefe = document.querySelector('#idJefeEdit');
                 var parentezco = document.querySelector('#parentezcoEdit');
-                // if (document.querySelector('#inputJefe')) {
-                //     const inputJefe = document.getElementById('inputJefe');
-                //     inputJefe.remove();
-                // }
+
                 if (data.data.id_tipoHabitante == 1) {
                     
                     id_jefe.value = "";
@@ -451,35 +448,6 @@ function jefeFamilia(){
     }
 }
 
-// $('#discapacidad').click(function(){
-//     var valueRadio = document.getElementById('discapacidad').value;
-//     console.log(valueRadio);
-//     if(valueRadio == 'Si'){
-//         var contenedor = document.getElementById('contenedorDiscapacidad');
-//         var rowContenedor = document.getElementById('rowContainer');
-//         var radios = document.getElementById('radioDiscapacidad');
-
-//         const divField = document.createElement("div");
-//         divField.className = "mb-3 col-md-4";
-
-//         const labelField = document.createElement("label");
-//         labelField.className = "form-label";
-//         labelField.textContent = "Especifique Discapacidad"
-
-//         const inputField = document.createElement("input");
-//         inputField.type = "text";
-//         inputField.id = "discapacidadInput";
-//         inputField.name = "discapacidadInput";
-//         inputField.className = "form-control";
-//         inputField.placeholder = "Especifique su discapacidad";
-
-//         rowContenedor.appendChild(divField);
-//         divField.appendChild(labelField);
-//         divField.appendChild(inputField);        
-//         radios.style= "display: none";
-//     }
-// })
-
 function regHabitante(){
     var nombre = document.getElementById('nameHabitanteReg').value;
     var apellido = document.getElementById('name2HabitanteReg').value;
@@ -633,11 +601,8 @@ function regPoligonal(){
 
 function valJefe(){
     var jefe = document.getElementById('cedulaJefe').value;
-    console.log(jefe);
 
     if (jefe != '') {
-
-        console.log('lleno');
 
         $.ajax({
             url: './includes/valJefe.php',
@@ -671,7 +636,6 @@ function valJefe(){
     
     }
 
-    
 }
 
 function valJefeEspecial(){
