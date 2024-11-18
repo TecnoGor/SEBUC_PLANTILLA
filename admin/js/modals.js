@@ -688,6 +688,7 @@ function regReward(){
     var metodo = document.getElementById('methodPago').value;
     var monto = document.getElementById('montoEntrega').value;
     var referencia = document.getElementById('nroReferencia').value;
+    var dtPago = document.getElementsById('dtPago').value;
 
     if (jefeFamilia == '' || beneficio_id == '' || referencia == '') {
         swal({
@@ -720,7 +721,8 @@ function regReward(){
                     banco: banco,
                     metodo: metodo,
                     monto: monto,
-                    referencia: referencia
+                    referencia: referencia,
+                    dtPago: dtPago
                 },
                 success: function(data){
                     // $('#errorDisplay').html(data);
@@ -767,6 +769,7 @@ function regRewardEspecial(){
     var metodo = document.getElementById('methodPagoEspecial').value;
     var monto = document.getElementById('montoEntregaEspecial').value;
     var referencia = document.getElementById('nroReferenciaEspecial').value;
+    var dtPago = document.getElementById('dtPagoEspecial').value;
 
     if (jefeFamilia == '' || beneficio_id == '') {
         swal({
@@ -798,7 +801,8 @@ function regRewardEspecial(){
                     beneficio_id: beneficio_id,
                     metodo: metodo,
                     monto: monto,
-                    referencia: referencia
+                    referencia: referencia,
+                    dtPago: dtPago
                 },
                 success: function(data){
                     // $('#errorDisplay').html(data);

@@ -9,7 +9,11 @@
 
         $jefe = $_POST['jefeFamilia'];
         $beneficio = $_POST['beneficio_id'];
+        $banco = $_POST['banco'];
+        $metodo = $_POST['metodo'];
+        $monto = $_POST['monto'];
         $referencia = $_POST['referencia'];
+        $dtPago = $_POST['dtPago'];
 
         
 
@@ -23,7 +27,7 @@
 
                 
 
-                $sqlRequest2 = "SELECT * FROM entrega_beneficio WHERE nro_pago = '$referencia' AND fecha_entrega >= DATE_FORMAT(NOW(), '%Y-%m-01') AND fecha_entrega < DATE_FORMAT(NOW() + INTERVAL 1 MONTH, '%Y-%m-01');";
+                $sqlRequest2 = "SELECT * FROM entrega_beneficio WHERE banco = '$banco' AND fecha_pago = '$dtPago' AND nro_pago = '$referencia' AND fecha_entrega >= DATE_FORMAT(NOW(), '%Y-%m-01') AND fecha_entrega < DATE_FORMAT(NOW() + INTERVAL 1 MONTH, '%Y-%m-01');";
                 $stmtRequest2 = $conn->prepare($sqlRequest2);
                 $stmtRequest2->execute();
 
@@ -42,7 +46,7 @@
                     if ($resultEntregaII > 0) {
                         echo "exMonth";
                     }else {
-                        $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, nro_pago) VALUES ($beneficio, $idJefe, $referencia);";
+                        $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, fecha_pago, nro_pago, metodo, banco, monto) VALUES ($beneficio, $idJefe, $dtPago, $referencia, $metodo, $banco, $monto);";
                         $stmtInsert = $conn->prepare($sqlInsert);
                         $stmtInsert->execute();
 
