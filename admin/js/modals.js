@@ -684,6 +684,7 @@ function valJefeEspecial(){
 function regReward(){
     var jefeFamilia = document.getElementById('cedulaJefe').value;
     var beneficio_id = document.getElementById('beneficio_id').value;
+    var banco = document.getElementById('bancoEntregaReg').value;
     var metodo = document.getElementById('methodPago').value;
     var monto = document.getElementById('montoEntrega').value;
     var referencia = document.getElementById('nroReferencia').value;
@@ -716,6 +717,7 @@ function regReward(){
                 data: {
                     jefeFamilia: jefeFamilia,
                     beneficio_id: beneficio_id,
+                    banco: banco,
                     metodo: metodo,
                     monto: monto,
                     referencia: referencia

@@ -12,12 +12,12 @@
             <div class="container" id="formContainer">
                 <div class="row">
                     
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="cedulaJefe">Cédula de Jefe de Familia</label>
                         <input class="form-control" type="number" onblur="valJefe()" id="cedulaJefe">
                     </div>
                     
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label" for="beneficio_id">Beneficios</label>
                         <select class="form-control" name="beneficio_id" id="beneficio_id">
                             <option disabled selected>Seleccione...</option>
@@ -38,6 +38,39 @@
                                 }
                             ?>
                         </select>
+                    </div>
+
+                    <div class="mb-3 col-md-4">
+                      <label for="bancoReg" class="form-label">Seleccione el banco</label>
+                      <select class="form-control" name="bancoEntregaReg" id="bancoEntregaReg">
+                        <option disabled selected>Seleccione...</option>
+                        <option value="1">Banco de Venezuela</option>
+                        <option value="2">100% Banco</option>
+                        <option value="3">Bancamiga</option>
+                        <option value="4">Bancaribe</option>
+                        <option value="5">Banco Activo</option>
+                        <option value="6">Banco Agricola de Venezuela</option>
+                        <option value="7">Banco Bicentenario el Pueblo</option>
+                        <option value="8">Banco Caroní</option>
+                        <option value="9">Banco del Tesoro</option>
+                        <option value="10">Banco Exterior</option>
+                        <option value="11">Banco Fondo Comun</option>
+                        <option value="12">Banco Internacional de Desarrollo</option>
+                        <option value="13">Banco Mercantil</option>
+                        <option value="14">Banco Nacional de Credito</option>
+                        <option value="15">Banco Plaza</option>
+                        <option value="16">Banco Sofitasa</option>
+                        <option value="17">Banco Venezolano de Credito</option>
+                        <option value="18">Bancrecer</option>
+                        <option value="19">Banesco</option>
+                        <option value="20">Banfanb</option>
+                        <option value="21">Bangente</option>
+                        <option value="22">Banplus</option>
+                        <option value="23">BBVA Provincial</option>
+                        <option value="24">DelSur Banco Universal</option>
+                        <option value="25">Mi Banco</option>
+                        <option value="26">N58 Banco Digital Banco Microfinanciero SA</option>
+                      </select>
                     </div>
 
                 </div>
