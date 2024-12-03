@@ -2,13 +2,18 @@
 
 <h2 class="text-center" style="font-family: 'OswaldLight';">LISTA DE HABITANTES</h2><hr>
 
-<div class="tile-title-w-btn">
-    <p><a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a></p>
+<div class="d-grid gap-2 d-md-block">
+    <div class="btn-group p-2">
+    <a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a>
+    <button class="btn btn-danger" onclick="preparePDFH()"><i class="bi bi-file-earmark-pdf"></i> Imprimir en PDF </button>
+    <button class="btn btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Imprimir en Excel</button>
+    </div>
+    
 </div> 
 <hr>
 <div class="mdl-grid">
     
-    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop" id="containTableToPrint">
     
         <table id="tableHab" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>

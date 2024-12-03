@@ -3,6 +3,7 @@
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/main.js"></script>
     <script src="js/showActions.js"></script>
+	<script src="js/html2pdf.bundle.min.js"></script>
 	<script src="js/modals.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>

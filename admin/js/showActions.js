@@ -1,3 +1,18 @@
+const { callback } = require("chart.js/helpers");
+
+function preparePDFH() {
+    var tabla = document.getElementById('tableHab');
+
+    html2pdf(tabla, {
+        margin: 10,
+        filename: 'Habitantes.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    });
+}
+
+
 function habitantes(){
     $.get('./templates/modules/habitantes.php', function(mensaje, estado){
         
@@ -17,6 +32,8 @@ function habitantes(){
 
     })
 }
+
+
 
 function hPrincipal(){
     
