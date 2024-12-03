@@ -4,9 +4,8 @@ function preparePDFH() {
     var tabla = document.getElementById('tableHab');
 
     html2pdf(tabla, {
-        margin: 10,
+        margin: 0.1,
         filename: 'Habitantes.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     });
