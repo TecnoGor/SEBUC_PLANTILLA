@@ -77,7 +77,7 @@
 
 
                 <div class="row">
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-3">
                       <label for="">Método de Pago</label>
                       <select name="methodPago" id="methodPago" class="form-control">
                         <!-- <option value="1">Efectivo</option> -->
@@ -86,11 +86,15 @@
                         <option value="4">BioPago</option>
                       </select>
                     </div>
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-3">
                         <label class="form-label" for="nroReferencia">Número de Pago:</label>
                         <input class="form-control" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="6" id="nroReferencia">
                     </div>
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-3">
+                      <label for="dtPago" class="form-label">Fecha de Pago:</label>
+                      <input type="date" name="dtPago" id="dtPago" class="form-control">
+                    </div>
+                    <div class="mb-3 col-md-3">
                       <label for="montoEntrega" class="form-label">Monto</label>
                       <input type="number" class="form-control" placeholder="0,00 Bs." oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" id="montoEntrega">
                     </div>

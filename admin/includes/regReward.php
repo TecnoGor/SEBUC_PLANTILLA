@@ -1,6 +1,6 @@
 <?php
 
-    if(empty($_POST['jefeFamilia']) || empty($_POST['beneficio_id']) || empty($_POST['banco']) || empty($_POST['metodo']) || empty($_POST['monto']) || empty($_POST['referencia'])){
+    if(empty($_POST['jefeFamilia']) || empty($_POST['beneficio_id']) || empty($_POST['banco']) || empty($_POST['metodo']) || empty($_POST['monto']) || empty($_POST['referencia']) || empty($_POST['dtPago'])){
 
         echo "Vacio";
 
@@ -13,6 +13,7 @@
         $metodo = $_POST['metodo'];
         $monto = $_POST['monto'];
         $referencia = $_POST['referencia'];
+        $dtPago = $_POST['dtPago'];
 
         
 
@@ -26,7 +27,7 @@
 
                 
 
-                $sqlRequest2 = "SELECT * FROM entrega_beneficio WHERE banco = '$banco' AND nro_pago = '$referencia' AND fecha_entrega >= DATE_FORMAT(NOW(), '%Y-%m-01') AND fecha_entrega < DATE_FORMAT(NOW() + INTERVAL 1 MONTH, '%Y-%m-01');";
+                $sqlRequest2 = "SELECT * FROM entrega_beneficio WHERE banco = '$banco' AND fecha_pago = '$dtPago' AND nro_pago = '$referencia' AND fecha_entrega >= DATE_FORMAT(NOW(), '%Y-%m-01') AND fecha_entrega < DATE_FORMAT(NOW() + INTERVAL 1 MONTH, '%Y-%m-01');";
                 $stmtRequest2 = $conn->prepare($sqlRequest2);
                 $stmtRequest2->execute();
 
@@ -45,7 +46,7 @@
                     if ($resultEntregaII > 0) {
                         echo "existe";
                     }else {
-                        $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, nro_pago, metodo, banco, monto) VALUES ($beneficio, $idJefe, $referencia, $metodo, $banco, $monto);";
+                        $sqlInsert = "INSERT INTO entrega_beneficio(entrega_beneficio.id_beneficio, id_jefe_familia, fecha_pago, nro_pago, metodo, banco, monto) VALUES ($beneficio, $idJefe, $dtPago, $referencia, $metodo, $banco, $monto);";
                         $stmtInsert = $conn->prepare($sqlInsert);
                         $stmtInsert->execute();
 
