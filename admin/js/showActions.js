@@ -197,3 +197,7 @@ function listRewards(){
         });
     })
 }
+
+function cartResidence() {
+    $('#modalResidence').modal('show');
+}

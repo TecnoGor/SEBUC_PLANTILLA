@@ -599,6 +599,77 @@ function regPoligonal(){
 
 }
 
+function downloadCarta() {
+    var cedHabitante = document.getElementById('cedulaHabitanteC').value;
+    var timeResidence = document.getElementById('timeRes');
+
+    if (cedHabitante == '' || cedHabitante == null) {
+        swal({
+            title: '¡Error!',
+            text: "Debe ingresar la cedula del habitante.",
+            type: 'error',
+            showCancelButton: false,
+            confirmButtonText: 'OK',
+            closeOnConfirm: false
+        });
+    } else {
+        if (timeResidence.value == '' || timeResidence.value == null) {
+            timeResidence.removeAttribute('disabled');
+        } else {
+            window.location.href = './includes/templateCartaRes.php?cedHabitante=' + encodeURIComponent(cedHabitante) + '&timeRes=' + encodeURIComponent(timeResidence.value);
+            cartResidence();
+        }
+        
+    }
+}
+
+function valHabitante(){
+    var cedHabitante = document.getElementById('cedulaHabitanteC').value;
+    var timeResidence = document.getElementById('timeRes');
+
+    if (cedHabitante != '') {
+
+        $.ajax({
+            url: './includes/requestHCart.php',
+            method: 'POST',
+            data: {
+                cedHabitante: cedHabitante
+            },
+            success: function(data){
+                var data = JSON.parse(data);
+    
+                if (data.status) {
+                    swal({
+                        title: 'Econtrado! 🔎',
+                        text: "Se encontro al habitante con exito.",
+                        type: 'success',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+
+                    document.querySelector('#nombreHC').value = data.data.nombres;
+                    document.querySelector('#apellidoHC').value = data.data.apellidos;
+                    document.querySelector('#nacionalidadHabitanteC').value = data.data.nacionalidad;
+                    document.querySelector('#poligonalHC').value = data.data.namePoligonal;
+                    timeResidence.removeAttribute('disabled');
+    
+                } else {
+                    swal({
+                        title: '¡Error! ❌',
+                        text: "No se encontro ningun habitante.",
+                        type: 'error',
+                        showCancelButton: false,
+                        confirmButtonText: 'OK',
+                        closeOnConfirm: false
+                    });
+                }
+            }
+        })
+    
+    }
+}
+
 function valJefe(){
     var jefe = document.getElementById('cedulaJefe').value;
 

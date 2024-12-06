@@ -42,9 +42,9 @@
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
-						<b><?php echo $_SESSION['nomUser'];?><br></b>
+						<b style="color: #fff;"><?php echo $_SESSION['nomUser'];?><br></b>
 						
-						<small>Administrador</small>
+						<small style="color: #fff;">Administrador</small>
 					</span>
 				</figcaption>
 			</figure>
@@ -215,12 +215,12 @@
 								</a>
 							</li> -->
 							<li class="full-width">
-								<a onclick="services()" style="cursor: pointer;" class="full-width link_disabled">
+								<a onclick="cartResidence()" style="cursor: pointer;" class="full-width link_disabled">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-                                        SOLICITUDES
+                                        CARTA DE RESIDENCIA
 									</div>
 								</a>
 							</li>

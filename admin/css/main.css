@@ -378,7 +378,7 @@ html, body{
 	/*box-shadow: 0 0px 15px rgba(0,0,0,.4);*/
 	border-right: 1px solid #E1E1E1;
 	transition: all .3s ease-in-out;
-	background-image: url('../assets/img/bgSysEdit.jpeg');
+	background-image: linear-gradient(100deg, #000000, #00000020), url('../assets/img/Image_nav.jpeg');
 	background-size: cover;
 }
 .navLateral-change{
@@ -453,7 +453,7 @@ html, body{
 }
 .menu-principal li a{
 	height: 45px;
-	color: #333;
+	color: #fff;
 	position: relative;
 	transition: all .3s ease-in-out;
 }
