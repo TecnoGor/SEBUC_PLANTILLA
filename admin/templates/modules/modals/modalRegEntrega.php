@@ -1,7 +1,7 @@
 <div class="modal fade" id="modalRegEntrega" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content bg-secondary bg-gradient">
-      <div class="modal-header">
+    <div class="modal-content bg-gradient">
+      <div class="modal-header bg-info bg-gradient bg-opacity-25">
         <h5 class="modal-title" id="exampleModalLabel"> Registrar un Nueva Entrega</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>

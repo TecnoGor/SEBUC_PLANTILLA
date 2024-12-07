@@ -481,7 +481,7 @@ html, body{
 	height: 0;
 	overflow-y: hidden;
 	overflow-x: hidden;
-	background-color: #F5F5F5;
+	background-color: transparent;
 	transition: all .3s ease-in-out;
 }
 .sub-menu-options li a{ border-left: 3px solid transparent; }

@@ -1,6 +1,6 @@
 <div class="modal fade" id="modalEditHabitante" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content bg-secondary bg-gradient">
+    <div class="modal-content bg-info bg-gradient bg-opacity-25">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Editar Datos del Habitante</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
