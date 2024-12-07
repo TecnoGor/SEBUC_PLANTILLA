@@ -14,7 +14,7 @@ function modalEditHabitante(a){
 		method: 'POST',
 		data: {
 			id: idHabitante
-		},
+		}, 
 		success: function(data){
 			
 			var data = JSON.parse(data);
@@ -73,9 +73,9 @@ function editHabitante() {
     // const discapacidadRadio = $("input[name='discapacidadEdit']:checked").val();
     // console.log(discapacidadRadio);
     var genero = $("input[name='generoHabitanteEdit']:checked").val();
-    if(document.querySelector('#discapacidadEdit')){
-        var discapacidadInput = $('#discapacidadEdit').val();
-    }
+    // if(document.querySelector('#discapacidadEdit')){
+    //     var discapacidadInput = $('#discapacidadEdit').val();
+    // }
     var discapacidad = document.getElementById('discapacidadEdit').value;
     const pensionado = $("input[name='radioHabitanteEdit2']:checked").val();
     // var pensionado = document.getElementById('radioHabitanteEdit2').value;

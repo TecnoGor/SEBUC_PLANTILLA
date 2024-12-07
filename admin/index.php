@@ -25,21 +25,24 @@
 			?>
 			
 		</section>
-		<section id="homeInfo" class="full-width" style="margin: 30px 0;">
+		<section id="homeInfo" class="full-width" style="margin: 30px 0; overflow:hidden;">
 
 			<div class="container">
 
 				<div class="row">
-					<div class="col-md-4 m-3 rounded bg-light bg-gradient">
-					<canvas id="chart2"></canvas>
+					<!-- <div class="col-md-4 d-grip gap-2 mx-auto m-3 rounded bg-light bg-gradient">
+						<h4 class="text-center">Habitantes por Poligonal</h4>
+						<canvas id="chart2"></canvas>
 						
+					</div> -->
+
+					<div class="d-grip gap-2 mx-auto col-md-5 m-2 rounded bg-light bg-gradient" width="500px">
+						<h4 class="text-center">Diversidad de Habitantes</h4>
+						<canvas id="chart1"></canvas>
 					</div>
 
-					<div class="col-md-3 m-2 rounded bg-light bg-gradient">
-					<canvas id="chart1"></canvas>
-					</div>
-
-					<div class="col-md-4 m-3 rounded bg-light bg-gradient">
+					<div class="d-grip gap-2 mx-auto col-md-5 m-3 rounded bg-light bg-gradient">
+						<h4 class="text-center">Cantidad de Entregas de Beneficios</h4>
 						<canvas id="acquisitions"></canvas>
 					</div>
 				</div>

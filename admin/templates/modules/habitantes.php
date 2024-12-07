@@ -2,11 +2,14 @@
 
 <h2 class="text-center" style="font-family: 'OswaldLight';">LISTA DE HABITANTES</h2><hr>
 
-<div class="d-grid gap-2 d-md-block">
-    <div class="btn-group p-2">
-    <a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a>
-    <button class="btn btn-danger" onclick="preparePDFH()"><i class="bi bi-file-earmark-pdf"></i> Imprimir en PDF </button>
-    </div>
+<div class="d-grid gap-2 ms-3 d-md-block">
+    <!-- <div class="btn-group p-2"> -->
+        <div class="d-grid gap-2 col-4 mx-auto">
+        <a class="btn btn-primary icon-btn" onclick="modalRegHabitante()"><i class="bi bi-plus-square m-2"></i>Añadir Habitante</a>    
+        </div>
+    
+    <!-- <button class="btn btn-danger" onclick="preparePDFH()"><i class="bi bi-file-earmark-pdf"></i> Imprimir en PDF </button> -->
+    <!-- </div> -->
 </div> 
 <hr>
 
@@ -14,18 +17,23 @@
 
 <div class="row">
     <div class="col-md-6">
-    <h4 class="text-center"> Tipos de Habitantes </h4>
-    <button class="btn btn-primary" onclick="habitantes()"> Habitantes </button>
-    <button class="btn btn-primary" onclick="bosses()"> Jefe de Familia </button>
-    <button class="btn btn-primary" onclick="handicapped()"> Diversidad Funcional </button>
+    <h5 class="text-center"> Tipos de Habitantes </h5>
+        <div class="d-grip gap-2 col-10 mx-auto">
+            <button class="btn btn-primary mx-auto" onclick="habitantes()"> Habitantes </button>
+            <button class="btn btn-primary mx-auto" onclick="bosses()"> Jefe de Familia </button>
+            <button class="btn btn-primary mx-auto" onclick="handicapped()"> Diversidad Funcional </button>
+        </div>
     </div>
 
     <div class="col-md-6">
-        <h4 class="text-center"> Poligonales </h4>
-        <button class="btn btn-primary" onclick="hPrincipal()"> Principal </button>
-        <button class="btn btn-primary" onclick="hOriental()"> Oriental </button>
-        <button class="btn btn-primary" onclick="hFJavier()"> Francisco Javier </button>
-        <button class="btn btn-primary" onclick="hCarabobo()"> Carabobo </button>
+        <h5 class="text-center"> Poligonales </h5>
+        <div class="d-grip gap-2 col-10 mx-auto">
+            <button class="btn btn-primary mx-auto" onclick="hPrincipal()"> Principal </button>
+            <button class="btn btn-primary mx-auto" onclick="hOriental()"> Oriental </button>
+            <button class="btn btn-primary mx-auto" onclick="hFJavier()"> Francisco Javier </button>
+            <button class="btn btn-primary mx-auto" onclick="hCarabobo()"> Carabobo </button>
+        </div>
+        
     </div>
     
 </div>

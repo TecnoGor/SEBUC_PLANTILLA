@@ -533,7 +533,7 @@ html, body{
 .tile-text span,
 .tile-icon{
 	position: absolute;
-	color: rgba(0,0,0,.3);
+	color: rgba(0,0,0);
 	transition: all .3s ease-in-out;
 	-moz-user-select: none;
 	-webkit-user-select: none;
