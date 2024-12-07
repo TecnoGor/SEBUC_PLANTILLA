@@ -40,8 +40,17 @@ function hPrincipal(){
         
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
-        document.getElementById('templates').innerHTML=mensaje;
-
+        document.getElementById('containTableToPrint').innerHTML=mensaje;
+        $(document).ready( function () {
+            $('#tableHabP').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+            
+        } );
     })
 }
 
@@ -50,8 +59,17 @@ function hOriental(){
         
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
-        document.getElementById('templates').innerHTML=mensaje;
-
+        document.getElementById('containTableToPrint').innerHTML=mensaje;
+        $(document).ready( function () {
+            $('#tableHabO').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+            
+        } );
     })
 }
 
@@ -60,8 +78,17 @@ function hFJavier(){
         
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
-        document.getElementById('templates').innerHTML=mensaje;
-
+        document.getElementById('containTableToPrint').innerHTML=mensaje;
+        $(document).ready( function () {
+            $('#tableHabFJ').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+            
+        } );
     })
 }
 
@@ -71,8 +98,17 @@ function hCarabobo(){
         
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
-        document.getElementById('templates').innerHTML=mensaje;
-
+        document.getElementById('containTableToPrint').innerHTML=mensaje;
+        $(document).ready( function () {
+            $('#tableHabC').DataTable({
+                "language": {
+                    "url": "./js/langDT.json"
+                },
+                pageLength: 5,
+                lengthMenu: [5, 10, 25, 50, 100]
+            });
+            
+        } );
     })
 }
 
@@ -117,7 +153,7 @@ function bosses(){
     $.get('./templates/modules/bossFamily.php', function(mensaje, estado){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
-        document.getElementById('templates').innerHTML = mensaje;
+        document.getElementById('containTableToPrint').innerHTML = mensaje;
         $(document).ready( function () {
             $('#tableBosses').DataTable({
                 "language": {
@@ -134,7 +170,7 @@ function handicapped(){
     $.get('./templates/modules/handicapped.php', function(mensaje, estado){
         document.getElementById('homeInfo').style = 'display: none';
         document.getElementById('tilesResponsive').style = 'display: none';
-        document.getElementById('templates').innerHTML = mensaje;
+        document.getElementById('containTableToPrint').innerHTML = mensaje;
         $(document).ready( function () {
             $('#tableHandicapped').DataTable({
                 "language": {

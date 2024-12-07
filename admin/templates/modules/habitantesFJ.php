@@ -1,15 +1,5 @@
 
-
-<div class="mdl-grid">
-
-    <div class="text-center">
-        <h3>Habitantes Francisco Javier</h3>
-    </div>
-
-    
-    <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-        
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+        <table id="tableHabFJ" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
             <thead>
                 <!-- <tr>
                     <th class="mdl-data-table__cell--non-numeric">Name</th>
@@ -32,7 +22,7 @@
                     <!-- <th>Fecha de Nac.</th> -->
                     <th>Tipo de Habitante</th>
                     <th>Tlfno / Celular</th>
-                    <th>Acciones</th>
+                    <!-- <th>Acciones</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +38,7 @@
                 
                 include('../../includes/conn.php');
 
-                $sql = "SELECT h.id as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, p.nombre AS namePoligonal, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec, poligonal AS p WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id && h.id_poligonal = p.id && h.id_poligonal = 3";
+                $sql = "SELECT h.id_habitante as idH, nombres, apellidos, nacionalidad, cedula, telefono, nombreEdoCivil, p.nombre AS namePoligonal, nombreTipo FROM habitantes as h INNER JOIN tipo_habitante AS th, estado_civil AS ec, poligonal AS p WHERE h.id_tipoHabitante = th.id && h.id_edoCivil = ec.id && h.id_poligonal = p.id && h.id_poligonal = 3";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
 
@@ -67,7 +57,7 @@
                     // echo "<td>" . $listado[$i]->fnac . "</td>";
                     echo "<td>" . $row->nombreTipo. "</td>";
                     echo "<td>" . $row->telefono. "</td>";
-                    echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante(' . $row->idH .')"><i class="bi bi-pencil-square fs-5"></i></a></div>' . '</td>';
+                    // echo '<td><div class="btn-group"><a class="btn btn-primary" onclick="modalEditHabitante(' . $row->idH .')"><i class="bi bi-pencil-square fs-5"></i></a></div>' . '</td>';
                     // echo "<td>" . '<a href="actualizar.php?upd=' . $listado[$i]->id_cl . '" class="boton_edit" title="Editar Habitante"><img src="../fontawesome/svgs/regular/pen-to-square.svg" class="icon_edit"></a>' . "</td>";
                     echo "</tr>";
                     $j++;
@@ -76,5 +66,3 @@
                 
             </tbody>
         </table>
-    </div>
-</div>

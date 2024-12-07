@@ -75,7 +75,7 @@
                         </a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
+					<!-- <li class="full-width">
 						<a style="cursor: pointer;" class="full-width btn-subMenu link_disabled">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
@@ -107,7 +107,7 @@
 								</a>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 					<li class="full-width divider-menu-h"></li>
 					<!-- <li class="full-width">
 						<a style="cursor: pointer;" class="full-width btn-subMenu link_disabled">
